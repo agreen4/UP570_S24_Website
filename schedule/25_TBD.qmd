@@ -1,0 +1,22 @@
+---
+title: "TBD - To Be Determined"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+This session is temporarily listed as TBD - To Be Determined. We will set the agenda for this session later in the semester - once we have a sense of where the class is at. We may introduce new material or spend some time further discussing and mastering previous material.
+
+## Before Class
+
+-   Reflect - What questions do you have at this point in the semester? What would be useful to review or add to your understanding?
+
+## Reflect
+
+## Slides
+
+## Resources for Further Exploration

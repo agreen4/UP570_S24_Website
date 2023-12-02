@@ -1,0 +1,37 @@
+---
+title: "Population and the Census"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+In this session, we will talk about how planners measure basic dimensions of population and change in population at the neighborhood level. We'll also discuss some of the basic principles and features of the main Census products which planners use to describe places and the people who live and work in them. We'll introduce this week's lab, which focuses on working with basic data on population characteristics.
+
+## Before Class
+
+Klosterman 2 [{{< fa file >}}](https://uofi.box.com/s/2ki78jbm88y09j41zozqrfjc0wmva372).
+
+## Reflect
+
+-   What types of characteristics might be well-represented within Census data? What characteristics are harder to measure or represent?
+
+-   As we've discussed in class, the census is a dynamic and evolving survey, and the questions we ask are a valuable window into the social questions and issues at a given time. What questions do you think we *should* be asking in this current moment? How well are they reflected in the census (as you know it)?
+
+## Slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/S8 Census/index.html" style="width:100%;height:50vh;margin:0;padding:0"; frameborder="2"></iframe>
+```
+## Resources for Further Exploration
+
+2020 Census Enumeration Form [{{< fa link >}}](https://www2.census.gov/programs-surveys/decennial/2020/technical-documentation/questionnaires-and-instructions/questionnaires/2020-informational-questionnaire.pdf)
+
+2020 Census Post Enumeration Survey Documentation [{{< fa link >}}](https://www.census.gov/programs-surveys/decennial-census/about/coverage-measurement/pes.html)
+
+Differential Privacy and the 2020 US Census [{{< fa link >}}](https://mit-serc.pubpub.org/pub/differential-privacy-2020-us-census/release/1)
+
+American Community Survey Sample Size [{{< fa link >}}](https://www.census.gov/acs/www/methodology/sample-size-and-data-quality/sample-size/)

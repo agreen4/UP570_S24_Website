@@ -1,0 +1,43 @@
+---
+title: "Course Introduction"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+Welcome to UP 570: Neighborhood Analysis! This session serves as our introduction to the class and an opportunity to start exploring how we will work together over the course of the semester. We will introduce ourselves and discuss how we will learn together. We'll also think through two foundational questions:
+
+1.  What is a neighborhood?
+2.  Why do neighborhoods matter?
+
+## Before Class
+
+-   Bookmark this website <https://up570s23.netlify.app> so you can access it easily.
+-   Join our course [Slack Channel](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D)
+-   Read the [course syllabus](../syllabus/index.qmd) and bring questions with you.
+-   Complete the course [introductory survey](%7B%7B%3C%20var%20course.survey%20%3E%7D%7D).
+-   Join the Data Science in Planning (DSIP) Listserv (dsip-durp-l\@lists.illinois.edu) where members of our community can share opportunities things of interest.
+    -   Choose the address with which you want to subscribe to the list - you should choose an address you can check frequently.
+    -   Send a message to [sympa\@lists.illinois.edu](mailto:sympa@lists.illinois.edu) from the address you want to subscribe to the list.
+    -   In the subject line of your message, type in subscribe dsip-durp-l Firstname Name (replace Firstname and Name with your preferred first name and last name).
+    -   Leave the message body blank.
+    -   After this you will recieve a message telling you whether your request was accepted or not.
+
+## Reflect
+
+-   What are your goals for taking this class? What would you like to learn about neighborhoods?
+-   What matters about neighborhoods? How have neighborhoods shaped your life?
+-   What types of stories do we tend to tell about neighborhoods? How do these stories contextualize how neighborhoods "fit" within cities and their regions?
+
+## Slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/S1 Course Introduction/index.html" style="width:100%;height:50vh;margin:0;padding:0"; frameborder="2"></iframe>
+```
+## Resources for Further Exploration
+
+Comprehensive Development Plan for Champaign - Urbana (1950) [{{< fa link >}}](https://cityofchampaign.sharepoint.com/City%20Documents%20Internal/WordPress%20Media%20Files/Planning%20and%20Development%20Department/Long%20Range%20Planning/Development%20Plan%20Champaign%20Urbana%201950.pdf?ga=1)

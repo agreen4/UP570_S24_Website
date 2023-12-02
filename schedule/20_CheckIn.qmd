@@ -1,0 +1,32 @@
+---
+title: "Final Project Check-In: Monday"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+This week is devoted to collaboratively workshopping your final projects. During these sessions, we'll be examining your *best evidence* - a fact or analysis that you believe best makes the point you're trying to convey to your audience.
+
+Come to class prepared to share your best evidence with the entire class. You will each be asked to take a few minutes to present your best evidence and receive feedback on it.
+
+## Before Class
+
+Prepare your best evidence for sharing. This might be preparing or exporting a bit of analysis or coming the class prepared to articulate and share this evidence.
+
+To help expedite our workshopping of best evidence, please prepare a single slide containing your best evidence (PowerPoint, Keynote, or PDF are fine). I will compile these in advance of the class so that we can spend as much time as possible workshopping each of your arguments and evidence.
+
+Please upload your best evidence slide to Box before 9am (Monday) morning. This slide does not need to be visually refined -- it just needs your name and the evidence in whatever form you plan to share it (image, map, table, whatever).
+
+## Reflect
+
+1.  What's the major story you're telling in your policy memorandum?
+
+2.  Who is the audience for the story? What's the best way to convey your point?
+
+3.  What are the counterarguments or counterfactuals to the evidence that you are sharing. How will you engage with that?
+
+4.  What types of technical issues are you running into that we could help address? Are there any technical concepts or issues that remain unclear that we should engage with or address as a class? If so, come prepared to share or discuss.

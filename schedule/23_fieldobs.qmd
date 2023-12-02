@@ -1,0 +1,69 @@
+---
+title: "Field Observations"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+During this session, we will focus on translating our group field observations into structured information - a memorandum that blends your direct observation and knowledge of the neighborhood developed through existing indicators.
+
+## Session Goals
+
+1.  Collaboratively build a story about the West Urbana neighborhood that leverages both your knowledge of existing indicators.
+2.  Reflect upon the tactical and design choices you have made in telling your story.
+
+## Before Class
+
+-   Review your notes and materials from your visit work on Monday.
+
+## During Class
+
+Work collaboratively with your group members to develop a short memorandum describing the West Urbana neighborhood. Your memo should include demographic information coming from census data or other sources of secondary data (please start with the same selected census indicators we have worked with for the past few weeks).
+
+Your memo should outline the following:
+
+1.  Neighborhood character, identity, and assets - drawing from secondary data, describe the character, identity, and assets of the neighborhood:
+    1.  Infrastructure and Environment
+    2.  Economy and Housing
+    3.  Health and Wellbeing
+    4.  Sense of Place
+2.  Information Gaps - based upon your group's description above, what information gaps exist? What types of information do you need to prioritize observation of on the ground in the West Urbana neighborhood?
+3.  Proposed Strategy for Systematic Examination - based upon your assessment of information gaps, how do you propose collecting that information, and how would you integrate it into your report?
+
+## Groups
+
+### Group 1
+
+TBD
+
+### Group 2
+
+TBD
+
+### Group 3
+
+TBD
+
+### Group 4
+
+TBD
+
+## After Class
+
+Draw upon your shared memo and your individual observations to develop a short reflection on the process.
+
+1.  Share your initial reflection on what you knew about the neighborhood before you visited.
+
+2.  Share a brief summary of your group's thoughts and information priorities coming from Monday's pre-field work preparation.
+
+3.  Share your field observations, focusing on the element which you were responsible for describing.
+
+4.  Share your reflections on what you know now and what you experienced in attempting to systematically observe the neighborhood and communicate its qualities.
+
+5.  Think carefully about what your next steps might (hypothetically be) following your initial field observation.
+
+Push your individual reflections to your lab GitHub repository.

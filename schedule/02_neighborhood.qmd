@@ -1,0 +1,44 @@
+---
+title: "What is a Neighborhood?"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+In this session, we'll explore the many ways in which the concept of neighborhoods are used in various areas of urban planning and governance. We will continue to build upon our initial discussion regarding the significance of neighborhoods as a unit of analysis, planning, and policymaking, and will explore frameworks for neighborhood analysis.
+
+## Before Class
+
+Your readings for today provide insight into some of the working definitions for value judgments regarding the qualities of neighborhoods and why planners have found these qualities to be of importance to measure and understand.
+
+::: callout-important
+You must be logged in to your [UIUC Box.com](https://uofi.app.box.com/) account in order to access these readings. This is to respect the copyright of the authors on a publicly accessible website.
+:::
+
+Talen, Emily, Sunny Menozzi, and Chloe Schaefer. (2015). *What is a "Great Neighborhood"? An Analysis of APA's Top-Rated Places*. Journal of the American Planning Association, 81(2): 121-141. [{{< fa file >}}](https://uofi.box.com/s/rxikgbv5tnck8co7bar878vn22f6dn08)
+
+Rohe, William. (2009). From Local to Global: One Hundred Years of Neighborhood Planning. Journal of the American Planning Association 75(2): 209-230. [{{< fa file >}}](https://uofi.box.com/s/014sa99yca767y5dmd9u6a750hmo2ezu)
+
+## Reflect
+
+-   What are your goals for taking this class? What would you like to learn about neighborhoods?
+-   What matters about neighborhoods? How have neighborhoods shaped your life?
+-   What types of stories do we tend to tell about neighborhoods? How do these stories contextualize how neighborhoods "fit" within cities and their regions?
+
+## Slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/S2 What is a neighborhood/index.html" style="width:100%;height:50vh;margin:0;padding:0"; frameborder="2"></iframe>
+```
+
+## Resources for Further Exploration
+
+Dahir, James. (1947). [The Neighborhood Unit Plan: Its Spread and Acceptance](https://www.russellsage.org/sites/default/files/Neighborhood-Unit-Plan.pdf). New York: The Russell Sage Foundation.
+
+Mumford, Lewis. (1954). [The Neighborhood and Neighborhood Unit](https://www-jstor-org.proxy2.library.illinois.edu/stable/40101548?socuuid=c391de8a-e129-486e-a4a4-d776892a36ad). The Town Planning Review, 24(4): 256-270.
+
+Steuteville, Robert. (2019). [The Once and Future Neighborhood](https://www.cnu.org/publicsquare/2019/01/29/once-and-future-neighborhood). CNU Public Square.

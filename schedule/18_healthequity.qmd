@@ -1,0 +1,34 @@
+---
+title: "Health Equity"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+A growing public conversation recognizes that individual health and collective health of populations is determined by a range of factors, including many that are social and rooted in social relationships. As this conversation grows and evolves, planners have an important role to play helping to disentangle and describe how places matter and influence the health of populations.
+
+This week, we will explore a case study strategy for linking social determinants measures rooted in neighborhood indicators with measures of health outcomes. Rather than focus on building out new methodological or analytical techniques, our focus this week will be on storytelling and in thinking about how to engage communities in further conversations about their health and wellbeing.
+
+## Before Class
+
+Dougherty, Geoff B., Sherita H. Golden, Alden L. Gross, Elizabeth Colantouoni, and Lorraine T. Dean. (2020). *Measuring Structural Racism and Its Association with BMI*. American Journal of Preventative Medicine [{{< fa file >}}](https://uofi.box.com/s/65u4jr3a9hdonv6ecx4gu4gt8x4ajhgs).
+
+Please also take a look at the appendix section on variables used in their approach. [{{< fa file >}}](https://uofi.box.com/s/s7lu07rj1tdy5us2e4prc1vvtq8p62na).
+
+Come to class ready to workshop ways in which we can tell stories about health and wellbeing.
+
+## Reflect
+
+1.  What are some tropes or conventions we use to talk about individual health? Collective health?
+
+2.  How might health disparities (at a neighborhood or population level) be connected to the many themes we've talked about in this class?
+
+3.  Is population health a planning issue? What role do practitioners and researchers in planning have for influencing how we think and act around health at the neighborhood level?
+
+## Slides
+
+## Resources for Further Exploration
