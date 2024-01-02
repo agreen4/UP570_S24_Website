@@ -110,7 +110,7 @@ website:
         - section: "Labs"
           contents:     
             - text: "Building a Data Pipeline"
-              file: assignments/labs/01_datapipeline.qmd
+              file: assignments/labs/01_datapipeline/01_datapipeline.qmd
             - text: "Sharing Your Work"
               file: assignments/labs/02_sharing.qmd
             - text: "Earning Your Learner's Permit"

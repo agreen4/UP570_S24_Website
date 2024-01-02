@@ -9,7 +9,7 @@ editor: visual
 
 ## Introduction
 
-In your previous memorandum, you identified a place to focus your analysis on, and provided some preliminary justification for your choice. In this memorandum, you will leverage additional research to identify priority populations, issues, and neighborhoods, and also to lay out an analysis roadmap that will guide your subsequent analysis.
+In your [place selection memorandum](./01_place_selection.qmd), you identified a place to focus on and provided a preliminary justification for your choice. In this memorandum, you will leverage additional research to identify priority populations, issues, and neighborhoods, and also to lay out an analysis roadmap that will guide your subsequent analysis.
 
 ## Goals
 
@@ -21,7 +21,7 @@ In your previous memorandum, you identified a place to focus your analysis on, a
 
 ## Your Place Background Memorandum
 
-Drawing from external sources and your own research, prepare a memorandum of around 2,000 words that provides background on your chosen place. Your memorandum should provide some general background on your place, and should then identify one or several key issues that will guide your subsequent analysis and work over the course of the semester. Key issues should be guided by a combination of your interests and what you can justify as relevant given your background research.
+Drawing from external sources and your own research, prepare a memorandum of around 2,000 words that provides background on your chosen place. Your memorandum should provide some general background on your place, and should then identify and describe one or several key issues that will guide your subsequent analysis and work over the course of the semester. Key issues should be guided by a combination of your interests and what you can justify as relevant given your background research.
 
 Below, please find some guiding questions to help you structure your memorandum:
 

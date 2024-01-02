@@ -17,7 +17,7 @@ Ph.D. students in UP 570 have the option of either completing the series of assi
 
 Prepare a 3-4 page paper proposal that describes the research question, rationale, and approach which you propose taking over the course of the semester. Your proposal should highlight and review 5-10 relevant key sources (at a minimum), should articulate a clear rationale for the methods you intend to use, should describe any specific skills or methods which you propose developing or applying over the course of the semester, and should describe the overall analytic outputs and prospective audience for your work. Your proposal should also describe several candidate publication venues (journals) for which you might submit your article to.
 
-**Due Date:** February 3
+**Due Date:** February 2
 
 Paper Proposal Repository [{{< fa arrow-up-right-from-square >}}](https://classroom.github.com/a/p021nyCl)
 
@@ -25,7 +25,7 @@ Paper Proposal Repository [{{< fa arrow-up-right-from-square >}}](https://classr
 
 Prepare an annotated paper outline that fleshes out the structure of your paper including a complete written introduction, summary of the argument(s) you intend to make in your literature review, research question(s), a written summary of your methods, and a proposed structure for your results, discussion, and conclusion. The detail you invest in this outline will help us to provide feedback to help you as you develop your paper draft. In your outline, indicate the prospective journal you plan to submit your final paper to and ensure that your outline conforms to the structure of articles submitted to that journal.
 
-**Due Date:** March 3
+**Due Date:** March 4
 
 Paper Outline Repository [{{< fa arrow-up-right-from-square >}}](https://classroom.github.com/a/fzEcUS-s)
 
@@ -33,7 +33,7 @@ Paper Outline Repository [{{< fa arrow-up-right-from-square >}}](https://classro
 
 Prepare a complete first draft of your paper that includes an introduction, literature review, research questions, methods section, results, discussion, and conclusion (again, conforming to the accepted structure of articles in the journal you are submitting to).
 
-**Due Date:** April 14
+**Due Date:** April 15
 
 Paper Draft Repository [{{< fa arrow-up-right-from-square >}}](https://classroom.github.com/a/nk4OCp01)
 

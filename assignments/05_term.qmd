@@ -27,9 +27,9 @@ The actual structure of your report is up to you, and will likely vary depending
 
 ## Design Considerations
 
--   You have nearly all of the raw material you need from your prior memorandums, however, you probably received comments from your peers and your instructors about how you might improve your analyses. Now is the time to implement that advice.
+-   You have all of the raw material you need from your prior memorandums, however, you probably received comments from your peers and your instructor about how you might refine your analysis. Now is the time to implement that advice.
 
--   As usual, you are not required to include all of the tables and graphics you produced for your drafts and exercises. Narrow the focus to the most significant trends.
+-   You are not required to include all of the tables and graphics you produced for your drafts and exercises. Narrow the focus to the most significant trends.
 
 -   You are encouraged to bring in other material (e.g., existing reports or studies) that will help you provide context for your discussion or help you interpret trends. Cite accordingly.
 
