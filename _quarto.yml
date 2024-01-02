@@ -112,7 +112,7 @@ website:
             - text: "Building a Data Pipeline"
               file: assignments/labs/01_datapipeline/01_datapipeline.qmd
             - text: "Sharing Your Work"
-              file: assignments/labs/02_sharing.qmd
+              file: assignments/labs/02_sharing/02_sharing.qmd
             - text: "Earning Your Learner's Permit"
               file: assignments/labs/03_permit.qmd
             - text: "Describing Places"
