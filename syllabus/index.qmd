@@ -9,7 +9,7 @@ Welcome to Neighborhood Analysis! I am excited to teach and learn with you this 
 
 ## Course Overview and Objectives
 
-This course teaches techniques for analyzing the demographic, economic, physical, and social conditions that exist at the neighborhood and local government scale. While our focus will be on analyzing current conditions, we will also learn how to tell stories about neighborhood change, and will learn how to project and forecast future trends. We will learn how to describe community characteristics with small area census data, work with local administrative data, and will think about how our analysis of quantitative data fit with other forms of data and engagement to fill in gaps in knowledge.
+This course teaches techniques for analyzing the demographic, economic, physical, and social conditions that exist at the neighborhood and local government scale. While our focus will be on analyzing current conditions, we will also learn how to tell stories about neighborhood change, and will learn advanced strategies for comparing neighborhoods to each other. We will learn how to describe community characteristics with small area census data, work with local administrative data, and will think about how our analysis of quantitative data fit with other forms of data and engagement to fill in gaps in knowledge.
 
 By the end of this course, we will:
 
@@ -21,19 +21,19 @@ By the end of this course, we will:
 
 ## Course Format and Expectations
 
-We will learn together using a combination of direct instruction, lab sessions, and tutorials. We will use reading and reflection to help us contextualize our understanding of neighborhoods, however, our focus will be on learning by doing. Our class will meet in person twice per week - Tuesdays will typically be devoted to introducing and discussing new information, and Thursdays will typically be devoted to labs and independent work.
+Our focus during class sessions will be on learning by doing. Our class will meet twice per week - Tuesdays will typically be devoted to introducing new strategies and information, and Thursdays will typically be devoted to applying these strategies. Outside of class, you'll use class resources and video tutorials to learn basic concepts and to prepare to apply these concepts in class.
+
+### Class Computing Environment
 
 Unless otherwise noted, please plan on bringing to class a computer that will run R and RStudio (available for PC/Mac/Linux) and for which you have administrative privileges.
 
-### What to Expect from Your Instructors
-
--   **Office Hours and Availability:** I am available to speak one on one - you can book an appointment via my [Calendly page]({{< var instructor.calendly_url >}}):
-
-    Of course, I am happy to chat either before or after class if I am available.
+### What to Expect from me
 
 -   **Email:** The easiest way to communicate with me outside of class is via [email](mailto:%7B%7B%3C%20var%20instructor.email%20%3E%7D%7D). I try to respond to emails sent during the week within 24 hours. Emails sent over the weekend will receive a response within 48 hours. If you don't hear from me after that amount of time, it's okay to nudge me to respond.
 
--   **Troubleshooting:** Plan on using our class [Slack channel](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D), email, and office hours to get help with troubleshooting problems as they arise in your work. The [Resources](/resources) page provides thoughts and resources for troubleshooting. I also encourage you to work with others in the class to troubleshoot problems - it is highly likely that others in the class have encountered similar problems, and this also allows us to create a repository of our problems and responses.
+-   **One-on-one meetings:** I am available to speak one on one - you can book an appointment via my [Calendly page](%7B%7B%3C%20var%20instructor.calendly_url%20%3E%7D%7D). Of course, I am happy to chat before or after class if I am available.
+
+-   **Troubleshooting:** Plan on using our class [Slack channel](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D), email, and office hours to get help with troubleshooting problems as they arise in your work. The [Resources](/resources) page provides thoughts and resources for troubleshooting. I also encourage you to work with others in the class to troubleshoot problems - it is highly likely that others in the class have encountered similar problems, and this allows us to build a repository of our problems and responses.
 
 ### What I Expect From You
 
@@ -45,7 +45,7 @@ Unless otherwise noted, please plan on bringing to class a computer that will ru
 
 ### Course Prerequisites
 
-UP 570: Neighborhood Analysis is open to students with graduate-level standing. The course assumes that you have previously taken [UP 517: Data Science for Planners](https://courses.illinois.edu/schedule/terms/UP/517) or have substantial experience with data manupulation in R, particularly using approaches linked to the [Tidyverse](https://www.tidyverse.org). Our first few course sessions will focus on ensuring that we are all familiar with some of the basic workflows and methods which we'll make use of over the course of the semester.
+UP 570: Neighborhood Analysis is open to students with graduate-level standing. The course assumes that you have previously taken [UP 517: Data Science for Planners](https://courses.illinois.edu/schedule/terms/UP/517) or have substantial experience with data manipulation in R, particularly using approaches linked to the [Tidyverse](https://www.tidyverse.org). Our first few course sessions will focus on ensuring that we are all familiar with basic workflows and methods which we'll make use of over the course of the semester.
 
 Please *talk with me* if you have any questions regarding whether this course is right for you.
 
@@ -65,10 +65,10 @@ For more information on attendance policy as described in the University of Illi
 
 Artificial intelligence tools like [Chat GPT](https://openai.com/blog/chatgpt/) have quickly made waves with their ability to produce text, code, and explanations from natural language prompts. I encourage (and at times expect) you to integrate such tools into your problem solving strategies and workflow, especially with regards to coding in our class. These tools must, however, be used with care and with understanding around how they synthesize and produce information. A few words of guidance:
 
-1. Assume that any code produced will require additional tweaking or troubleshooting to be implemented effectively in your workflow.
-2. Assume any facts or figures rendered via AI models are incorrect.
-3. Use these tools to help you break through coding or analysis challenges, not for writing up your narrative or findings.
-4. While you do not need to provide a citation for Chat GPT or other AI tools in your narrative or references, please indicate in any methods statements that these tools were employed. Please also reflect upon your application of these tools in your assignment submission reflections.
+1.  Assume that any code produced will require additional tweaking or troubleshooting to be implemented effectively in your workflow.
+2.  Assume any facts or figures rendered via AI models are incorrect.
+3.  Use these tools to help you break through coding or analysis challenges, not for writing up your narrative or findings.
+4.  While you do not need to provide a citation for Chat GPT or other AI tools in your narrative or references, please indicate in any methods statements that these tools were employed. Please also reflect upon your application of these tools in your assignment submission reflections.
 
 These tools are rapidly evolving. Let's keep a running dialog about how you're employing these tools, what some of the challenges are, and how you may want to integrate such technology into your workflows.
 
@@ -134,7 +134,7 @@ Problem solving is a major part of being a coder - you will face challenges rela
 The only way to do this is to encounter errors - and there will be many!
 :::
 
-You are entering an intermediate to advanced stage of learning a new language, it's grammar, and its application. While this will be frustrating at times, there is a major payoff in the capacity you will gain in analytic skills and problem-solving. This payoff will come slowly over time - do not expect it to come easily.
+You are entering an intermediate to advanced stage of learning a new language, its grammar, and its application. While this will be frustrating at times, there is a major payoff in the capacity you will gain in analytic skills and problem-solving. This payoff will come slowly over time - do not expect it to come easily.
 
 ![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/51084276-ab7f-4c57-a0e7-5cf14a277359.png?h=69e1a6fbff194b606222a0795f89b6c8)
 
