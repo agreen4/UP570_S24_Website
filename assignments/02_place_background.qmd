@@ -37,7 +37,7 @@ Below, please find some guiding questions to help you structure your memorandum:
 
 ## Submission Instructions
 
-Follow [this link](https://classroom.github.com/a/bNEK_LWx) to accept the lab Github Classroom assignment repository. Save your memorandum as a Quarto markdown document and upload along with your post-assignment reflection to GitHub.
+Follow [this link](https://classroom.github.com/a/bNEK_LWx) to accept the assignment Github Classroom assignment repository. Save your memorandum as a Quarto markdown document and upload along with your post-assignment reflection to GitHub.
 
 ### Assignment Reflection
 
