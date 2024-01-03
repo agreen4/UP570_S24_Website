@@ -1,5 +1,5 @@
 ---
-title: "Earning your Learner's Permit"
+title: "Communicating Complex Information"
 sidebar: true
 toc: true
 page-layout: full
@@ -9,7 +9,7 @@ editor: visual
 
 ## Session Description
 
-In this lab session, you'll do some initial work on "real world" data to earn your UP 570 Learner's Permit. This session marks out transition from setting up some basic workflows to focusing on data analysis techniques and applications. This lab is designed to help us learn more about your familiarity and proficiency with basic data manipulation using common `dplyr` functions.
+In this lab session, you'll do some initial work on analyzing and communicating "real world" data drawing from your prior knowledge of R and from our initial work on building data pipelines and communication streams. This session marks out transition from setting up some basic workflows to focusing on data analysis techniques and applications. This lab is designed to help us learn more about your familiarity and proficiency with basic data manipulation using common `dplyr` functions.
 
 Your goal is to use our lab session plus an additional 3-4 hours to work through lab prompts. Address the prompts if you can. If you can't, provide written descriptions about what you're trying to do, pointers about how you've tried to address the problems, and insights into where you're getting stuck. To repeat, the overall goal isn't to complete the lab, but rather to share your process and insights. This will help us to refine future labs and instructions based upon the collective knowledge and understanding of the class.
 
@@ -21,11 +21,11 @@ Your goal is to use our lab session plus an additional 3-4 hours to work through
 
 ## Reflect
 
-1. How do you typically approach exploring unfamiliar data? What types of questions help you find a direction?
+1.  How do you typically approach exploring unfamiliar data? What types of questions help you find a direction?
 
-2. What kinds of stories might data on code violations help us tell?
+2.  What kinds of stories might data on code violations help us tell?
 
-3. What types of information are missing from these datasets? What questions come up as you complete your labs?
+3.  What types of information are missing from these datasets? What questions come up as you complete your labs?
 
 ## Resources for Further Exploration
 

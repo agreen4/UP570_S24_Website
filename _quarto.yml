@@ -113,8 +113,8 @@ website:
               file: assignments/labs/01_datapipeline/01_datapipeline.qmd
             - text: "Sharing Your Work"
               file: assignments/labs/02_sharing/02_sharing.qmd
-            - text: "Earning Your Learner's Permit"
-              file: assignments/labs/03_permit.qmd
+            - text: "Communicating Your Analysis"
+              file: assignments/labs/03_communicating/03_communicating.qmd
             - text: "Describing Places"
               file: assignments/labs/04_describing.qmd
             - text: "Population and the Census"

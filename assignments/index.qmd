@@ -13,7 +13,7 @@ flowchart LR
 subgraph Learn
 AA[Data Pipeline]
 AB[Sharing Your Work]
-AC[Learner's Permit]
+AC[Communicating]
 AD[Describing Places]
 AE[Population]
 AF[Segregation]
@@ -72,23 +72,23 @@ Consistent contributions in class, thoughtful engagement with course material, a
 
 ### Evaluation Components
 
-+-------------+------------------------------+------------------------------+
-| Strategy    | Master's Students            | Ph.D. Students               |
-+=============+==============================+==============================+
-| Learn       | Labs                         | Labs                         |
-+-------------+------------------------------+------------------------------+
-| Apply       | Place Selection Memo         | Paper Proposal               |
-|             |                              |                              |
-|             | Place Background Memo        | Paper Outline                |
-|             |                              |                              |
-|             | Population Memo              | Paper Draft                  |
-|             |                              |                              |
-|             | Policy Memo                  |                              |
-+-------------+------------------------------+------------------------------+
-| Communicate | Final Report                 | Term Paper                   |
-+-------------+------------------------------+------------------------------+
-| Engage      | Participation and Engagement | Participation and Engagement |
-+-------------+------------------------------+------------------------------+
++---------------+------------------------------+------------------------------+
+| Strategy      | Master's Students            | Ph.D. Students               |
++===============+==============================+==============================+
+| Learn         | Labs                         | Labs                         |
++---------------+------------------------------+------------------------------+
+| Apply         | Place Selection Memo         | Paper Proposal               |
+|               |                              |                              |
+|               | Place Background Memo        | Paper Outline                |
+|               |                              |                              |
+|               | Population Memo              | Paper Draft                  |
+|               |                              |                              |
+|               | Policy Memo                  |                              |
++---------------+------------------------------+------------------------------+
+| Communicate   | Final Report                 | Term Paper                   |
++---------------+------------------------------+------------------------------+
+| Engage        | Participation and Engagement | Participation and Engagement |
++---------------+------------------------------+------------------------------+
 
 ### Ph.D. Students
 
