@@ -11,7 +11,7 @@ editor: visual
 
 In this session, we'll explore some of the basic workflow which we'll use over the course of the semester to package and share analysis. We'll develop familiarity with Quarto, and basic operations in Github so that you are able to share code and analysis over the course of the semester.
 
-[Lab 1 Link](../assignments/labs/01_datapipeline.qmd)
+[Lab 1 Link](../assignments/labs/01_datapipeline/01_datapipeline.qmd)
 
 ## Before Class
 

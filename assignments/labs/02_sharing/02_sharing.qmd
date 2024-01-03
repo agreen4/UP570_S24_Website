@@ -60,7 +60,7 @@ Let's get going...
 
 ## Github Lab Repository
 
-Link to the Github lab repository. Please accept the Github Classroom assignment repository link for [Lab 2: Sharing your Work](https://classroom.github.com/a/zTBqDivk).
+Link to the Github lab repository. Please accept the Github Classroom assignment repository link for [Lab 2: Sharing your Work](https://classroom.github.com/a/2vmkHOjq). Before you attempt to do this, please see the section below on configuring your computer to talk to Github.
 
 ## Configure Your Computer to Talk to Github
 
