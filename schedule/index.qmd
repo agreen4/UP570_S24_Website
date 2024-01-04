@@ -12,12 +12,12 @@ Please find descriptions for our course sessions here - you will also find resou
 ## Course Introduction
 
 | Week   | Session   | Date       | Description                                                         |
-|---------------|---------------|---------------|-----------------------------|
+|----------------|----------------|----------------|-------------------------|
 | Week 1 | Session 1 | January 17 | [Course Introduction](01_introduction.qmd)                          |
 | Week 2 | Session 2 | January 22 | [What is a Neighborhood?](02_neighborhood.qmd)                      |
 | Week 2 | Session 3 | January 24 | [Building a Data Pipeline](03_datapipeline.qmd)                     |
 | Week 3 | Session 4 | January 29 | [Sharing Your Work](04_sharing.qmd)                                 |
-| Week 3 | Session 5 | January 31 | [Communicating Complex Information](05_communicating.qmd.qmd)                      |
+| Week 3 | Session 5 | January 31 | [Communicating Complex Information](05_communicating.qmd)       |
 | Week 3 |           | February 5 | [Place Selection Memorandum](../assignments/01_place_selection.qmd) |
 | Week 4 | Session 6 | February 5 | [Describing Places](06_places.qmd)                                  |
 | Week 4 | Session 7 | February 7 | [Describing Places](07_places.qmd)                                  |
@@ -25,7 +25,7 @@ Please find descriptions for our course sessions here - you will also find resou
 ## Strategies for Analysis
 
 |         |            |             |                                                                       |     |
-|-------------|-------------|-------------|----------------------|-------------|
+|--------------|--------------|--------------|-----------------|--------------|
 | Week    | Session    | Date        | Description                                                           |     |
 | Week 5  | Session 8  | February 12 | [Population and the Census](08_census.qmd)                            |     |
 | Week 5  | Session 9  | February 14 | [Population and the Census](09_census.qmd)                            |     |
@@ -53,7 +53,7 @@ Please find descriptions for our course sessions here - you will also find resou
 ## Course Wrap-Up
 
 | Week    | Session    | Date     | Description                                        |
-|---------------|---------------|---------------|---------------------------|
+|----------------|----------------|----------------|------------------------|
 | Week 14 | Session 24 | April 15 | [TBD](24_TBD.qmd)                                  |
 | Week 14 | Session 25 | April 17 | [TBD](25_TBD.qmd)                                  |
 | Week 15 | Session 26 | April 22 | [Final Presentations](26_finalpresent.qmd)         |

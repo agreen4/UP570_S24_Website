@@ -13,7 +13,7 @@ This session builds upon the work on your last lab. In that lab, you worked on d
 
 ## Before Class
 
-1.  Read through the entire [lab background description](../assignments/labs/02_sharing.qmd) before approaching lab tasks.
+1.  Read through the entire [lab background description](../assignments/labs/02_sharing/02_sharing.qmd) before approaching lab tasks.
 
 2.  Be prepared to access the formatted Quarto notebook you worked on in the last lab that contains your analysis of Chicago community areas.
 

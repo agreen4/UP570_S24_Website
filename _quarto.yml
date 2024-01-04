@@ -48,8 +48,8 @@ website:
               file: schedule/03_datapipeline.qmd
             - text: "4. Sharing Your Work"
               file: schedule/04_sharing.qmd
-            - text: "5. Learner's Permit"
-              file: schedule/05_permit.qmd
+            - text: "5. Communicating Complex Information"
+              file: schedule/05_communicating.qmd
             - text: "6. Describing Places"
               file: schedule/06_places.qmd
             - text: "7. Describing Places"
@@ -116,21 +116,19 @@ website:
             - text: "Communicating Your Analysis"
               file: assignments/labs/03_communicating/03_communicating.qmd
             - text: "Describing Places"
-              file: assignments/labs/04_describing.qmd
+              file: assignments/labs/04_describing_places/04_describing.qmd
             - text: "Population and the Census"
-              file: assignments/labs/05_census.qmd
-            - text: "Population and the Census (Week 2)"
-              file: assignments/labs/06_census2.qmd
+              file: assignments/labs/05_population_census/05_census.qmd
             - text: "Segregation"
-              file: assignments/labs/07_segregation.qmd
+              file: assignments/labs/06_segregation/06_segregation.qmd
             - text: "Neighborhood Change"
-              file: assignments/labs/08_neighborhood_change.qmd
+              file: assignments/labs/07_neighborhood_change/07_neighborhood_change.qmd
             - text: "Place Opportunity"
-              file: assignments/labs/09_placeopportunity.qmd
+              file: assignments/labs/08_place_opportunity/08_placeopportunity.qmd
             - text: "Transportation Equity"
-              file: assignments/labs/10_transitequity/10_transit_equity.qmd
+              file: assignments/labs/09_transportation_equity/09_transportation_equity.qmd
             - text: "Neighborhood Health Equity"
-              file: assignments/labs/11_health_equity.qmd
+              file: assignments/labs/10_health_equity/10_health_equity.qmd
         - section: "Assignments"
           contents:
             - text: "Place Selection Memorandum"
