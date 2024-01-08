@@ -33,6 +33,13 @@ Unless otherwise noted, please plan on bringing to class a computer that will ru
 
 -   **One-on-one meetings:** I am available to speak one on one - you can book an appointment via my [Calendly page](%7B%7B%3C%20var%20instructor.calendly_url%20%3E%7D%7D). Of course, I am happy to chat before or after class if I am available.
 
+```{=html}
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/agreen4/office-hours" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+```
+
 -   **Troubleshooting:** Plan on using our class [Slack channel](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D), email, and office hours to get help with troubleshooting problems as they arise in your work. The [Resources](/resources) page provides thoughts and resources for troubleshooting. I also encourage you to work with others in the class to troubleshoot problems - it is highly likely that others in the class have encountered similar problems, and this allows us to build a repository of our problems and responses.
 
 ### What I Expect From You
