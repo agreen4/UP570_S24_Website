@@ -196,6 +196,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#download-r" id="toc-download-r" class="nav-link active" data-scroll-target="#download-r">Download R</a></li>
   <li><a href="#downlad-rstudio" id="toc-downlad-rstudio" class="nav-link" data-scroll-target="#downlad-rstudio">Downlad RStudio</a></li>
+  <li><a href="#rtools-error-pc-users" id="toc-rtools-error-pc-users" class="nav-link" data-scroll-target="#rtools-error-pc-users">Rtools error (PC users)</a></li>
   <li><a href="#run-r-in-the-cloud" id="toc-run-r-in-the-cloud" class="nav-link" data-scroll-target="#run-r-in-the-cloud">Run R in the Cloud</a></li>
   <li><a href="#the-rstudio-interface" id="toc-the-rstudio-interface" class="nav-link" data-scroll-target="#the-rstudio-interface">The RStudio Interface</a></li>
   </ul>
@@ -236,7 +237,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Once you have RStudio installed, open RStudio. You should see something that looks like this (the information in your console window will likely describe a newer version of R than what is displayed here).</p>
 <p><img src="https://neighborhood-analysis-f21.netlify.app/howto/howto/01-Install-R_files/04_RStudioOpen.png" class="img-fluid"></p>
 <p>You’ll note that what appears in the portion of the console to the left looks very similar to the R console window which you opened before you started your install of RStudio. This console functions in exactly the same way, however, you’ll also note that there are other areas which you have access to as well.</p>
-<p><img src="https://neighborhood-analysis-f21.netlify.app/howto/howto/01-Install-R_files/05_RStudioOpenAnnotate.png" class="img-fluid">## Rtools error (PC users)</p>
+<p><img src="https://neighborhood-analysis-f21.netlify.app/howto/howto/01-Install-R_files/05_RStudioOpenAnnotate.png" class="img-fluid"></p>
+</section>
+<section id="rtools-error-pc-users" class="level2">
+<h2 class="anchored" data-anchor-id="rtools-error-pc-users">Rtools error (PC users)</h2>
 <p>Some PC users may encounter an error message regarding Rtools not being installed. This would come up with you first try to install a package such as&nbsp;<code>tidyverse</code>&nbsp;either using R’s package manager or using the&nbsp;<code>install.packages()</code>&nbsp;command. To remedy this error if it occurs, PC users need to close R, manually download a patch, install it, and restart your computer. This error should then be remedied.</p>
 <p>If you are a PC user who encounters this error, please do the following: 1. Save any work and close your RStudio session 2. Download Rtools (<a href="https://cran.rstudio.com/bin/windows/Rtools/">download link</a>) + the link above contains instructions for putting Rtools on the PATH - you should not need to do this. 3. Run the downloaded executable file to install Rtools 4. Restart your computer 5. Re-open RStudio - the problem should be resolved</p>
 </section>

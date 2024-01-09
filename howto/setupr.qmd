@@ -31,7 +31,9 @@ Once you have RStudio installed, open RStudio. You should see something that loo
 
 You'll note that what appears in the portion of the console to the left looks very similar to the R console window which you opened before you started your install of RStudio. This console functions in exactly the same way, however, you'll also note that there are other areas which you have access to as well.
 
-![](https://neighborhood-analysis-f21.netlify.app/howto/howto/01-Install-R_files/05_RStudioOpenAnnotate.png)\## Rtools error (PC users)
+![](https://neighborhood-analysis-f21.netlify.app/howto/howto/01-Install-R_files/05_RStudioOpenAnnotate.png)
+
+## Rtools error (PC users)
 
 Some PC users may encounter an error message regarding Rtools not being installed. This would come up with you first try to install a package such as `tidyverse` either using R's package manager or using the `install.packages()` command. To remedy this error if it occurs, PC users need to close R, manually download a patch, install it, and restart your computer. This error should then be remedied.
 

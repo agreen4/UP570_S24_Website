@@ -39,7 +39,6 @@ Unless otherwise noted, please plan on bringing to class a computer that will ru
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Calendly inline widget end -->
 ```
-
 -   **Troubleshooting:** Plan on using our class [Slack channel](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D), email, and office hours to get help with troubleshooting problems as they arise in your work. The [Resources](/resources) page provides thoughts and resources for troubleshooting. I also encourage you to work with others in the class to troubleshoot problems - it is highly likely that others in the class have encountered similar problems, and this allows us to build a repository of our problems and responses.
 
 ### What I Expect From You
@@ -68,16 +67,26 @@ For those students who need to miss class due to a religious observance, please 
 
 For more information on attendance policy as described in the University of Illinois Student Code, please see Sections [1-501](https://studentcode.illinois.edu/article1/part5/1-501/) and [1-502](https://studentcode.illinois.edu/article1/part5/1-502/).
 
-### A Note on AI Tools
+### Use of AI Tools
 
-Artificial intelligence tools like [Chat GPT](https://openai.com/blog/chatgpt/) have quickly made waves with their ability to produce text, code, and explanations from natural language prompts. I encourage (and at times expect) you to integrate such tools into your problem solving strategies and workflow, especially with regards to coding in our class. These tools must, however, be used with care and with understanding around how they synthesize and produce information. A few words of guidance:
+Artificial intelligence tools like [Chat GPT](https://openai.com/blog/chatgpt/) have quickly made waves with their ability to produce text, code, and explanations from natural language prompts. I encourage (and at times will expect) you to integrate such tools into your problem solving strategies and workflow in our class. These tools must, however, be used with care and with understanding around how they synthesize and produce information. 
+
+A few words of guidance:
 
 1.  Assume that any code produced will require additional tweaking or troubleshooting to be implemented effectively in your workflow.
 2.  Assume any facts or figures rendered via AI models are incorrect.
 3.  Use these tools to help you break through coding or analysis challenges, not for writing up your narrative or findings.
 4.  While you do not need to provide a citation for Chat GPT or other AI tools in your narrative or references, please indicate in any methods statements that these tools were employed. Please also reflect upon your application of these tools in your assignment submission reflections.
 
-These tools are rapidly evolving. Let's keep a running dialog about how you're employing these tools, what some of the challenges are, and how you may want to integrate such technology into your workflows.
+A few related expectations:
+
+1. Let's keep a running dialog about how you're employing these tools, what some of the challenges are, and how you may want to integrate such technology into your workflows.
+
+2. You are ultimately responsible for all content represented in your work. As part of the class pedagogy, you will electronically publish your assignments - this means you are publicly responsible for the content you produce.
+
+3. All writing should be your own and written by you and not generative AI (unless you are quoting or citing someone else).
+
+4. Deviations from these expectations will be treated as academic dishonesty and are subject to review and disposition based upon the University's honor code.
 
 ## Honor Code
 
