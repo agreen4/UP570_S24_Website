@@ -15,11 +15,11 @@ In this session, we'll explore some of the basic workflow which we'll use over t
 
 ## Before Class
 
+Review today's [lab guide](../assignments/labs/01_datapipeline/01_datapipeline.qmd).
+
 Ensure that your computer has the latest stable versions of [R](https://cran.rstudio.com) and [RStudio](https://posit.co/download/rstudio-desktop/) installed.
 
 Accept the [GitHub invitation](https://classroom.github.com/a/TzkeNAie) to our Lab 1 repository and download the repository to your local computer (we will set up more advanced tools for interacting with GitHub in our next lab session.
-
-D'Ignazio, Catherine, and Lauren F. Klein. (2020). *Data Feminism*. MIT Press. Chapter 1 [{{< fa file >}}](https://uofi.box.com/s/nefe8mbag1cc2ixazyz2a3dp2v0bvl3t), Chapter 2 [{{< fa file >}}](https://uofi.box.com/s/uos1v89e93gbduyig8h7ky79q0vf4p9w)
 
 ## Reflect
 

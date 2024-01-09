@@ -18,8 +18,8 @@ Memos start with a heading that includes the name of the memo author, name of th
 | 
 | **To:** Janet Jacobs, Planning Director
 | **From:** Mae Q. Plannington, Planner 1
-| **Date:** January 7, 2023
-| **Subject:** Recommendation on Zoning Change for Holloway Parcel
+| **Date:** January 7, 2024
+| **Subject:** Recommendation on Zoning Change for Mumford Parcel
 
 A memo is typically written in response to something. The first paragraph of the memo should describe what the memo is responding to, and should summarize what the writer of the memo has done to prepare the response. The first paragraph should also summarize any key findings or recommendations.
 
@@ -29,7 +29,7 @@ General information should be presented first followed by more detailed informat
 
 Memos should conclude with a summary statement that encapsulates the key findings which you have come up with. If you are providing recommendations in your memo, this is also an appropriate place to re-state your recommendations, and provide instructions for how your memo recipient should follow up.
 
-Because a memo is designed to be a concise document, you may have important additional information which would be useful to share, but which does not fit within the scope of the memorandum. Such items can be included in an appendix or attachment to the memo, and should be referenced as appropriate within the memo (e.g. "See the attached document for the property surveyor's description of the Holloway parcel").
+Because a memo is designed to be a concise document, you may have important additional information which would be useful to share, but which does not fit within the scope of the memorandum. Such items can be included in an appendix or attachment to the memo, and should be referenced as appropriate within the memo (e.g. "See the attached document for the property surveyor's description of the Mumford parcel").
 
 ### Short Report Format
 
