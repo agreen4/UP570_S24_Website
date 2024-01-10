@@ -17,7 +17,7 @@ Welcome to UP 570: Neighborhood Analysis! This session serves as our introductio
 ## Before Class
 
 -   Bookmark this website <https://up570s24.netlify.app> so you can access it easily.
--   Join our course [Slack Channel](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D)
+-   Join our course [Github Discussion Forum](%7B%7B%3C%20var%20course.discuss%20%3E%7D%7D)
 -   Read the [course syllabus](../syllabus/index.qmd) and bring questions with you.
 -   Complete the course [introductory survey](%7B%7B%3C%20var%20course.survey%20%3E%7D%7D).
 -   Join the Data Science in Planning (DSIP) Listserv (dsip-durp-l\@lists.illinois.edu) where members of our community can share opportunities things of interest.
