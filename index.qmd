@@ -26,6 +26,15 @@ Learn to tell stories about neighborhoods for decision-making, public deliberati
 :::
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Teaching Assistant
+
+-   {{< fa user >}}   {{< var ta.name >}}
+-   {{< fa envelope >}}   <a href="mailto:{{< var ta.email >}}">{{< var ta.email >}}</a>
+-   {{< fa brands github >}}   [Github](%7B%7B%3C%20var%20ta.github%20%3E%7D%7D)
+-   {{< fa calendar-check >}}   [Schedule an appointment](%7B%7B%3C%20var%20ta.calendly_url%20%3E%7D%7D)
+:::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 ### Course details
 
 -   {{< fa calendar >}}   {{< var course.days >}}

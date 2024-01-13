@@ -1,0 +1,474 @@
+---
+title: "Lesson 1: Basic Principles"
+sidebar: true
+toc: true
+page-layout: full
+format: 
+  html:
+    code-link: true
+editor: visual
+---
+## Lesson Overview
+
+## Getting Familiar
+
+Let's start off by simply getting familiar with the R console. As you learned in the introduction, R is *command line* software focused on statistical computing, and RStudio is a *user interface* which enhances your ability to interact with R.
+
+For most new useRs, R may be intimidating because of the need to learn a basic language to interact with it. When most of our interaction with computers happens through "point and click" graphical interfaces, language-driven approaches seem less intuitive.
+
+At the same time, there are some *really good* reasons to gain familiarity with R and RStudio, particularly within the context of urban planning analysis.
+
+- R and RStudio are **open source tools**, and are therefore available to be downloaded and used without cost (this does not negate questions regarding *accessibility* of the language, given its steep learning curve).
+
+- R and RStudio are supported by a wide range of users who develop packages for **specific use cases**, including those that are useful for urban planning analysis.
+
+- R and RStudio provide a framework for **reproducible data manipulation and analysis** - rather than sharing output with others, we can share raw data and code and they can reproduce our output.
+
+Thinking about the type of analysis we will do in this class, there are some additional rationales for learning and working in R and RStudio:
+
+- R has a powerful set of functions for **aggregating and manipulating** many data records into a smaller number of summary records - we use these types of functions frequently to summarize neighborhood characteristics
+
+- R can natively read from and write to **many types of data sources** - this allows us to perform most or all of our analysis within a single application rather than passing data between applications for different types of manipulation or analysis
+
+- R can help us to **automate elements of data visualization**, which can be useful when we need to reproduce forms of analysis for different places or other data categories
+
+- Looking beyond the reasons to use R and RStudio as a platform for analysis, these tools represent one of several programming languages frequently used for data science (the other main language being Python) - learning these languages prepares you for future interface with other data science tools and strategies
+
+## Lesson Goals
+
+By the end of this lesson, you should be familiar with:
+ 
+ - The RStudio console and R language
+ - R data types and structures
+ - Basic data manipulation and querying
+
+## R Basics
+
+As a programming language, R was initially designed to be run in a terminal console. You can still run R in this fashion, if you wish. RStudio is an *integrated development environment* (IDE) for R - in addition to providing us with a terminal window in which we could run commands, it also provides additional windows for viewing data and visualizations.
+
+It is important that we keep these things in mind, because they will help us to understand what its like to interact with R *via* RStudio. Let's start with a very basic way of interacting with R. Here is what the basic RStudio interface looks like:
+
+- The **Source** pane is where you will write and view scripts that provide instructions to the *console*.
+- The **Console / Terminal** pane is the where you can view the execution of commands. You can directly type commands here and then click control / command + enter to run. More typically, you'll execute lines of code from within your scripts or the source pane.
+- THe **Environment** pane allows you to view datasets loaded into memory and other objects which you have defined. You can also see a few basic characteristics of existing R objects.
+- The **Auxiliary** pane which has multiple tabs. You will most often use this to view output, or load help documentation.
+
+## R Scripts vs Notebooks
+
+There's two main strategies for creating reproducible commands (code) to tell R what to do. **Scripts** are text files where the majority of language used will be R commands. Everything in a script is interpreted as code unless you explicitly denote that it is a comment. **Notebooks** are powerful tools in that they allow you to blend together text that's meant to be read by humans with *code chunks* that are meant to be read and interpreted by R (or another computing language). Notebooks are particularly powerful because they allow you to format and publish your text while embedding chunks of analysis at strategically appropriate places.
+
+The benefit of working in a notebook is that you can run code *in line* with your text, and see the results integrated with your writing kind of like a scientific lab notebook. Some people will use R Notebooks to write reports, since they can render tables and figures in line with their text, and these can easily be updated if new data or parameters are supplied.
+
+### Code Chunks
+
+This is what a code chunk looks like:
+```{r}
+# Code Chunk
+```
+Any content inside of this code chunk will be interpreted by your R session in the terminal when you hit the green play button to the right. You can also step through each line of code by putting your cursor to the right of it and hitting command+enter (Mac) or control+enter (PC) - I strongly recommend you get into the habit of running code this way at first.
+
+You can create new code chunks by pressing control+option+I (Mac) or control+alt+I (PC).
+
+### Comments
+In the above code chunk, we have some text preceded by a hashtag (`#`). Any content to the right of a hashtag (`# groundbreaking insightful comment`) will be considered a comment and will not be interpreted as code. Comments are a great way to make short notes to remind yourself or others of what you're doing:
+
+```{r}
+# This is a comment
+
+1+2 # This is a comment in line with some active code
+```
+
+## Your First Commands
+
+Let's start by entering a simple command - let's add together 2 and 2 in the console and ask R to return the product.
+
+```{r}
+2+2
+```
+Entering ```2+2``` into our console window and then hitting command/control+enter asks R to process the request we have given it - it then gives us back an answer to our request. We could of course do the same thing with other simple numeric operators:
+
+- ```+``` Addition
+- ```-``` Subtraction
+- ```*``` Multiplication
+- ```/``` Division
+- ```^``` Exponents (e.g. ```2^3 = 8```)
+- ```()``` Parentheses - to control order of operations (e.g. ```(2+3)/5 = 1)
+
+We can do basic math in a console - not terribly exciting, but at least this helps you to see how R will respond to basic commands:
+```{r}
+2+2
+2^3
+(2+3)/5
+```
+
+Now your turn - create a script (File -> New File -> R Script) and perform some simple math operations. Also explore how R handles order of operations.
+
+**Get at it!**
+
+### Variables
+
+In most cases, we don't want to just type things into the console and then get an answer - we'd be just as well served with a calculator. Our next step is to understand that R can store the output of a command for later use. The most basic way to do this is to *assign* our output to an object. we can do this using the `<-` assignment operator:
+
+```{r}
+x <- 2+2
+```
+
+Let's learn how to speak this out. We just told R, into an object we have (arbitrarily) named "x", store the output of 2 + 2. Because this is now stored, we can retrieve it and use it later. If we simply ask for "x" R will share with us the previously assigned output - ` 2+2`
+
+Option + - (Mac) or Alt + - (PC) is the shortcut for inserting the assignment operator.
+
+```{r}
+x
+```
+This means that we could also use this output in other formulas. Let's see what happens if we square X:
+```{r}
+x^2
+```
+
+Since X is 4, we get the output that is the equivalent of typing ``` 4^2```.
+
+It is important to note here that we can provide any type of label we'd like for an R variable. Instead of using "x" as a variable name, we could use anything else.
+
+Assign the sum of 4+6 into a variable named "cat".
+```{r}
+cat<-4+6
+```
+
+We just assigned to a variable called "cat" the product of 4+6. To retrieve the value of your assigned variable, you can just call it by name:
+
+```{r}
+cat
+```
+
+R allows you to name variables as you wish. Note that variables need to start with a character, cannot start with a number (e.g. 1_Numbers would not work), and cannot include spaces (e.g. "variables squared" would not work but you could use an underscore - "variables_squared" which would work). Also note that you will want to avoid variable names that are the same as R functions (so naming a variable "mean" for instance, would not be a good idea, as this would cause confusion with the function ```mean()``` which calculates the average of a vector).
+
+We can of course work with multiple variables at once:
+```{r}
+cat+x
+```
+In this case, cat is 10 and x is 4 (you can see the values stored in objects in the environment pane). Let's divide cat+x by x:
+```{r}
+(cat+x)/x
+```
+
+This is great (i guess...) - we have a calculator that can store and make use of values as objects. Not so exciting for neighborhood analysis just yet, though...
+
+### Lists
+
+The next thing to note is that objects don't have to be single values. We could also assign lists of values to an object:
+```{r}
+col1 <- c(2, 3, 4, 5, 6)
+```
+Note here that `c()` (formally the concatenate function) is used to denote that we have a list. Each list item it separated by commas. If we call up this object, we can have a look at our list:
+```{r}
+col1
+```
+Working with a single object, we could do things by using the object in a formula. We can do the same with a list:
+```{r}
+col1+2
+```
+To each list item, we added 2. We could even store this as a new object if we wanted 2
+```{r}
+col2 <- col1+2
+```
+
+Writing this out, we told r "Place into an object called "col2" the product of adding 2 to each item in the list contained in "col1".
+
+```{r}
+col2
+```
+Cool! We can manipulate our list items all at once. 
+
+#### Sequences
+
+We can also have R automatically create *sequences* of numbers for us, if they follow a regular pattern using the `seq()` command:
+```{r}
+seq(0,100, 5)
+```
+This says create a list containing the sequence of numbers from 0 to 100 counting by fives.
+
+Try creating your own sequence - count *up* from 4 to 24 by 4 
+```{r}
+# Your Work Here
+seq(4, 24, 4)
+```
+
+Try creating your another sequence - count *down* from 50 to 2 by 4. How would you do this?
+```{r}
+# Your Work Here
+seq(50, 2, -4)
+```
+
+#### List Interaction
+
+But we digress - back to our existing lists. What would happen if we decided to multiply col1 by col2?
+
+```{r}
+col1*col2
+```
+Can you see what happens here? Since our lists are the same size, R multiples the first item in col1 by the first item in col2, the second item in col1 by the second item in col2, and so on - e.g. (2*4, 3*5 ...)
+
+#### Vector Types
+
+Lists, however, don't have to be just numeric - they can be other types of things as well:
+
+- **Numeric:** Values containing integers (positive or negative whole numbers such as 1, 10, 25840) or double values (any real number such as 1, 2.14, 3.254, -12). Double values may also include some special classes such as Inf, -Inf, and NaN - "positive infinity", "negative infinity", and "not a number".
+- **Logical:** Logical values including TRUE, FALSE, and NA. TRUE and FALSE are self-explanatory. NA stands for "not available", which should not be confused with NULL, which is no value.
+- **Character:** Also known as strings, these consist of text or text-like information. In R, we tend to surround strings by quotation marks to denote them. For instance, ```c("Black Cat", "Brown Dog", "Dappled Donkey", "Red Rooster")``` is a character vector containing four items.
+
+### List Manipulation
+
+We'll talk about some other types of vectors later, but these are sufficient to get you started. In addition to numeric vectors, probably the most common other type of vectors we will encounter are character vectors. Let's make a list of the items we need to make a single serving of oatmeal (your professor is hungry as he writes this tutorial):
+
+```{r}
+c("Oatmeal", "Water", "Salt", "Sugar")
+```
+In a separate list, let's place the quantity of ingredients:
+```{r}
+c(1/2, 1, .25, 1)
+```
+Perhaps it would be useful to make a third list with the unit of measure for the quantity of ingredients:
+```{r}
+c("Cup", "Cup", "Teaspoon", "Tablespoon")
+```
+
+Okay, we have three lists, that we might be able to use for different things. In your script, write code that assigns the list of ingredients to a new object called "ingredients", write the quantities to a new object called "quantity", and write the units to a new object called "units".
+
+::: {.panel-tabset}
+### Your Work
+```{r}
+# Try in your script or notebook.
+```
+
+### Solution
+```{r}
+ingredients <- c("Oatmeal", "Water", "Salt", "Sugar")
+quantity <- c(1/2, 1, .25, 1)
+units <- c("Cup", "Cup", "Teaspoon", "Tablespoon")
+```
+:::
+
+We could do some interesting things here, like paste together the different list items into something approximating a recipe:
+```{r}
+paste(quantity, units, ingredients, sep=" ")
+```
+
+What is `sep = " "` doing here? What would happen if you changed `sep` to a comma? Try it.
+
+You can take a look at the documentation for the `paste()` command by typing `?paste`.
+
+Verbalizing what we just asked R to do (a valuable habit for problem solving more complex functions and data manipulation later on), we said "paste together the list items contained in the variables quantity, units, and ingredients, placing a space between each of the list items."
+
+We can also manipulate list objects - let's say you volunteer to host a community meeting and need to make 45 portions of your oatmeal recipe - how would you go about constructing your grocery list? Below, write out the operations that you would need to do to modify your existing list of quantities to account for 45 portions (let's assume that ingredient quantities remain the same when we scale up our recipe):
+
+Since you're new at this, here are few ways to do this (I hope you've tried on your own to figure it out on your own before reading on) - you could either modify the quantities in the quantity vector by multiplying them directly and creating a new vector:
+```{r}
+quantity45 <- quantity*45
+paste(quantity45, units, ingredients, sep=" ")
+```
+Alternately, you could modify the list directly in your paste command:
+```{r}
+paste(quantity*45, units, ingredients, sep=" ")
+```
+
+The outputs are exactly the same.
+
+#### Selecting List Items
+
+R can also help us to pick out list items. The brackets `[]` allow us to return list items by position (left to right).
+
+```{r}
+ex_list<-c("Jane", "Jacobs", "beats", "Robert", "Moses", "in", "a", "fight", "for", "New York")
+
+ex_list[4]
+```
+What would happen if we put `[-4]` instead of 4?
+
+```{r}
+# Your Work Here
+ex_list[-4]
+```
+
+Now you try selecting the tenth element from the list.
+
+::: {.panel-tabset}
+## Your Work
+```{r}
+# Try in your script or notebook.
+```
+## Solution
+```{r}
+ex_list[10]
+```
+:::
+
+We can also select multiple elements at the same time:
+```{r}
+ex_list[c(4, 5, 3, 1, 2)]
+```
+
+We created a list `c()` and placed it in brackets which told R that we wanted to return the values of `ex_list` that corresponded to the positions in our other list `c(4, 5, 3, 1, 2)`.
+
+Now you try creating and manipulating a list.
+
+::: {.panel-tabset}
+## Your Work
+```{r}
+# Try in your script or notebook.
+```
+## Example Solution
+```{r}
+ex_list_2<-c("I have eaten", "the plums", "that were in", "the icebox", "and which", "you were probably", "saving", "for breakfast", "Forgive me", "they were delicious", "so sweet", "and so cold")
+
+ex_list_2[c(1, 4, 8, 9)]
+```
+:::
+
+Now re-create the sequence you crafted earlier (count *up* from 4 to 24 by 4) and subset out the fifth element from that numeric sequence:
+
+::: {.panel-tabset}
+## Your Work
+```{r}
+# Try in your script or notebook.
+```
+## Example Solution
+```{r}
+seq(4, 24, 4)[5]
+```
+:::
+
+Fun (maybe), but not yet particularly useful. You didn't take this class because you wanted to scale oatmeal recipes or identify numbers in a sequence. The more powerful stuff is coming up! - these are building blocks to teach some of the logic of the language.
+
+### Data Frames
+
+The next thing for us to think about is how we might combine lists together. Thinking back to our oatmeal recipe, right now we have three separate lists each (respectively) with our quantity, units, and ingredients. We've figured out that we can paste together items from different lists, but it might be nice to be able to store them in one object rather than three. This is a good time to introduce the R data frame, which is the object you'll be dealing with the most.
+
+Start by looking at R's internal documentation on data frames (`?data.frame`):
+
+```{r}
+# Your Work Here
+?data.frame
+```
+
+Now lets *coerce* our three lists into a single data frame called "oatmeal":
+```{r}
+oatmeal <- data.frame(quantity, units, ingredients, stringsAsFactors = FALSE)
+oatmeal
+```
+We created a new object called "oatmeal" that has bound our three lists together into a *data frame*. We need to specify `stringsAsFactors = FALSE` to keep R from turning our strings (characters) into a special data type called factors (more on these later). R assumes that we want our columns labeled with the original list object names.
+
+We can now look at our list as a series of columns that have been given the name of the variable they were stored in as a list, and each row represents one of the list items. An important concept to keep in mind is that a data frame is a series of lists that are in essence glued together.
+
+We can refer to and access rows and columns in our data frame in several ways. If we want to return those items in a specific column if the list, we can use the `$` operator to refer to that item:
+
+```{r}
+oatmeal$ingredients
+```
+We just returned the list items that were in the column named ingredients. We could also use our subset notation to retrieve the same things. This subset notation builds upon what we learned when we accessed list items by position (e.g. `units[2]`):
+```{r}
+#knitr::include_graphics("Images/04_guru99_dataframe.png")
+```
+
+
+While subsets of lists require one number corresponding to the index position, data frames have *two dimensions* - rows and columns, so we need to be able to differentiate between each. R does this using a comma in the subset notation `[row, column]`. If we want all rows or columns, we can just leave that portion of the bracket empty. For instance, the code below is the equivalent of typing `oatmeal$ingredients` since ingredients are the third column in the oatmeal data frame:
+```{r}
+oatmeal[,3]
+```
+This is because ingredients is the third column in the oatmeal data frame.
+
+Now you try: query the *second row* of the oatmeal data frame:
+
+::: {.panel-tabset}
+## Your Work
+```{r}
+# Try in your script or notebook.
+```
+## Example Solution
+```{r}
+oatmeal[2,]
+```
+:::
+
+How would you query the third row of the second column?
+
+::: {.panel-tabset}
+## Your Work
+```{r}
+# Try in your script or notebook.
+```
+## Example Solution
+```{r}
+oatmeal[3,2]
+```
+:::
+
+Ok, so we see that we can create subsets fairly easily, either using column names or index positions in our dataset.
+
+We can add new columns to our data frame. Oftentimes when we are working with data, we'll need to calculate a new column based upon the values in other columns. We have our data frame with a recipe for 1 serving of oatmeal. Let's say we frequently need to make 45 servings of oatmeal (its famous, and the reason why people show up to your 7am neighborhood meetings...), so you want to include that quantity alongside the single serving quantity.
+
+Let's create a new column called "quantity45" and add to it the quantity of ingredients for a 45 serving batch of oatmeal:
+```{r}
+oatmeal$quantity45<-oatmeal$quantity*45
+
+oatmeal
+```
+
+Note that we need to refer to the original quantity by pointing to the oatmeal data frame as well. Let's verbalize this to think about what we're doing. "Into a new column in the oatmeal data frame called quantity45 (`oatmeal$quantity45 <-`), write the value contained in the oatmeal data frame called quantity multiplied by 45 (`oatmeal$quantity*45`)."
+
+Now you try - create a new column called "instructions" in the oatmeal data table that contains our recipe quantity for 45 portions of oatmeal, units, and ingredients pasted together (this will require you reference data using concepts we learned earlier):
+
+::: {.panel-tabset}
+## Your Work
+```{r}
+# Try in your script or notebook.
+```
+## Example Solution
+```{r}
+oatmeal$instructions<-paste(quantity*45, units, ingredients, sep=" ")
+```
+:::
+
+Note again that we need to refer to each of the specific columns in the oatmeal data frame using their appropriate vector (e.g. `oatmeal$ingredients`. Note that in this case if we omitted the pointer to oatmeal, R would assume we wanted to do something with the list called ingredients. In this case, that would actually work, but in most cases, we will just have a data frame and won't have a separate list stored as an R object - we'd get an error.
+
+We can also pull out all items meeting a specific criteria in our data frame - let's say we want to look at those ingredients that are measured in cups:
+
+```{r}
+oatmeal[oatmeal$units == "Cup",]
+```
+This looks weird - we've introduced some new notation here. Let's first speak this out and then we can learn more about the notation. "From the oatmeal data frame, return those rows from within the oatmeal data frame for which the value of the units column is equal to "Cup" (the equal sign in R is `==` two equal signs together). Notice also that the word "Cup" has parentheses surrounding it, denoting that it is a character string. The square brackets `[]` denote that we're looking for something (or some things) within the oatmeal data frame. We continue to follow the `[Row, Column]` logic within the brackets.
+
+While in this case, we're looking for rows that meet a specific criteria based upon the word "Cup" (searching for a character string), we could return subsets of numeric records in other ways:
+
+```{r}
+oatmeal[oatmeal$quantity > .5,]
+```
+Returns those records from the oatmeal data frame for which the quantity value is greater than .5. If we wanted to include our .5 cups of water, we could specify ```>=``` (greater than or equal to).
+
+```{r}
+oatmeal[oatmeal$quantity >= .5,]
+```
+
+## Lesson 1 Summary and Debrief
+
+In this lesson, you became more familiar with the R console and RStudio interface, learned about scrips and notebooks, and started to explore some of the basic functionality for how to store and retrieve variables, construct lists, and perform calculations. This may seem like a lot of details to internalize at this point (and it is), but these very basic building blocks will prove useful as you start to understand some of the more advanced functions for data manipulation.
+
+Moving forward, we'll start to build on these basic building blocks by looking more at how to manipulate tabular data.
+
+### Core Concepts and Terminology
+
+- R Script
+- Notebook
+- Code Chunk
+
+- Variables
+- Lists
+- Vectors
+- Data Frame
+
+### Helpful Practices
+
+1. Take your time with mastering and feeling comfortable with basic concepts. While you may be eager to move ahead to move advanced (and interesting) things, if you don't have a good hold of the underlying logic behind the basics, you'll struggle to identify and solve problems in the future.
+
+2. Begin to internalize the practice of speaking or writing out what the code is doing. R is a language and you are learning to "speak" R. Being able to speak out in plain language what you *think* your code is doing is the first step to becoming "fluent" as a coder. This will also help you greatly when it comes time to debug code in the future.
+
+3. Begin the practice of developing good habits about object names in R - you now know the basic rules about names. Start to think about schemes or personal conventions that you might use to help you stay organized, partiuclarly when you have a lot of named objects in your environment.

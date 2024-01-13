@@ -10,6 +10,12 @@ instructor:
   office: "M210 Temple Buell Hall"
   calendly_url: https://calendly.com/agreen4/office-hours
 
+ta:
+  name: Ouafa Benkraouda
+  email: ouafab2@illinois.edu
+  github: https://github.com/ouafabenk
+  calendly_url: https://calendly.com/ouafa/30min
+  
 course:
   number: "UP 570"
   semester: "Spring 2024"

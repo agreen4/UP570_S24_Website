@@ -152,6 +152,10 @@ website:
               file: howto/index.qmd
             - text: "Set Up R and RStudio"
               file: howto/setupr.qmd
+        - section: "R Basics"
+          contents:
+            - text: "Lesson 1: Basic Principles"
+              file: howto/rbasics_01.qmd
         - section: "Communicate Your Analysis"
           contents:
             - text: "Planning and Writing By The Numbers"
