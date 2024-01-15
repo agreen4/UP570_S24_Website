@@ -51,7 +51,9 @@ Unless otherwise noted, please plan on bringing to class a computer that will ru
 
 ### Course Prerequisites
 
-UP 570: Neighborhood Analysis is open to students with graduate-level standing. The course assumes that you have previously taken [UP 517: Data Science for Planners](https://courses.illinois.edu/schedule/terms/UP/517) or have substantial experience with data manipulation in R, particularly using approaches linked to the [Tidyverse](https://www.tidyverse.org). Our first few course sessions will focus on ensuring that we are all familiar with basic workflows and methods which we'll make use of over the course of the semester.
+UP 570: Neighborhood Analysis is open to students with graduate-level standing. While students will benefit from having some prior familiarity with R and RStudio or will have taken [UP 517: Data Science for Planners](https://courses.illinois.edu/schedule/terms/UP/517), the class this semester will accomodate students with no prior background in coding or statistical analysis.
+
+Our first few course sessions will focus on ensuring that we are all familiar with basic workflows and methods which we'll make use of over the course of the semester.
 
 Please *talk with me* if you have any questions regarding whether this course is right for you.
 
