@@ -1,0 +1,510 @@
+---
+title: "Lesson 3: Tidy Data"
+sidebar: true
+toc: true
+page-layout: full
+format: 
+  html:
+    code-link: true
+editor: visual
+---
+
+## Lesson Overview
+
+In our previous two lessons, we've been working with Base R to do basic manipulation of data. These strategies are powerful and can do a lot, however, they are a bit clunky (something you may have been thinking to yourself) - there are tools and strategies that are tailored to the types of data forms and structures we tend to use to measure characteristics and dynamics of neighborhoods.
+
+In this lesson, we'll introduce principles of *tidy* data as well as a frequently used R package designed to help us manipulate and work more efficiently.
+
+## Lesson Goals
+
+By the end of this lesson, you should be familiar with:
+
+-   Principles of *tidy* data
+-   High-level tools for selecting and subsetting data using `dplyr` syntax
+-   More advanced strategies for grouping and summarizing data using `dplyr` syntax
+
+## Getting Set Up
+
+### Loading Required Packages
+
+We're been working primarily in "base" R as we are getting familiar with the R language and RStudio interface. In Lesson 2, we introduced packages and made use of the `readxl` package to load data from an Excel file into R. 
+
+To review, we used `install.packages()` and `library()` to (respectively) install and load packages that extend R and RStudio's functionality. If you remember from our last lesson, you will only need to install a package once, but you will need to load it every time you start your R session and want to use it.
+
+Let's start by loading the following packages:
+
+-   `readxl` contains tools which will help us to read Excel files into R
+-   `tidyverse` contains tools which we'll use to subset, filter, group, and summarize our data
+
+If you completed the last lesson, you will already have installed `readxl`. Let's install the `tidyverse` package and then load both the `readxl` and `tidyverse` packages for use:
+
+::: {.panel-tabset}
+#### Your Turn
+Try installing the `tidyverse` package (if it is not already installed on your machine), and then load `readxl` and `tidyverse` for use in your R session.
+ 
+#### Solution
+```{r}
+#| echo: false
+
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+#| eval: false
+
+install.packages("tidyverse")
+library(tidyverse)
+library(readxl)
+```
+:::
+
+### Loading Data
+If it's not already loaded, load the OZ dataset we worked with in Lesson 2. You can assign the data whatever name you'd like, but we will stick with the name we used previously, 'ozs'. A copy of the Urban Institute's dataset is [available here for download](https://uofi.box.com/s/oh2455rlshpioodbmqfgpk5nkfep027n).
+
+::: {.column-margin}
+You'll need to authenticate and log in to UIUC Box to access this file. You can also download the data [directly](https://www.urban.org/sites/default/files/2021-01/urbaninstitute_tractlevelozanalysis_update01142021.xlsx) from Urban Institute's Opportunity Zone [landing page](https://www.urban.org/policy-centers/metropolitan-housing-and-communities-policy-center/projects/opportunity-zones).
+:::
+
+```{r}
+ozs <- read_excel("data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx")
+```
+
+## An easier and more efficient way?
+
+We could keep building queries in base R to describe or summarize other variables in our data. Looking at the code you've created in Lesson 2 in particular, you're probably thinking that it looks fairly illegible. Part of the challenge of code like this is that you have to read from the inside out.
+
+Let's learn a *whole different* way of constructing this same thing.
+
+### Principles of Tidy Data
+
+This lesson focuses on introducing the [`tidyverse`](https://www.tidyverse.org), a series of packages designed specifically to make data science easier in R and RStudio. The functionality of the `tidyverse` is largely described in the accompanying book [R for Data Science](https://r4ds.had.co.nz).
+
+Data are structured for tidy analysis when columns each contain one individual *variable*, each row represents a unique *observation*, and there is only one *value* for each variable and observation:
+
+![](images/tidy-1.png)
+
+The majority of the data which we will encounter in this class, and the majority of data we work with as planners already conforms to these principles.
+
+In the case of the Opportunity Zone data we first looked at in Lesson 2, here's what that looked like:
+
+- Each column represented a different *variable*, for instance, whether an observation was designated an Opportunity Zone, the poverty rate, or the median household income.
+
+- Each row represented a unique *observation*, in this case a unique census tract.
+
+- Each *value* was unique and there was only one value for every *variable* and *observation*.
+
+::: {.column-margin}
+If you want to understand some of the rationale behind tidy data, Hadley Wickham's [article](https://vita.had.co.nz/papers/tidy-data.pdf) is a good resource.
+:::
+
+## Your First Tidy Coding
+
+At this point, you should have your data loaded and available and you should also have the `tidyverse` and `readxl` packages loaded.
+
+In Lesson 2, you worked on solving the following two data manipulation and description problems:
+
+1. Report average poverty rates for *designated* opportunity zones in metropolitan, micropolitan, and non-CBSA areas.
+
+2. For Illinois, how different are the average vacancy rates for *designated* and *undesignated* census tracts?
+
+Let's compare how to do that using base R and using commands from the `tidyverse` suite.
+
+### Poverty Rates
+
+::: {.panel-tabset}
+#### The Problem
+
+Report average poverty rates for *designated* opportunity zones in metropolitan, micropolitan, and non-CBSA areas.
+
+#### Base R
+```{r}
+mean(ozs$PovertyRate[ozs$DesignatedOZ == 1 & ozs$Metro == 1], na.rm=TRUE)
+mean(ozs$PovertyRate[ozs$DesignatedOZ == 1 & ozs$Micro == 1], na.rm=TRUE)
+mean(ozs$PovertyRate[ozs$DesignatedOZ == 1 & ozs$NoCBSAType == 1], na.rm=TRUE)
+```
+#### Tidy
+```{r}
+ozs |> 
+  filter(DesignatedOZ ==1, Metro == 1) |>
+  summarise(mean(PovertyRate, na.rm=TRUE))
+
+ozs |> 
+  filter(DesignatedOZ ==1, Micro == 1) |>
+  summarise(mean(PovertyRate, na.rm=TRUE))
+
+ozs |> 
+  filter(DesignatedOZ ==1, NoCBSAType == 1) |>
+  summarise(mean(PovertyRate, na.rm=TRUE))
+```
+:::
+
+We get the same values out, but note the code we input in order to get these outputs is very different!
+
+Let's break this down further. 
+
+In Base R...
+
+1. We first specified the statistic we wanted `mean()`.
+
+2. We then specified the dataset and columns we wanted that mean for `ozs$PovertyRate`.
+
+3. We then specified we only wanted a subset of the poverty rate variable where observations were designated opportunity zones and then based upon a metropolitan criterion. `[ozs$DesignatedOZ == 1 & ozs$Metro == 1]`
+
+4. We also specified that we wanted to remove `NA` values from our calculation of the average `mean(na.rm=TRUE)`.
+
+As a reminder, when put together, these things looked like this:
+
+```{r}
+ozs |> 
+  filter(DesignatedOZ ==1, Metro == 1) |>
+  summarise(mean(PovertyRate, na.rm=TRUE))
+```
+Next, let's look at the structure of the tidy command to do the same thing:
+
+```{r}
+
+ozs |>                                       # <1>
+  filter(DesignatedOZ ==1, Metro == 1) |>    # <2>
+  summarise(mean(PovertyRate, na.rm=TRUE))   # <3>
+```
+
+1. From the 'ozs' dataset;
+2. *Filter* (select rows from) the dataset where the DesignatedOZ column is equal to 1 (designated) *AND* the Metropolitan area flag is equal to 1 (a metropolitan area);
+3. For the filtered data from 'ozs', *summarize* (report back) the mean value for the PovertyRate column, removing NA values.
+
+This is still complex, but we gain a major benefit - where in our Base R strategy the code is nested and hard to read, the Tidy syntax offers a more logical workflow. We used something called a *pipe* `|>` to *pass* results of previous commands along a data analysis pipeline. This allows us to code steps in a logical order and makes it much easier to read and interpret what we're doing step-by-step. 
+
+### Vacancy Rates
+
+Let's now compare code for our second challenge - examining vacancy rates.
+
+::: {.panel-tabset}
+#### The Problem
+
+For Illinois, how different are the average vacancy rates for *designated* and *undesignated* census tracts?
+
+#### Base R
+```{r}
+ozs$DesignatedOZ[is.na(ozs$DesignatedOZ)]<-0
+
+mean(ozs$vacancyrate[ozs$DesignatedOZ == 1], na.rm=TRUE)
+mean(ozs$vacancyrate[ozs$DesignatedOZ == 0], na.rm=TRUE)
+```
+#### Tidy
+```{r}
+ozs |> # <1>
+  replace_na(list(DesignatedOZ = 0)) |> # <2>
+  group_by(DesignatedOZ) |> # <3>
+  summarise(mean(vacancyrate, na.rm=TRUE)) # <4>
+```
+1. From the 'ozs' dataset,
+2. Replace any values that at `NA` in the DesignatedOZ column with the value 0,
+3. Treat our data as being *grouped* by the unique values of DesignatedOZ,
+4. Summarize for us the mean value for vacancy rate, removing any NA values from our calculation.
+:::
+
+Lots going on, but let's pay attention to some cool things we just saw.
+
+- As we had with the poverty rate we started with our 'ozs' dataset and then sequentially modified the dataset to get to our final output - a summary output with values for the average vacancy rate for designated and eligible but not designated tracts.
+
+- We were able to substitute `NA` values with 0 using a special command in line with our data modification workflow.
+
+- We used something we haven't seen before - `group_by()` to tell R to treat our data as grouped by the values of the DesignatedOZ variable.
+
+- We used `summarise()` to create an output table containing the average values for the vacancy rate grouped by the values in DesignatedOZ.
+
+This quick illustration helps you understand some of the basics of how `dplyr` works. Two major improvements, in addition to specific commands for filtering rows and selecting columns are the use of pipes `|>` and the ability to summarize data. You'll also notice that the output is rendered in a minimally formatted table.
+
+##  Basic `dplyr` verbs
+
+### Filtering Data
+
+We can use dplyr to *filter* out rows that meet certain criteria.
+
+For instance, here's how we're filter out all records for tracts in Illinois:
+
+```{r}
+
+ozs |>  # <1>
+  filter(state == "Illinois") # <2>
+```
+
+1. From the ozs data object;
+2. Filter out those rows in the column "state" for which state is equal to "Illinois"
+
+### Selecting Columns
+
+Similar to filter, we can use `select()` to select specific columns in our data frame:
+
+```{r}
+ozs |> # <1>
+  select(state, DesignatedOZ) # <2>
+```
+
+1. From the ozs dataset;
+2. Select the columns named "state" and "DesignatedOZ".
+
+### Combining `filter()` and `select()`
+
+Your turn - create a table containing the variables state, Designated, and Metro, for Illinois:
+
+::: {.panel-tabset}
+#### Your Turn
+
+For Illinois, create a table containing the variables state, Designated, and Metro.
+
+#### Solution
+```{r}
+ozs |> # <1>
+  select(state, DesignatedOZ, Metro) |> # <2>
+  filter(state == "Illinois") # <3>
+```
+1. From the 'ozs' dataset;
+2. Select the columns "state", "Designated OZ", and "Metro";
+3. From the state column, select the subset of values where state is equal to "Illinois".
+:::
+
+You should return a data frame with three columns and 1,659 rows.
+
+::: {.panel-tabset}
+#### Your Turn
+
+How would you modify your code to limit this to tracts that were Metropolitan (Metro equal to 1)?
+
+#### Solution
+```{r}
+ozs |> # <1>
+  select(state, DesignatedOZ, Metro) |> # <2>
+  filter(state == "Illinois", Metro == 1) # <3>
+```
+1. From the 'ozs' dataset;
+2. Select the columns "state", "Designated OZ", and "Metro";
+3. From the state column, select the subset of values where state is equal to "Illinois" AND where the Metro column is equal to 1.
+:::
+
+If you do this successfully, you should end up with 1,344 observations.
+
+```{r}
+ozs |>
+  select(state, DesignatedOZ, Metro) |>
+  filter(state == "Illinois", Metro == 1) |> 
+  nrow()
+```
+
+### Group By and Summarise
+
+In the vacancy rate illustration that we saw above, we were able to *group* our data by a particular categorical variable and then *summarize* based upon another variable, in that case then average vacancy rate.
+
+Let's see what that looks like again, this time, finding the average median household income for designated and not designated but eligible opportunity zone tracts:
+
+```{r}
+ozs |> 
+  group_by(DesignatedOZ) |>  summarise(mean(medhhincome, na.rm=TRUE))
+```
+
+A little tip here - we can easily change the name of the column label for our summarized values as follows:
+
+```{r}
+ozs |> 
+  group_by(DesignatedOZ) |>  summarise(income = mean(medhhincome, na.rm=TRUE))
+```
+
+Within our `summarise()` code, we can create multiple columns with each separated by a comma.
+
+```{r}
+ozs |> 
+  group_by(DesignatedOZ) |>  summarise(
+    tracts = n(),
+    income = mean(medhhincome, na.rm=TRUE))
+```
+
+`n()` returns the count of the number of records within each group.
+
+::: {.panel-tabset}
+#### Your Turn
+
+Your turn - add to our above summary table the average poverty rate (PovertyRate) and the average proportion of the population facing severe rent burden (severerentburden). You can name them whatever you want
+
+#### Solution
+```{r}
+ozs |> 
+  group_by(DesignatedOZ) |>  summarise(
+    tracts = n(),
+    income = mean(medhhincome, na.rm=TRUE),
+    poverty = mean(PovertyRate, na.rm=TRUE),
+    rent_burden = mean(severerentburden, na.rm=TRUE))
+```
+:::
+
+It looks like designated opportunity zones have lower incomes, higher poverty rates, and higher levels of severe rent burden.
+
+This is a big step up from what we were doing earlier. We know how different designated and undesignated tracts are throughout the US, but how different are they for each state in the US?
+
+How would we go about modifying our code to create this grouping?
+
+::: {.panel-tabset}
+#### Your Turn
+
+Modify your above code to group your data by state and designation status in order to be able to examine state-to-state differences.
+
+#### Solution
+```{r}
+ozs |> 
+  group_by(state, DesignatedOZ) |>  summarise(
+    tracts = n(),
+    income = mean(medhhincome, na.rm=TRUE),
+    poverty = mean(PovertyRate, na.rm=TRUE),
+    rent_burden = mean(severerentburden, na.rm=TRUE))
+```
+:::
+
+If you modified this correctly, you should now have an output table with 108 rows, each reflecting summaries for a state and unique OZ designation status.
+
+There are other fairly interesting things that we can do with our grouping and summarizing. We figured out how to use multiple groups to summarize our data in useful ways. What we probably want is to get that all into the same table.
+
+One strategy for doing this is to include conditions in our summary statements. The code below summarizes the average median income by state, but then includes conditions on summarizing means income. This allows us to get the incomes of designated and undesignated tracts on the same row.
+
+```{r}
+ozs |>  
+  group_by(state) |> 
+  summarise(
+    tracts = n(), 
+    income = mean(medhhincome, na.rm=TRUE), 
+    Des_inc = mean(medhhincome[DesignatedOZ == 1], na.rm=TRUE), 
+    Not_Des_Inc = mean(medhhincome[DesignatedOZ == 0], na.rm=TRUE))
+```
+
+::: {.panel-tabset}
+#### Your Turn
+
+How would you modify the above code to produce the same table for *counties* in *Illinois*?
+
+#### Solution
+```{r}
+ozs |>  
+  filter(state == "Illinois") |> 
+  group_by(county) |> 
+  summarise(
+    tracts = n(), 
+    income = mean(medhhincome, na.rm=TRUE), 
+    Des_inc = mean(medhhincome[DesignatedOZ == 1], na.rm=TRUE), 
+    Not_Des_Inc = mean(medhhincome[DesignatedOZ == 0], na.rm=TRUE))
+```
+:::
+
+# Mutate
+
+We're getting pretty good at passing data along using pipes (`|>`). We've learned how to use `group_by()` and `summarise()` to quickly create summary tables. What if we wanted to modify these tables? One thing that might help us better understand our summary table would be to calculate the difference in the average median income for our designated and not designated tracts.
+
+`mutate()` allows us to add new columns to our existing data (this will work on non-summarized data too). The code below adds a column called "Inc_Diff" to our summary table, and places into this column the difference between the income in designated and not designated census tracts:
+
+```{r}
+ozs |>  
+  filter(state == "Illinois") |>  
+  group_by(county) |>  
+  summarise(
+    tracts = n(), 
+    income = mean(medhhincome, na.rm=TRUE), 
+    Des_inc = mean(medhhincome[DesignatedOZ == 1], na.rm=TRUE), 
+    Not_Des_Inc = mean(medhhincome[DesignatedOZ == 0], na.rm=TRUE)) |> 
+  mutate(Inc_Diff = Des_inc - Not_Des_Inc)
+```
+
+Notice that we needed to add another pipe here so that we were mutating our summary table and not our original data. Notice that most designated tracts have much lower median household incomes when compared to eligible but not designated places - that would suggest that the program is targeting neighborhoods with greater need.
+
+## Time for Practice!
+
+Let's spend a little time practicing filtering, grouping, and summarizing data using dplyr commands.
+
+::: {.panel-tabset}
+#### Your Turn
+Create a summary table of the racial characteristics of designated and not designated tracts at the nation level.
+
+Racial characteristics are pctwhitw, pctBlack, pctHispanic, pctAAPIalone.
+
+#### Solution
+```{r}
+ozs |> 
+  group_by(DesignatedOZ) |> 
+  summarise(
+    White = mean(pctwhite, na.rm=TRUE), 
+    Black = mean(pctBlack, na.rm=TRUE), 
+    Hispanic = mean(pctHispanic, na.rm=TRUE), 
+    AAPI = mean(pctAAPIalone, na.rm=TRUE))
+```
+:::
+
+::: {.panel-tabset}
+#### Your Turn
+
+Looking at the state level (by each state), how different are the poverty rates of *designated* opportunity zones in metropolitan, micropolitan, and non-CBSA areas?
+
+#### Solution
+```{r}
+ozs |> 
+  filter(DesignatedOZ == 1) |> 
+  group_by(state) |>  
+  summarise(
+    Metro = mean(PovertyRate[Metro == 1], na.rm=TRUE),
+    Micro = mean(PovertyRate[Micro == 1], na.rm=TRUE),
+    Non_CBSA = mean(PovertyRate[NoCBSAType == 1], na.rm=TRUE))
+```
+:::
+
+::: {.panel-tabset}
+#### Your Turn
+
+Looking at the state level (by state), what's the average age dependence ratio for designated and non-designated tracts?
+
+Tip: The age dependence ratio is the proportion of the population under 18 or over 64 compared to the population between 18 and 64. In our dataset, we have the proportion under 18 (pctunder18) and the proportion over 64 (pctover64)
+
+#### Solution
+```{r}
+ozs |>  
+  select(state, DesignatedOZ, pctunder18, pctover64) |>  
+  mutate(
+    adr = (pctunder18+pctover64)/(1-(pctunder18+pctover64))) |> 
+  group_by(state) |>   
+  summarise(Designated_ADR = mean(adr[DesignatedOZ == 1], na.rm=TRUE),
+          NotDesignated_ADR = mean(adr[DesignatedOZ == 0], na.rm=TRUE))
+```
+:::
+
+::: {.panel-tabset}
+#### Your Turn
+
+Looking the state of Illinois, whats the average poverty and income for tracts based upon their level of investment flows (the dec_score variable)?
+#### Solution
+```{r}
+ozs |>  
+  filter(state == "Illinois") |> 
+  group_by(dec_score) |>   
+  summarise(Count = n(),
+            Poverty = mean(PovertyRate, na.rm=TRUE),
+            Income = mean(medhhincome, na.rm=TRUE))
+
+```
+:::
+
+
+Congratulations! You are well on your way to being able to do some very powerful things in R! Take a moment to relish in your accomplishment! \## Lesson 2 Summary and Debrief
+
+In this lesson, you ...
+
+### Core Concepts and Terminology
+
+-   R Script
+
+-   Notebook
+
+-   Code Chunk
+
+-   Variables
+
+-   Lists
+
+-   Vectors
+
+-   Data Frame
+

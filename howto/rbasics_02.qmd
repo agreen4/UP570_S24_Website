@@ -1,0 +1,364 @@
+---
+title: "Lesson 2: Manipulating Data Frames"
+sidebar: true
+toc: true
+page-layout: full
+format: 
+  html:
+    code-link: true
+editor: visual
+---
+
+## Lesson Overview
+
+## Lesson Goals
+
+By the end of this lesson, you should be familiar with:
+
+- Basic tools for selecting and subsetting data
+- Strategies for describing data
+
+## Getting Set Up
+
+### The Data
+
+So far, we've worked with "tiny" bits of data - mainly things that we input manually. It's time to start working with some real world data!
+
+We're going to work with data on those census tracts that were designated as Opportunity Zones as part of the federal [Tax Cuts and Jobs Act of 2017](https://www.congress.gov/115/bills/hr1/BILLS-115hr1enr.pdf). These incentives are designed to spur investment in low-income and undercapitalized cities, by providing investors with tax incentives to invest capital in these locations. Each state had the opportunity to designate specific census tracts as Opportunity Zones. Practitioners and researchers have [many questions](https://www.urban.org/policy-centers/metropolitan-housing-and-communities-policy-center/projects/opportunity-zones) about the efficacy of the program and the designations made by governors.
+
+Take a look [here](https://www.arcgis.com/apps/View/index.html?appid=77f3cad12b6c4bffb816332544f04542) to see a map of where designated opportunity zones are located. The orange geometries reflected on the map are [census tracts](https://www.census.gov/programs-surveys/geography/about/glossary.html#par_textimage_13), which we often use as a proxy for neighborhoods, especially in urban areas. Find a place you know, and take a look at which areas are designated.
+
+The specific data we'll work with comes from the Urban Institute - they have joined the IRS's list of Opportunity Zones designated by the Tax Cuts and Jobs Act to a series of indicators focused on investment potential. A copy of the Urban Institute's dataset is [available here for download](https://uofi.box.com/s/oh2455rlshpioodbmqfgpk5nkfep027n).
+
+::: {.column-margin}
+You'll need to authenticate and log in to UIUC Box to access this file. You can also download the data [directly](https://www.urban.org/sites/default/files/2021-01/urbaninstitute_tractlevelozanalysis_update01142021.xlsx) from Urban Institute's Opportunity Zone [landing page](https://www.urban.org/policy-centers/metropolitan-housing-and-communities-policy-center/projects/opportunity-zones).
+:::
+
+### Extending Base R With Packages
+
+We're been working exclusively in "base" R as we are getting familiar with the R language and RStudio interface. This means we've been working with the commands and functions that come with every new installation of R. 
+
+There's a whole world of other functions that we can use to extend R's functionality - these packages can help us do things like load data with specific formats, make visualizations, and run specific types of statistical models. There's more than 20,000 packages which users have created to extend R's functionality - you can find a list [here](https://cran.r-project.org/web/packages/available_packages_by_name.html). We'll introduce common packages which help with neighborhood analysis tasks, but your favorite search engine is probably the easiest way to find packages or functions that may help you read specific data or perform certain types of tasks.
+
+#### Readxl
+
+Our first exploration with packages will help us read in our Opportunity Zone data. We will use a package called `readxl` which is designed to, well, *read Microsoft Excel files* such as the Opportunity Zone data.
+
+#### Installing Readxl
+
+We will use the [`readxl`](https://readxl.tidyverse.org) package to help us read our Opportunity Zone data from an Excel workbook into Rstudio so we can view it as a data frame. The first time you want to make use of a package you have not used before, you'll need to *install* it, which essentially means R needs to download it from a repository on the internet and prepare it to be accessed on your computer.
+
+We use the [`install.packages()`](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages) command to automatically download and prepare the package for use:
+
+```{r}
+#| eval: false
+
+install.packages("readxl")
+```
+
+::: {.column-margin}
+Note that the name of the package is in quotes here. Any guesses as to why?
+:::
+
+Note that we only need to *install* the package one time. It will remain available on your machine for use in the future.
+
+#### Loading Readxl
+
+In our previous step, we *installed* the `readxl` package which involved downloading it form an internet repository and preparing it for use. There's an additional step - now we need to *load* the package, which tells R that we want to make the package's functions available for use in our current R session. The `library()` command loads packages for use in our current R session. While we only need to install a package one time, each time you start a new R session, you'll need to load the packages you want to use for a particular kind of additional functionality.
+
+```{r}
+library(readxl)
+```
+
+::: {.column-margin}
+Note that the name of the package is *not* in quotes here. Any guesses as to why?
+:::
+
+Now that the `readxl` package is loaded, we can make use of it to read our Opportunity Zone data into our R session.
+
+#### Takeaways
+
+- In general, you will only need to use `install.packages()` once (once a package is installed, you can use it for all R sessions moving forward).
+
+- To load packages, we use the `library()` command. This will load an already installed package and make it accessible within our current R session. You will need to load already installed packages at the beginning of each new R session. Typically, it is a good practice to load the packages you'll use in a script at the beginning of the script.
+
+Note that to install the package, you need to treat the package name as a character vector `"readxl"`, but when you load it in your R session, it does not need to be treated as a character vector`readxl`.
+
+## Read in Data
+
+Now that we've loaded the `readxl` package, we can import the Excel file containing data on tracts designated as opportunity zones in the United States. To learn about the *functions* in the package, you can either do a Google search for [Readxl](https://readxl.tidyverse.org), or you can use R's built in documentation by typing `?readxl`
+```{r}
+?readxl
+```
+
+Note that running this command pops open documentation for `readxl` in the Help tab of the auxiliary pane. As the documentation states, `readxl` imports excel files. Looking at the documentation, the `read_excel()` command will read a single excel sheet, or we can optionally select a sheet by name or number from an excel workbook with multiple sheets. In this case, the Urban Institute data is in a workbook with a single sheet, so we just need to tell R where the file is to load.
+
+The dataset we want to load is called "urbaninstitute_tractlevelozanalysis_update01142021.xlsx" (oof! - that's a descriptive but way too long file name!). We can point R to the correct location. Since our R project file sets the relative path for all of the work within, the path to the data is:`"data/urbaninstitute_tractlevelozanalysis_update1242018.xlsx"`. Wrapped into the command to read the excel file, it looks like this: 
+```{r, eval=FALSE}
+read_excel("data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx")
+```
+R read the data and is displaying it to us. But one problem - it read the data in and we can look at it, but it's not really available for our continued use. We typically want to read data and store it as an object so that we can refer back to it and even modify it.
+
+Let's go ahead and read the Excel data in again, but this time, we'll assign it to an object called "ozs":
+```{r}
+ozs<-read_excel("data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx")
+```
+
+Look at your Environment window (top right quadrant of RStudio) - a data frame containing information on opportunity zones should be loaded in an object called "ozs".
+
+The environment window tells us that the object ozs contains 42,176 observations (rows) and 27 variables (columns).
+
+If we type the name of the object, we can view it's contents:
+
+```{r}
+ozs
+```
+
+You could also inspect the dataset using the ```View()``` command. This will allow us to look at the data in a tabular format.
+
+```{r}
+#| eval: false
+
+View(ozs)
+```
+
+Now, use the str() (structure) command to gain a better understanding of the *types* of data in each column
+```{r}
+str(ozs)
+```
+
+We get a list of the columns in the data, along with their types (in this case character or numeric), and then we see the values associated with the first few observations. 
+
+A few things to note after your preliminary inspection:
+
+- These data are at the census tract level and include geographic identifiers including **geoid**, the combined, state-county-tract FIPS code, **state** the state name, and **county** the county name.
+- These data include a field named **Designated** which is 1 when an eligible tract was designated as an opportunity zone, and `NA` where the tract was not designated.
+- The dataset also includes some other tract-level demographic measures, as well as additional geographic flags.
+
+## Describing the Data
+
+When we load a new dataset that we're not familiar with, it's a good idea to spend a few minutes *describing* the data. This allows us to understand a bit more about it's structure and may also help us ask some basic questions about the validity and reliability of the data (at least compared to what we are expecting to see). 
+R has several functions for determining the structure of data frames and tibbles. See below:
+
+### Size
+
+- `dim(ozs)`: returns a vector with the number of rows in the first element, and the number of columns as the second element (the dimensions of the object)
+
+```{r}
+dim(ozs)
+```
+
+- `nrow(ozs)`: returns the number of rows
+
+```{r}
+nrow(ozs)
+```
+
+- `ncol(ozs)`: returns the number of columns
+
+```{r}
+ncol(ozs)
+```
+
+### Content
+
+- `head(ozs)`: shows the first 6 rows
+```{r}
+head(ozs)
+```
+
+- `tail(ozs)`: shows the last 6 rows
+```{r}
+tail(ozs)
+```
+
+### Names
+
+- `names(ozs)`: returns the column names as a list
+
+```{r}
+names(ozs)
+```
+
+### Summaries
+
+- `str(ozs)`: structure of the object and information about the class, length and content of each column
+```{r}
+str(ozs)
+```
+
+- `summary(ozs)`: summary statistics for each column
+```{r}
+summary(ozs)
+```
+
+::: {.callout-note icon=false}
+### Your Turn!
+
+Try your hand at some of these summarization methods to see what they produce.
+:::
+
+### Selective Summaries
+
+How would we run summaries just for population, median household income, and poverty rate (think back to how we created subsets using lists)?
+
+```{r}
+summary(ozs[, c("Population", "medhhincome", "PovertyRate")])
+```
+
+::: {.panel-tabset}
+
+#### Your Turn!
+
+Practice your querying skills - how would we return only those records for census tracts with a median household income above $100,000 per year?
+
+#### Solution
+```{r}
+ozs[ozs$medhhincome>=100000,]
+```
+:::
+
+### Tracts in Illinois
+
+Oftentimes, we'll want to *query* out a subset of observations based upon their geographic location. Let's try selecting all tracts in Illinois based upon their designation status.
+
+::: {.panel-tabset}
+
+#### Your Turn!
+
+How would we query out tracts in Illinois? Experiment in your own script.
+
+#### Solution
+```{r}
+ozs[ozs$state == "Illinois",]
+```
+:::
+
+We can see in our table output that there are 1,682 eligible or designated tracts in Illinois. We could also use the `nrow()` command to count the number of rows. 
+
+::: {.panel-tabset}
+
+#### Your Turn!
+
+Try crafting code that would count the number of rows for Illinois
+
+#### Solution
+```{r}
+nrow(ozs[ozs$state == "Illinois",])
+```
+:::
+
+### Grouped Means
+We might also want to calculate statistics like averages for subsets. `mean()` will calculate the mean of a list or column. What's the average income for tracts with a vacancy rate above 20 percent? 
+
+::: {.panel-tabset}
+#### Your Turn
+What's the average income for tracts with a vacancy rate below 20 percent?
+
+#### Solution
+```{r}
+mean(ozs$medhhincome[ozs$vacancyrate > .2], na.rm=TRUE)
+mean(ozs$medhhincome[ozs$vacancyrate < .2], na.rm=TRUE)
+```
+:::
+
+::: {.column-margin}
+You might need to check out the documentation for `mean()` in order to return an answer here. R will not calculate the mean if an `NA` values are present in the vector for which you've requested the mean - a good safety feature if you're expecting all values to be present.
+
+In imperfect data like what we're dealing with, you can instruct R to remove those NAs and find the mean for remaining values. You may also want to make sure you've counted the number of NA values so you know what proportion of your data the mean is actually representing.
+:::
+
+### Subsetting
+We might also be interested in combining query criteria. R can make use of logical statements. `&` is equivalent to AND and `|` is equivalent to OR. Now give it a go!
+
+::: {.panel-tabset}
+#### Your Turn
+What is the average income for tracts in Illinois with a poverty rate of greater than 20 percent.
+
+#### Solution
+```{r}
+mean(ozs$medhhincome[ozs$state == "Illinois" & ozs$PovertyRate > .2], na.rm=TRUE)
+```
+:::
+
+To confirm we got the query correct, it may be useful to have a look at the returned data without calculating the mean:
+```{r}
+ozs$medhhincome[ozs$state == "Illinois" & ozs$PovertyRate > .2]
+```
+
+### Dealing with Missing Values
+
+You'll note that there are several flag variables in the data for which values are either 1 or `NA`. We have flags for whether a tract was designated as an Opportunity Zone, Whether it is located in a Metropolitan, Micropolitan, or Non-Core-Based Statistical Area.
+
+We can use logical tests in R to identify those values that are `NA`. We can use `is.na()` to test whether a value is NA (TRUE) or is not NA (FALSE). We could also use the negation sign `!` to determine whether a value *is not* `NA` (`!is.na()`).
+
+The following code returns a vector of logical values (TRUE / FALSE) regarding whether the value for the Designated column is `NA` or not. 
+```{r}
+is.na(ozs$Designated)
+```
+
+For logical values, R codes 1 as TRUE and 0 as false, meaning if we wanted to count the number of undesginated tracts, we could ask for the sum of the values for which the logical test is true (the sum of the values that are `NA`):
+```{r}
+sum(is.na(ozs$Designated))
+```
+33,414 tracts were not designated.
+
+::: {.panel-tabset}
+#### Your Turn
+Now count the number of tracts that were designated (where the value is not `NA`).
+
+#### Solution
+```{r}
+sum(!is.na(ozs$Designated))
+```
+:::
+
+We might also want to recode those NA values to something else. We can use assignment and subset notation to replace na values with something else. Let's replace those NAs in the Designated column with 0.
+```{r}
+ozs$DesignatedOZ[is.na(ozs$DesignatedOZ)]<-0
+ozs
+```
+
+Can you inspect the table here to see what happened? In plain language, we told R "for those values of the column named Designated in the ozs data table where the values are `NA`, assign a new value of 0."
+
+::: {.panel-tabset}
+#### Your Turn
+Go ahead and do the same thing for the Metro, Micro, and NoCBSAType columns.
+
+#### Solution
+```{r}
+ozs$Metro[is.na(ozs$Metro)]<-0
+ozs$Micro[is.na(ozs$Micro)]<-0
+ozs$NoCBSAType[is.na(ozs$NoCBSAType)]<-0
+```
+:::
+
+## Independent Exploration:
+
+Now answer the following questions:
+
+::: {.panel-tabset}
+#### Your Turn
+Report average poverty rates for *designated* opportunity zones in metropolitan, micropolitan, and non-CBSA areas
+
+#### Solution
+```{r}
+# Your Work Here
+mean(ozs$PovertyRate[ozs$Designated ==1 & ozs$Metro == 1], na.rm=TRUE)
+mean(ozs$PovertyRate[ozs$Designated ==1 & ozs$Micro == 1], na.rm=TRUE)
+mean(ozs$PovertyRate[ozs$Designated ==1 & ozs$NoCBSAType == 1], na.rm=TRUE)
+```
+:::
+
+::: {.panel-tabset}
+#### Your Turn
+For Illinois, how different are the average vacancy rates for *designated* and *undesignated* census tracts?
+
+#### Solution
+```{r}
+mean(ozs$vacancyrate[ozs$state == "Illinois" & ozs$Designated == 1])
+mean(ozs$vacancyrate[ozs$state == "Illinois" & ozs$Designated == 0], na.rm=TRUE)
+```
+:::
+
+Think of another question you'd like to ask of these data - write it down and work the problem out.
