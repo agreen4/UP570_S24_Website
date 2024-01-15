@@ -279,14 +279,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#selecting-columns" id="toc-selecting-columns" class="nav-link" data-scroll-target="#selecting-columns">Selecting Columns</a></li>
   <li><a href="#combining-filter-and-select" id="toc-combining-filter-and-select" class="nav-link" data-scroll-target="#combining-filter-and-select">Combining <code>filter()</code> and <code>select()</code></a></li>
   <li><a href="#group-by-and-summarise" id="toc-group-by-and-summarise" class="nav-link" data-scroll-target="#group-by-and-summarise">Group By and Summarise</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
   </ul></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a>
-  <ul class="collapse">
-  <li><a href="#time-for-practice" id="toc-time-for-practice" class="nav-link" data-scroll-target="#time-for-practice">Time for Practice!</a>
-  <ul class="collapse">
+  <li><a href="#time-for-practice" id="toc-time-for-practice" class="nav-link" data-scroll-target="#time-for-practice">Time for Practice!</a></li>
   <li><a href="#core-concepts-and-terminology" id="toc-core-concepts-and-terminology" class="nav-link" data-scroll-target="#core-concepts-and-terminology">Core Concepts and Terminology</a></li>
-  </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -494,15 +490,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="1" data-code-lines="1">From the ‘ozs’ dataset;</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-3" data-code-lines="1">From the ‘ozs’ dataset;</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="2" data-code-lines="2"><em>Filter</em> (select rows from) the dataset where the DesignatedOZ column is equal to 1 (designated) <em>AND</em> the Metropolitan area flag is equal to 1 (a metropolitan area);</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-3" data-code-lines="2"><em>Filter</em> (select rows from) the dataset where the DesignatedOZ column is equal to 1 (designated) <em>AND</em> the Metropolitan area flag is equal to 1 (a metropolitan area);</span>
 </dd>
 <dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-annotation="3" data-code-lines="3">For the filtered data from ‘ozs’, <em>summarize</em> (report back) the mean value for the PovertyRate column, removing NA values.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-3" data-code-lines="3">For the filtered data from ‘ozs’, <em>summarize</em> (report back) the mean value for the PovertyRate column, removing NA values.</span>
 </dd>
 </dl>
 </div>
@@ -548,19 +544,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="1">From the ‘ozs’ dataset,</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-1" data-code-lines="1">From the ‘ozs’ dataset,</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="2">Replace any values that at <code>NA</code> in the DesignatedOZ column with the value 0,</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-1" data-code-lines="2">Replace any values that at <code>NA</code> in the DesignatedOZ column with the value 0,</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="3">Treat our data as being <em>grouped</em> by the unique values of DesignatedOZ,</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-1" data-code-lines="3">Treat our data as being <em>grouped</em> by the unique values of DesignatedOZ,</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="4" data-code-lines="4">Summarize for us the mean value for vacancy rate, removing any NA values from our calculation.</span>
+<span data-code-annotation="4" data-code-cell="annotated-cell-1" data-code-lines="4">Summarize for us the mean value for vacancy rate, removing any NA values from our calculation.</span>
 </dd>
 </dl>
 </div>
@@ -598,11 +594,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="1">From the ozs data object;</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="1">From the ozs data object;</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="2">Filter out those rows in the column “state” for which state is equal to “Illinois”</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="2">Filter out those rows in the column “state” for which state is equal to “Illinois”</span>
 </dd>
 </dl>
 </div>
@@ -639,11 +635,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="1">From the ozs dataset;</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-5" data-code-lines="1">From the ozs dataset;</span>
 </dd>
 <dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-5" data-code-annotation="2" data-code-lines="2">Select the columns named “state” and “DesignatedOZ”.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-5" data-code-lines="2">Select the columns named “state” and “DesignatedOZ”.</span>
 </dd>
 </dl>
 </div>
@@ -683,15 +679,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="1">From the ‘ozs’ dataset;</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-1" data-code-lines="1">From the ‘ozs’ dataset;</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="2">Select the columns “state”, “Designated OZ”, and “Metro”;</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-1" data-code-lines="2">Select the columns “state”, “Designated OZ”, and “Metro”;</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="3">From the state column, select the subset of values where state is equal to “Illinois”.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-1" data-code-lines="3">From the state column, select the subset of values where state is equal to “Illinois”.</span>
 </dd>
 </dl>
 </div>
@@ -731,15 +727,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="1">From the ‘ozs’ dataset;</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-1" data-code-lines="1">From the ‘ozs’ dataset;</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="2">Select the columns “state”, “Designated OZ”, and “Metro”;</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-1" data-code-lines="2">Select the columns “state”, “Designated OZ”, and “Metro”;</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="3">From the state column, select the subset of values where state is equal to “Illinois” AND where the Metro column is equal to 1.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-1" data-code-lines="3">From the state column, select the subset of values where state is equal to “Illinois” AND where the Metro column is equal to 1.</span>
 </dd>
 </dl>
 </div>
@@ -948,9 +944,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
-<section id="mutate" class="level1">
-<h1>Mutate</h1>
+<section id="mutate" class="level3">
+<h3 class="anchored" data-anchor-id="mutate">Mutate</h3>
 <p>We’re getting pretty good at passing data along using pipes (<code>|&gt;</code>). We’ve learned how to use <code>group_by()</code> and <code>summarise()</code> to quickly create summary tables. What if we wanted to modify these tables? One thing that might help us better understand our summary table would be to calculate the difference in the average median income for our designated and not designated tracts.</p>
 <p><code>mutate()</code> allows us to add new columns to our existing data (this will work on non-summarized data too). The code below adds a column called “Inc_Diff” to our summary table, and places into this column the difference between the income in designated and not designated census tracts:</p>
 <div class="cell">
@@ -981,6 +976,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Notice that we needed to add another pipe here so that we were mutating our summary table and not our original data. Notice that most designated tracts have much lower median household incomes when compared to eligible but not designated places - that would suggest that the program is targeting neighborhoods with greater need.</p>
+</section>
+</section>
 <section id="time-for-practice" class="level2">
 <h2 class="anchored" data-anchor-id="time-for-practice">Time for Practice!</h2>
 <p>Let’s spend a little time practicing filtering, grouping, and summarizing data using dplyr commands.</p>
@@ -1116,8 +1113,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Congratulations! You are well on your way to being able to do some very powerful things in R! Take a moment to relish in your accomplishment! ## Lesson 2 Summary and Debrief</p>
 <p>In this lesson, you …</p>
-<section id="core-concepts-and-terminology" class="level3">
-<h3 class="anchored" data-anchor-id="core-concepts-and-terminology">Core Concepts and Terminology</h3>
+</section>
+<section id="core-concepts-and-terminology" class="level2">
+<h2 class="anchored" data-anchor-id="core-concepts-and-terminology">Core Concepts and Terminology</h2>
 <ul>
 <li><p>R Script</p></li>
 <li><p>Notebook</p></li>
@@ -1129,8 +1127,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
