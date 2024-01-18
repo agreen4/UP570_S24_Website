@@ -15,6 +15,9 @@ In this session, we'll explore the many ways in which the concept of neighborhoo
 
 Your readings for today provide insight into some of the working definitions for value judgments regarding the qualities of neighborhoods and why planners have found these qualities to be of importance to measure and understand.
 
+```{=html}
+<div style="max-width:720px"><div style="position:relative;padding-bottom:60.972222222222%"><iframe id="kmsembed-1_exegdzob" width="720" height="439" src="https://mediaspace.illinois.edu/embed/secure/iframe/entryId/1_exegdzob/uiConfId/26883701/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="UP 570: What Is A Neighborhood?" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe></div></div>
+```
 ::: callout-important
 You must be logged in to your [UIUC Box.com](https://uofi.app.box.com/) account in order to access these readings. This is to respect the copyright of the authors on a publicly accessible website.
 :::
