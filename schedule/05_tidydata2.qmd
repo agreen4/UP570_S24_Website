@@ -1,0 +1,22 @@
+---
+title: "Introduction to Tidy Data - Session 2"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+This week, we'll spend time reviewing the basics of what tidy data are, and will review common manipulation strategies. We will continue the work that we began on Tuesday and will take a few moments to reflect upon how these principles help us with some of our foundational approaches to information in this class.
+
+## Before Class
+
+Review the How To [Lesson 3](../howto/rbasics_03.qmd).
+
+## Reflect
+
+## Slides
+
+## Resources for Further Exploration

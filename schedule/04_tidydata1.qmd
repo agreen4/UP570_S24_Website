@@ -1,0 +1,22 @@
+---
+title: "Introduction to Tidy Data - Session 1"
+sidebar: true
+toc: true
+page-layout: full
+format: html
+editor: visual
+---
+
+## Session Description
+
+Our work this semester blends building capacity for data analysis and storytelling with basic data science skills. Throughout the course of the semester, we will frequently work to structure data in a *tidy format* - one in which we have one variable per column, and for which each row represents a unique observation. Some of you with a prior background or experience working in R will already be familiar with these principles, but some of you are not. This week, we'll spend time reviewing the basics of what tidy data are, and will review common manipulation strategies.
+
+## Before Class
+
+Review the How To [Lesson 1](../howto/rbasics_01.qmd) and [Lesson 2](../howto/rbasics_02.qmd). If you are comfortable with these principles and strategies, please take a look at [Lesson 3](../howto/rbasics_03.qmd)
+
+## Reflect
+
+## Slides
+
+## Resources for Further Exploration

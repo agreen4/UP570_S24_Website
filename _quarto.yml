@@ -46,54 +46,54 @@ website:
               file: schedule/02_neighborhood.qmd
             - text: "3. Building a Data Pipeline"
               file: schedule/03_datapipeline.qmd
-            - text: "4. Sharing Your Work"
-              file: schedule/04_sharing.qmd
-            - text: "5. Communicating Complex Information"
-              file: schedule/05_communicating.qmd
+            - text: "4. Working with Tidy Data"
+              file: schedule/04_tidydata.qmd
+            - text: "5. Working with Tidy Data"
+              file: schedule/05_tidydata.qmd
             - text: "6. Describing Places"
               file: schedule/06_places.qmd
-            - text: "7. Describing Places"
-              file: schedule/07_places.qmd
+            - text: "7. Communicating Complex Information"
+              file: schedule/07_communicating.qmd
         - section: "Strategies for Analysis"
           contents:
-            - text: "8. Population and the Census"
-              file: schedule/08_census.qmd
-            - text: "9. Population and the Census"
-              file: schedule/09_census.qmd
-            - text: "10. Segregation"
-              file: schedule/10_segregation.qmd
-            - text: "11. Segregation"
-              file: schedule/11_segregation.qmd
-            - text: "12. Neighborhood Change"
-              file: schedule/12_neighborhood.qmd
-            - text: "13. Neighborhood Change"
-              file: schedule/13_neighborhood.qmd
-            - text: "14. Place Opportunity"
-              file: schedule/14_opportunity.qmd
-            - text: "15. Place Opportunity"
-              file: schedule/15_opportunity.qmd
-            - text: "16. Transit Equity"
-              file: schedule/16_transequity.qmd
-            - text: "17. Transit Equity"
-              file: schedule/17_transequity.qmd
-            - text: "18. Health Equity"
-              file: schedule/18_healthequity.qmd
-            - text: "19. Health Equity"
-              file: schedule/19_healthequity.qmd
-            - text: "20. Final Project Check-In"
-              file: schedule/20_CheckIn.qmd
-            - text: "21. Final Project Check-In"
-              file: schedule/21_CheckIn.qmd
-            - text: "22. Field Observation"
-              file: schedule/22_fieldobs.qmd
-            - text: "23. Field Observation"
-              file: schedule/23_fieldobs.qmd
+            - text: "8. Describing Places"
+              file: schedule/08_places.qmd
+            - text: "9. Describing Places"
+              file: schedule/09_places.qmd
+            - text: "10. Population and the Census"
+              file: schedule/10_census.qmd
+            - text: "11. Population and the Census"
+              file: schedule/11_census.qmd
+            - text: "12. Segregation"
+              file: schedule/12_segregation.qmd
+            - text: "13. Segregation"
+              file: schedule/13_segregation.qmd
+            - text: "14. Neighborhood Change"
+              file: schedule/14_neighborhood.qmd
+            - text: "15. Neighborhood Change"
+              file: schedule/15_neighborhood.qmd
+            - text: "16. Place Opportunity"
+              file: schedule/16_opportunity.qmd
+            - text: "17. Place Opportunity"
+              file: schedule/17_opportunity.qmd
+            - text: "18. Transit Equity"
+              file: schedule/18_transequity.qmd
+            - text: "19. Transit Equity"
+              file: schedule/19_transequity.qmd
+            - text: "20. Health Equity"
+              file: schedule/20_healthequity.qmd
+            - text: "21. Health Equity"
+              file: schedule/21_healthequity.qmd
+            - text: "22. Final Project Check-In"
+              file: schedule/22_CheckIn.qmd
+            - text: "23. Final Project Check-In"
+              file: schedule/23_CheckIn.qmd
         - section: "Course Wrap-Up"
           contents:
-            - text: "24. TBD"
-              file: schedule/24_TBD.qmd
-            - text: "25. TBD"
-              file: schedule/25_TBD.qmd
+            - text: "24. Field Observation"
+              file: schedule/24_fieldobs.qmd
+            - text: "25. Field Observation"
+              file: schedule/25_fieldobs.qmd
             - text: "26. Final Presentations"
               file: schedule/26_finalpresent.qmd
             - text: "27. Independent Work and Advising"
