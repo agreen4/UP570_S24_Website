@@ -546,43 +546,43 @@
     "text": "Resources for Further Exploration"
   },
   {
-    "objectID": "schedule/04_tidydata1.html",
-    "href": "schedule/04_tidydata1.html",
+    "objectID": "schedule/04_tidydata.html",
+    "href": "schedule/04_tidydata.html",
     "title": "Introduction to Tidy Data - Session 1",
     "section": "",
     "text": "Our work this semester blends building capacity for data analysis and storytelling with basic data science skills. Throughout the course of the semester, we will frequently work to structure data in a tidy format - one in which we have one variable per column, and for which each row represents a unique observation. Some of you with a prior background or experience working in R will already be familiar with these principles, but some of you are not. This week, we’ll spend time reviewing the basics of what tidy data are, and will review common manipulation strategies."
   },
   {
-    "objectID": "schedule/04_tidydata1.html#session-description",
-    "href": "schedule/04_tidydata1.html#session-description",
+    "objectID": "schedule/04_tidydata.html#session-description",
+    "href": "schedule/04_tidydata.html#session-description",
     "title": "Introduction to Tidy Data - Session 1",
     "section": "",
     "text": "Our work this semester blends building capacity for data analysis and storytelling with basic data science skills. Throughout the course of the semester, we will frequently work to structure data in a tidy format - one in which we have one variable per column, and for which each row represents a unique observation. Some of you with a prior background or experience working in R will already be familiar with these principles, but some of you are not. This week, we’ll spend time reviewing the basics of what tidy data are, and will review common manipulation strategies."
   },
   {
-    "objectID": "schedule/04_tidydata1.html#before-class",
-    "href": "schedule/04_tidydata1.html#before-class",
+    "objectID": "schedule/04_tidydata.html#before-class",
+    "href": "schedule/04_tidydata.html#before-class",
     "title": "Introduction to Tidy Data - Session 1",
     "section": "Before Class",
     "text": "Before Class\nReview the How To Lesson 1 and Lesson 2. If you are comfortable with these principles and strategies, please take a look at Lesson 3"
   },
   {
-    "objectID": "schedule/04_tidydata1.html#reflect",
-    "href": "schedule/04_tidydata1.html#reflect",
+    "objectID": "schedule/04_tidydata.html#reflect",
+    "href": "schedule/04_tidydata.html#reflect",
     "title": "Introduction to Tidy Data - Session 1",
     "section": "Reflect",
     "text": "Reflect"
   },
   {
-    "objectID": "schedule/04_tidydata1.html#slides",
-    "href": "schedule/04_tidydata1.html#slides",
+    "objectID": "schedule/04_tidydata.html#slides",
+    "href": "schedule/04_tidydata.html#slides",
     "title": "Introduction to Tidy Data - Session 1",
     "section": "Slides",
     "text": "Slides"
   },
   {
-    "objectID": "schedule/04_tidydata1.html#resources-for-further-exploration",
-    "href": "schedule/04_tidydata1.html#resources-for-further-exploration",
+    "objectID": "schedule/04_tidydata.html#resources-for-further-exploration",
+    "href": "schedule/04_tidydata.html#resources-for-further-exploration",
     "title": "Introduction to Tidy Data - Session 1",
     "section": "Resources for Further Exploration",
     "text": "Resources for Further Exploration"
@@ -1554,43 +1554,43 @@
     "text": "Footnotes\n\n\nAt the beginning of our session, we’ll catalog some of these datasets - it may help to write down some of your thoughts to share.↩︎"
   },
   {
-    "objectID": "schedule/05_tidydata2.html",
-    "href": "schedule/05_tidydata2.html",
+    "objectID": "schedule/05_tidydata.html",
+    "href": "schedule/05_tidydata.html",
     "title": "Introduction to Tidy Data - Session 2",
     "section": "",
     "text": "This week, we’ll spend time reviewing the basics of what tidy data are, and will review common manipulation strategies. We will continue the work that we began on Tuesday and will take a few moments to reflect upon how these principles help us with some of our foundational approaches to information in this class."
   },
   {
-    "objectID": "schedule/05_tidydata2.html#session-description",
-    "href": "schedule/05_tidydata2.html#session-description",
+    "objectID": "schedule/05_tidydata.html#session-description",
+    "href": "schedule/05_tidydata.html#session-description",
     "title": "Introduction to Tidy Data - Session 2",
     "section": "",
     "text": "This week, we’ll spend time reviewing the basics of what tidy data are, and will review common manipulation strategies. We will continue the work that we began on Tuesday and will take a few moments to reflect upon how these principles help us with some of our foundational approaches to information in this class."
   },
   {
-    "objectID": "schedule/05_tidydata2.html#before-class",
-    "href": "schedule/05_tidydata2.html#before-class",
+    "objectID": "schedule/05_tidydata.html#before-class",
+    "href": "schedule/05_tidydata.html#before-class",
     "title": "Introduction to Tidy Data - Session 2",
     "section": "Before Class",
     "text": "Before Class\nReview the How To Lesson 3."
   },
   {
-    "objectID": "schedule/05_tidydata2.html#reflect",
-    "href": "schedule/05_tidydata2.html#reflect",
+    "objectID": "schedule/05_tidydata.html#reflect",
+    "href": "schedule/05_tidydata.html#reflect",
     "title": "Introduction to Tidy Data - Session 2",
     "section": "Reflect",
     "text": "Reflect"
   },
   {
-    "objectID": "schedule/05_tidydata2.html#slides",
-    "href": "schedule/05_tidydata2.html#slides",
+    "objectID": "schedule/05_tidydata.html#slides",
+    "href": "schedule/05_tidydata.html#slides",
     "title": "Introduction to Tidy Data - Session 2",
     "section": "Slides",
     "text": "Slides"
   },
   {
-    "objectID": "schedule/05_tidydata2.html#resources-for-further-exploration",
-    "href": "schedule/05_tidydata2.html#resources-for-further-exploration",
+    "objectID": "schedule/05_tidydata.html#resources-for-further-exploration",
+    "href": "schedule/05_tidydata.html#resources-for-further-exploration",
     "title": "Introduction to Tidy Data - Session 2",
     "section": "Resources for Further Exploration",
     "text": "Resources for Further Exploration"
