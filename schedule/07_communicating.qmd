@@ -16,7 +16,7 @@ Your goal is to use our lab session plus an additional 3-4 hours to work through
 ## Before Class
 
 1.  Take a look at these instructions.
-2.  [Accept the lab repository](https://classroom.github.com/a/vnAmHOqZ), link to Github, and create a local version of the repository.
+2.  [Accept the lab repository](https://classroom.github.com/a/azW9zQQS), link to Github, and create a local version of the repository.
 3.  Come to class with any initial questions you have about the Learner's Permit of what you're being asked.
 
 ## Reflect

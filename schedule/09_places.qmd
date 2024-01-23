@@ -15,7 +15,7 @@ To add depth to our example, we will explore not only basic place descriptions, 
 
 ## Before Class
 
-Accept the [GitHub Classroom invitation](https://classroom.github.com/a/f9phgn1X) to our lab repository and use RStudio to pull the repository to your local computer.
+Accept the [GitHub Classroom invitation](https://classroom.github.com/a/rRX-a8Ad) to our lab repository and use RStudio to pull the repository to your local computer.
 
 Read our [lab background](../assignments/labs/04_describing_places/04_describing.qmd) so you are prepared to start working through the lab repository notebook.
 

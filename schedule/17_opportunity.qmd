@@ -11,6 +11,7 @@ editor: visual
 
 ## Before Class
 
+[GitHub Classroom Link](https://classroom.github.com/a/HefJuFJW)
 ## Reflect
 
 ## Slides

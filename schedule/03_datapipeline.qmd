@@ -19,7 +19,7 @@ Review today's [lab guide](../assignments/labs/01_datapipeline/01_datapipeline.q
 
 Ensure that your computer has the latest stable versions of [R](https://cran.rstudio.com) and [RStudio](https://posit.co/download/rstudio-desktop/) installed.
 
-Accept the [GitHub invitation](https://classroom.github.com/a/TzkeNAie) to our Lab 1 repository and download the repository to your local computer (we will set up more advanced tools for interacting with GitHub in our next lab session.
+Accept the [GitHub invitation](https://classroom.github.com/a/_An0IfYe) to our Lab 1 repository and download the repository to your local computer (we will set up more advanced tools for interacting with GitHub in our next lab session.
 
 ## Reflect
 

@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Neighborhood Analysis - Lesson 2: Manipulating Data Frames</title>
 <style>
 code{white-space: pre-wrap;}
@@ -53,6 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -71,7 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -90,12 +95,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="../styles.css">
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
 </head>
+
 <body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Neighborhood Analysis</span>
@@ -107,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
@@ -137,11 +148,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Discussion</span></a>
   </li>  
 </ul>
-<div class="quarto-navbar-tools ms-auto">
+            <div class="quarto-navbar-tools ms-auto">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -149,11 +162,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Get Started</span></a>
@@ -161,8 +178,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../howto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
@@ -175,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -184,8 +201,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../howto/rbasics_01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lesson 1: Basic Principles</span></a>
@@ -204,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -213,15 +230,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../howto/PWBTN/PWBTN.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Planning and Writing By The Numbers</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Code Base</span></span>
@@ -231,27 +248,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Share Your Work</span></span>
   </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#lesson-overview" id="toc-lesson-overview" class="nav-link active" data-scroll-target="#lesson-overview">Lesson Overview</a></li>
+  <li><a href="#lesson-overview" id="toc-lesson-overview" class="nav-link active" data-scroll-target="#lesson-overview">Lesson Overview</a></li>
   <li><a href="#lesson-goals" id="toc-lesson-goals" class="nav-link" data-scroll-target="#lesson-goals">Lesson Goals</a></li>
-  <li>
-<a href="#getting-set-up" id="toc-getting-set-up" class="nav-link" data-scroll-target="#getting-set-up">Getting Set Up</a>
+  <li><a href="#getting-set-up" id="toc-getting-set-up" class="nav-link" data-scroll-target="#getting-set-up">Getting Set Up</a>
   <ul class="collapse">
-<li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
   <li><a href="#extending-base-r-with-packages" id="toc-extending-base-r-with-packages" class="nav-link" data-scroll-target="#extending-base-r-with-packages">Extending Base R With Packages</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#read-in-data" id="toc-read-in-data" class="nav-link" data-scroll-target="#read-in-data">Read in Data</a></li>
-  <li>
-<a href="#describing-the-data" id="toc-describing-the-data" class="nav-link" data-scroll-target="#describing-the-data">Describing the Data</a>
+  <li><a href="#describing-the-data" id="toc-describing-the-data" class="nav-link" data-scroll-target="#describing-the-data">Describing the Data</a>
   <ul class="collapse">
-<li><a href="#size" id="toc-size" class="nav-link" data-scroll-target="#size">Size</a></li>
+  <li><a href="#size" id="toc-size" class="nav-link" data-scroll-target="#size">Size</a></li>
   <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
   <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names">Names</a></li>
   <li><a href="#summaries" id="toc-summaries" class="nav-link" data-scroll-target="#summaries">Summaries</a></li>
@@ -260,13 +276,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#grouped-means" id="toc-grouped-means" class="nav-link" data-scroll-target="#grouped-means">Grouped Means</a></li>
   <li><a href="#subsetting" id="toc-subsetting" class="nav-link" data-scroll-target="#subsetting">Subsetting</a></li>
   <li><a href="#dealing-with-missing-values" id="toc-dealing-with-missing-values" class="nav-link" data-scroll-target="#dealing-with-missing-values">Dealing with Missing Values</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#independent-exploration" id="toc-independent-exploration" class="nav-link" data-scroll-target="#independent-exploration">Independent Exploration:</a></li>
-  </ul></nav>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Lesson 2: Manipulating Data Frames</h1>
 </div>
 
@@ -280,14 +299,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><section id="lesson-overview" class="level2"><h2 class="anchored" data-anchor-id="lesson-overview">Lesson Overview</h2>
-</section><section id="lesson-goals" class="level2"><h2 class="anchored" data-anchor-id="lesson-goals">Lesson Goals</h2>
+</header>
+
+<section id="lesson-overview" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-overview">Lesson Overview</h2>
+</section>
+<section id="lesson-goals" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-goals">Lesson Goals</h2>
 <p>By the end of this lesson, you should be familiar with:</p>
 <ul>
 <li>Basic tools for selecting and subsetting data</li>
 <li>Strategies for describing data</li>
-</ul></section><section id="getting-set-up" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="getting-set-up">Getting Set Up</h2>
-<section id="the-data" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="the-data">The Data</h3>
+</ul>
+</section>
+<section id="getting-set-up" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="getting-set-up">Getting Set Up</h2>
+<section id="the-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="the-data">The Data</h3>
 <p>So far, we’ve worked with “tiny” bits of data - mainly things that we input manually. It’s time to start working with some real world data!</p>
 <p>We’re going to work with data on those census tracts that were designated as Opportunity Zones as part of the federal <a href="https://www.congress.gov/115/bills/hr1/BILLS-115hr1enr.pdf">Tax Cuts and Jobs Act of 2017</a>. These incentives are designed to spur investment in low-income and undercapitalized cities, by providing investors with tax incentives to invest capital in these locations. Each state had the opportunity to designate specific census tracts as Opportunity Zones. Practitioners and researchers have <a href="https://www.urban.org/policy-centers/metropolitan-housing-and-communities-policy-center/projects/opportunity-zones">many questions</a> about the efficacy of the program and the designations made by governors.</p>
 <p>Take a look <a href="https://www.arcgis.com/apps/View/index.html?appid=77f3cad12b6c4bffb816332544f04542">here</a> to see a map of where designated opportunity zones are located. The orange geometries reflected on the map are <a href="https://www.census.gov/programs-surveys/geography/about/glossary.html#par_textimage_13">census tracts</a>, which we often use as a proxy for neighborhoods, especially in urban areas. Find a place you know, and take a look at which areas are designated.</p>
@@ -295,56 +323,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>You’ll need to authenticate and log in to UIUC Box to access this file. You can also download the data <a href="https://www.urban.org/sites/default/files/2021-01/urbaninstitute_tractlevelozanalysis_update01142021.xlsx">directly</a> from Urban Institute’s Opportunity Zone <a href="https://www.urban.org/policy-centers/metropolitan-housing-and-communities-policy-center/projects/opportunity-zones">landing page</a>.</p>
-</div></div></section><section id="extending-base-r-with-packages" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="extending-base-r-with-packages">Extending Base R With Packages</h3>
+</div></div></section>
+<section id="extending-base-r-with-packages" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="extending-base-r-with-packages">Extending Base R With Packages</h3>
 <p>We’re been working exclusively in “base” R as we are getting familiar with the R language and RStudio interface. This means we’ve been working with the commands and functions that come with every new installation of R.</p>
 <p>There’s a whole world of other functions that we can use to extend R’s functionality - these packages can help us do things like load data with specific formats, make visualizations, and run specific types of statistical models. There’s more than 20,000 packages which users have created to extend R’s functionality - you can find a list <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">here</a>. We’ll introduce common packages which help with neighborhood analysis tasks, but your favorite search engine is probably the easiest way to find packages or functions that may help you read specific data or perform certain types of tasks.</p>
-<section id="readxl" class="level4"><h4 class="anchored" data-anchor-id="readxl">Readxl</h4>
+<section id="readxl" class="level4">
+<h4 class="anchored" data-anchor-id="readxl">Readxl</h4>
 <p>Our first exploration with packages will help us read in our Opportunity Zone data. We will use a package called <code>readxl</code> which is designed to, well, <em>read Microsoft Excel files</em> such as the Opportunity Zone data.</p>
-</section><section id="installing-readxl" class="level4 page-columns page-full"><h4 class="anchored" data-anchor-id="installing-readxl">Installing Readxl</h4>
+</section>
+<section id="installing-readxl" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="installing-readxl">Installing Readxl</h4>
 <p>We will use the <a href="https://readxl.tidyverse.org"><code>readxl</code></a> package to help us read our Opportunity Zone data from an Excel workbook into Rstudio so we can view it as a data frame. The first time you want to make use of a package you have not used before, you’ll need to <em>install</em> it, which essentially means R needs to download it from a repository on the internet and prepare it to be accessed on your computer.</p>
 <p>We use the <a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages"><code>install.packages()</code></a> command to automatically download and prepare the package for use:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readxl"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Note that the name of the package is in quotes here. Any guesses as to why?</p>
 </div></div><p>Note that we only need to <em>install</em> the package one time. It will remain available on your machine for use in the future.</p>
-</section><section id="loading-readxl" class="level4 page-columns page-full"><h4 class="anchored" data-anchor-id="loading-readxl">Loading Readxl</h4>
-<p>In our previous step, we <em>installed</em> the <code>readxl</code> package which involved downloading it form an internet repository and preparing it for use. There’s an additional step - now we need to <em>load</em> the package, which tells R that we want to make the package’s functions available for use in our current R session. The <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command loads packages for use in our current R session. While we only need to install a package one time, each time you start a new R session, you’ll need to load the packages you want to use for a particular kind of additional functionality.</p>
+</section>
+<section id="loading-readxl" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="loading-readxl">Loading Readxl</h4>
+<p>In our previous step, we <em>installed</em> the <code>readxl</code> package which involved downloading it form an internet repository and preparing it for use. There’s an additional step - now we need to <em>load</em> the package, which tells R that we want to make the package’s functions available for use in our current R session. The <code>library()</code> command loads packages for use in our current R session. While we only need to install a package one time, each time you start a new R session, you’ll need to load the packages you want to use for a particular kind of additional functionality.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Note that the name of the package is <em>not</em> in quotes here. Any guesses as to why?</p>
 </div></div><p>Now that the <code>readxl</code> package is loaded, we can make use of it to read our Opportunity Zone data into our R session.</p>
-</section><section id="takeaways" class="level4"><h4 class="anchored" data-anchor-id="takeaways">Takeaways</h4>
+</section>
+<section id="takeaways" class="level4">
+<h4 class="anchored" data-anchor-id="takeaways">Takeaways</h4>
 <ul>
-<li><p>In general, you will only need to use <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> once (once a package is installed, you can use it for all R sessions moving forward).</p></li>
-<li><p>To load packages, we use the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> command. This will load an already installed package and make it accessible within our current R session. You will need to load already installed packages at the beginning of each new R session. Typically, it is a good practice to load the packages you’ll use in a script at the beginning of the script.</p></li>
+<li><p>In general, you will only need to use <code>install.packages()</code> once (once a package is installed, you can use it for all R sessions moving forward).</p></li>
+<li><p>To load packages, we use the <code>library()</code> command. This will load an already installed package and make it accessible within our current R session. You will need to load already installed packages at the beginning of each new R session. Typically, it is a good practice to load the packages you’ll use in a script at the beginning of the script.</p></li>
 </ul>
 <p>Note that to install the package, you need to treat the package name as a character vector <code>"readxl"</code>, but when you load it in your R session, it does not need to be treated as a character vector<code>readxl</code>.</p>
-</section></section></section><section id="read-in-data" class="level2"><h2 class="anchored" data-anchor-id="read-in-data">Read in Data</h2>
-<p>Now that we’ve loaded the <code>readxl</code> package, we can import the Excel file containing data on tracts designated as opportunity zones in the United States. To learn about the <em>functions</em> in the package, you can either do a Google search for <a href="https://readxl.tidyverse.org">Readxl</a>, or you can use R’s built in documentation by typing <code><a href="https://readxl.tidyverse.org/reference/readxl-package.html">?readxl</a></code></p>
+</section>
+</section>
+</section>
+<section id="read-in-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-data">Read in Data</h2>
+<p>Now that we’ve loaded the <code>readxl</code> package, we can import the Excel file containing data on tracts designated as opportunity zones in the United States. To learn about the <em>functions</em> in the package, you can either do a Google search for <a href="https://readxl.tidyverse.org">Readxl</a>, or you can use R’s built in documentation by typing <code>?readxl</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">readxl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?readxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that running this command pops open documentation for <code>readxl</code> in the Help tab of the auxiliary pane. As the documentation states, <code>readxl</code> imports excel files. Looking at the documentation, the <code><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel()</a></code> command will read a single excel sheet, or we can optionally select a sheet by name or number from an excel workbook with multiple sheets. In this case, the Urban Institute data is in a workbook with a single sheet, so we just need to tell R where the file is to load.</p>
+<p>Note that running this command pops open documentation for <code>readxl</code> in the Help tab of the auxiliary pane. As the documentation states, <code>readxl</code> imports excel files. Looking at the documentation, the <code>read_excel()</code> command will read a single excel sheet, or we can optionally select a sheet by name or number from an excel workbook with multiple sheets. In this case, the Urban Institute data is in a workbook with a single sheet, so we just need to tell R where the file is to load.</p>
 <p>The dataset we want to load is called “urbaninstitute_tractlevelozanalysis_update01142021.xlsx” (oof! - that’s a descriptive but way too long file name!). We can point R to the correct location. Since our R project file sets the relative path for all of the work within, the path to the data is:<code>"data/urbaninstitute_tractlevelozanalysis_update1242018.xlsx"</code>. Wrapped into the command to read the excel file, it looks like this:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(<span class="st">"data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R read the data and is displaying it to us. But one problem - it read the data in and we can look at it, but it’s not really available for our continued use. We typically want to read data and store it as an object so that we can refer back to it and even modify it.</p>
 <p>Let’s go ahead and read the Excel data in again, but this time, we’ll assign it to an object called “ozs”:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span><span class="op">&lt;-</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ozs<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">"data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Look at your Environment window (top right quadrant of RStudio) - a data frame containing information on opportunity zones should be loaded in an object called “ozs”.</p>
 <p>The environment window tells us that the object ozs contains 42,176 observations (rows) and 27 variables (columns).</p>
 <p>If we type the name of the object, we can view it’s contents:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ozs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 42,178 × 27
    geoid       state   DesignatedOZ county    Type  dec_score SE_Flag Population
@@ -367,13 +408,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   BAorhigher &lt;dbl&gt;, Metro &lt;dbl&gt;, Micro &lt;dbl&gt;, NoCBSAType &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>You could also inspect the dataset using the <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> command. This will allow us to look at the data in a tabular format.</p>
+<p>You could also inspect the dataset using the <code>View()</code> command. This will allow us to look at the data in a tabular format.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, use the str() (structure) command to gain a better understanding of the <em>types</em> of data in each column</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [42,178 × 27] (S3: tbl_df/tbl/data.frame)
  $ geoid           : chr [1:42178] "01001020200" "01001020300" "01001020700" "01001020802" ...
@@ -411,46 +452,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>These data are at the census tract level and include geographic identifiers including <strong>geoid</strong>, the combined, state-county-tract FIPS code, <strong>state</strong> the state name, and <strong>county</strong> the county name.</li>
 <li>These data include a field named <strong>Designated</strong> which is 1 when an eligible tract was designated as an opportunity zone, and <code>NA</code> where the tract was not designated.</li>
 <li>The dataset also includes some other tract-level demographic measures, as well as additional geographic flags.</li>
-</ul></section><section id="describing-the-data" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="describing-the-data">Describing the Data</h2>
+</ul>
+</section>
+<section id="describing-the-data" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="describing-the-data">Describing the Data</h2>
 <p>When we load a new dataset that we’re not familiar with, it’s a good idea to spend a few minutes <em>describing</em> the data. This allows us to understand a bit more about it’s structure and may also help us ask some basic questions about the validity and reliability of the data (at least compared to what we are expecting to see). R has several functions for determining the structure of data frames and tibbles. See below:</p>
-<section id="size" class="level3"><h3 class="anchored" data-anchor-id="size">Size</h3>
+<section id="size" class="level3">
+<h3 class="anchored" data-anchor-id="size">Size</h3>
 <ul>
-<li>
-<code>dim(ozs)</code>: returns a vector with the number of rows in the first element, and the number of columns as the second element (the dimensions of the object)</li>
+<li><code>dim(ozs)</code>: returns a vector with the number of rows in the first element, and the number of columns as the second element (the dimensions of the object)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42178    27</code></pre>
 </div>
 </div>
 <ul>
-<li>
-<code>nrow(ozs)</code>: returns the number of rows</li>
+<li><code>nrow(ozs)</code>: returns the number of rows</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42178</code></pre>
 </div>
 </div>
 <ul>
-<li>
-<code>ncol(ozs)</code>: returns the number of columns</li>
+<li><code>ncol(ozs)</code>: returns the number of columns</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 27</code></pre>
 </div>
 </div>
-</section><section id="content" class="level3"><h3 class="anchored" data-anchor-id="content">Content</h3>
+</section>
+<section id="content" class="level3">
+<h3 class="anchored" data-anchor-id="content">Content</h3>
 <ul>
-<li>
-<code>head(ozs)</code>: shows the first 6 rows</li>
+<li><code>head(ozs)</code>: shows the first 6 rows</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 27
   geoid state DesignatedOZ county Type  dec_score SE_Flag Population medhhincome
@@ -469,11 +512,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
-<li>
-<code>tail(ozs)</code>: shows the last 6 rows</li>
+<li><code>tail(ozs)</code>: shows the last 6 rows</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 27
   geoid state DesignatedOZ county Type  dec_score SE_Flag Population medhhincome
@@ -491,13 +533,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   Metro &lt;dbl&gt;, Micro &lt;dbl&gt;, NoCBSAType &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section><section id="names" class="level3"><h3 class="anchored" data-anchor-id="names">Names</h3>
+</section>
+<section id="names" class="level3">
+<h3 class="anchored" data-anchor-id="names">Names</h3>
 <ul>
-<li>
-<code>names(ozs)</code>: returns the column names as a list</li>
+<li><code>names(ozs)</code>: returns the column names as a list</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "geoid"            "state"            "DesignatedOZ"     "county"          
  [5] "Type"             "dec_score"        "SE_Flag"          "Population"      
@@ -508,13 +551,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [25] "Metro"            "Micro"            "NoCBSAType"      </code></pre>
 </div>
 </div>
-</section><section id="summaries" class="level3"><h3 class="anchored" data-anchor-id="summaries">Summaries</h3>
+</section>
+<section id="summaries" class="level3">
+<h3 class="anchored" data-anchor-id="summaries">Summaries</h3>
 <ul>
-<li>
-<code>str(ozs)</code>: structure of the object and information about the class, length and content of each column</li>
+<li><code>str(ozs)</code>: structure of the object and information about the class, length and content of each column</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [42,178 × 27] (S3: tbl_df/tbl/data.frame)
  $ geoid           : chr [1:42178] "01001020200" "01001020300" "01001020700" "01001020802" ...
@@ -547,11 +591,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
-<li>
-<code>summary(ozs)</code>: summary statistics for each column</li>
+<li><code>summary(ozs)</code>: summary statistics for each column</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ozs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    geoid              state            DesignatedOZ      county         
  Length:42178       Length:42178       Min.   :1       Length:42178      
@@ -624,10 +667,12 @@ Your Turn!
 <p>Try your hand at some of these summarization methods to see what they produce.</p>
 </div>
 </div>
-</section><section id="selective-summaries" class="level3"><h3 class="anchored" data-anchor-id="selective-summaries">Selective Summaries</h3>
+</section>
+<section id="selective-summaries" class="level3">
+<h3 class="anchored" data-anchor-id="selective-summaries">Selective Summaries</h3>
 <p>How would we run summaries just for population, median household income, and poverty rate (think back to how we created subsets using lists)?</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Population"</span>, <span class="st">"medhhincome"</span>, <span class="st">"PovertyRate"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ozs[, <span class="fu">c</span>(<span class="st">"Population"</span>, <span class="st">"medhhincome"</span>, <span class="st">"PovertyRate"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Population     medhhincome      PovertyRate    
  Min.   :    0   Min.   :  2499   Min.   :0.0000  
@@ -640,17 +685,14 @@ Your Turn!
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Your Turn!</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Your Turn!</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>Practice your querying skills - how would we return only those records for census tracts with a median household income above $100,000 per year?</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">medhhincome</span><span class="op">&gt;=</span><span class="fl">100000</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ozs[ozs<span class="sc">$</span>medhhincome<span class="sc">&gt;=</span><span class="dv">100000</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 399 × 27
    geoid       state   DesignatedOZ county    Type  dec_score SE_Flag Population
@@ -676,20 +718,19 @@ Your Turn!
 </div>
 </div>
 </div>
-</section><section id="tracts-in-illinois" class="level3"><h3 class="anchored" data-anchor-id="tracts-in-illinois">Tracts in Illinois</h3>
+</section>
+<section id="tracts-in-illinois" class="level3">
+<h3 class="anchored" data-anchor-id="tracts-in-illinois">Tracts in Illinois</h3>
 <p>Oftentimes, we’ll want to <em>query</em> out a subset of observations based upon their geographic location. Let’s try selecting all tracts in Illinois based upon their designation status.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Your Turn!</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Your Turn!</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>How would we query out tracts in Illinois? Experiment in your own script.</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Illinois"</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ozs[ozs<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"Illinois"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,682 × 27
    geoid       state    DesignatedOZ county   Type  dec_score SE_Flag Population
@@ -715,19 +756,16 @@ Your Turn!
 </div>
 </div>
 </div>
-<p>We can see in our table output that there are 1,682 eligible or designated tracts in Illinois. We could also use the <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> command to count the number of rows.</p>
+<p>We can see in our table output that there are 1,682 eligible or designated tracts in Illinois. We could also use the <code>nrow()</code> command to count the number of rows.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Your Turn!</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Your Turn!</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>Try crafting code that would count the number of rows for Illinois</p>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Illinois"</span>,<span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(ozs[ozs<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"Illinois"</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1682</code></pre>
 </div>
@@ -735,24 +773,23 @@ Your Turn!
 </div>
 </div>
 </div>
-</section><section id="grouped-means" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="grouped-means">Grouped Means</h3>
-<p>We might also want to calculate statistics like averages for subsets. <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> will calculate the mean of a list or column. What’s the average income for tracts with a vacancy rate above 20 percent?</p>
+</section>
+<section id="grouped-means" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="grouped-means">Grouped Means</h3>
+<p>We might also want to calculate statistics like averages for subsets. <code>mean()</code> will calculate the mean of a list or column. What’s the average income for tracts with a vacancy rate above 20 percent?</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Your Turn</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>What’s the average income for tracts with a vacancy rate below 20 percent?</p>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">medhhincome</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">vacancyrate</span> <span class="op">&gt;</span> <span class="fl">.2</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>medhhincome[ozs<span class="sc">$</span>vacancyrate <span class="sc">&gt;</span> .<span class="dv">2</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 35375.68</code></pre>
 </div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">medhhincome</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">vacancyrate</span> <span class="op">&lt;</span> <span class="fl">.2</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>medhhincome[ozs<span class="sc">$</span>vacancyrate <span class="sc">&lt;</span> .<span class="dv">2</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 43849.1</code></pre>
 </div>
@@ -762,22 +799,21 @@ Your Turn!
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>You might need to check out the documentation for <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> in order to return an answer here. R will not calculate the mean if an <code>NA</code> values are present in the vector for which you’ve requested the mean - a good safety feature if you’re expecting all values to be present.</p>
+<p>You might need to check out the documentation for <code>mean()</code> in order to return an answer here. R will not calculate the mean if an <code>NA</code> values are present in the vector for which you’ve requested the mean - a good safety feature if you’re expecting all values to be present.</p>
 <p>In imperfect data like what we’re dealing with, you can instruct R to remove those NAs and find the mean for remaining values. You may also want to make sure you’ve counted the number of NA values so you know what proportion of your data the mean is actually representing.</p>
-</div></div></section><section id="subsetting" class="level3"><h3 class="anchored" data-anchor-id="subsetting">Subsetting</h3>
+</div></div></section>
+<section id="subsetting" class="level3">
+<h3 class="anchored" data-anchor-id="subsetting">Subsetting</h3>
 <p>We might also be interested in combining query criteria. R can make use of logical statements. <code>&amp;</code> is equivalent to AND and <code>|</code> is equivalent to OR. Now give it a go!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Your Turn</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>What is the average income for tracts in Illinois with a poverty rate of greater than 20 percent.</p>
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">medhhincome</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Illinois"</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">PovertyRate</span> <span class="op">&gt;</span> <span class="fl">.2</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>medhhincome[ozs<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"Illinois"</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>PovertyRate <span class="sc">&gt;</span> .<span class="dv">2</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 33526</code></pre>
 </div>
@@ -787,7 +823,7 @@ Your Turn!
 </div>
 <p>To confirm we got the query correct, it may be useful to have a look at the returned data without calculating the mean:</p>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span><span class="op">$</span><span class="va">medhhincome</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Illinois"</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">PovertyRate</span> <span class="op">&gt;</span> <span class="fl">.2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ozs<span class="sc">$</span>medhhincome[ozs<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"Illinois"</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>PovertyRate <span class="sc">&gt;</span> .<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 28819 32313 17850 26012 40475 35387 40714 22326 21500 49590 40599 37679
  [13] 26676  7004    NA  7273  5736 38056 38083 33873 49597 22813 30994 49303
@@ -864,12 +900,14 @@ Your Turn!
 [865]    NA    NA    NA    NA    NA    NA    NA    NA    NA</code></pre>
 </div>
 </div>
-</section><section id="dealing-with-missing-values" class="level3"><h3 class="anchored" data-anchor-id="dealing-with-missing-values">Dealing with Missing Values</h3>
+</section>
+<section id="dealing-with-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="dealing-with-missing-values">Dealing with Missing Values</h3>
 <p>You’ll note that there are several flag variables in the data for which values are either 1 or <code>NA</code>. We have flags for whether a tract was designated as an Opportunity Zone, Whether it is located in a Metropolitan, Micropolitan, or Non-Core-Based Statistical Area.</p>
-<p>We can use logical tests in R to identify those values that are <code>NA</code>. We can use <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> to test whether a value is NA (TRUE) or is not NA (FALSE). We could also use the negation sign <code>!</code> to determine whether a value <em>is not</em> <code>NA</code> (<code>!is.na()</code>).</p>
+<p>We can use logical tests in R to identify those values that are <code>NA</code>. We can use <code>is.na()</code> to test whether a value is NA (TRUE) or is not NA (FALSE). We could also use the negation sign <code>!</code> to determine whether a value <em>is not</em> <code>NA</code> (<code>!is.na()</code>).</p>
 <p>The following code returns a vector of logical values (TRUE / FALSE) regarding whether the value for the Designated column is <code>NA</code> or not.</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(ozs<span class="sc">$</span>Designated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
@@ -879,7 +917,7 @@ Your Turn!
 </div>
 <p>For logical values, R codes 1 as TRUE and 0 as false, meaning if we wanted to count the number of undesginated tracts, we could ask for the sum of the values for which the logical test is true (the sum of the values that are <code>NA</code>):</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(ozs<span class="sc">$</span>Designated))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
@@ -889,17 +927,14 @@ Your Turn!
 </div>
 <p>33,414 tracts were not designated.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Your Turn</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <p>Now count the number of tracts that were designated (where the value is not <code>NA</code>).</p>
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(ozs<span class="sc">$</span>Designated))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
@@ -912,8 +947,8 @@ Your Turn!
 </div>
 <p>We might also want to recode those NA values to something else. We can use assignment and subset notation to replace na values with something else. Let’s replace those NAs in the Designated column with 0.</p>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span><span class="op">$</span><span class="va">DesignatedOZ</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">DesignatedOZ</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0</span></span>
-<span><span class="va">ozs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>ozs<span class="sc">$</span>DesignatedOZ[<span class="fu">is.na</span>(ozs<span class="sc">$</span>DesignatedOZ)]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>ozs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 42,178 × 27
    geoid       state   DesignatedOZ county    Type  dec_score SE_Flag Population
@@ -938,52 +973,49 @@ Your Turn!
 </div>
 <p>Can you inspect the table here to see what happened? In plain language, we told R “for those values of the column named Designated in the ozs data table where the values are <code>NA</code>, assign a new value of 0.”</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Your Turn</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <p>Go ahead and do the same thing for the Metro, Micro, and NoCBSAType columns.</p>
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ozs</span><span class="op">$</span><span class="va">Metro</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">Metro</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0</span></span>
-<span><span class="va">ozs</span><span class="op">$</span><span class="va">Micro</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">Micro</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0</span></span>
-<span><span class="va">ozs</span><span class="op">$</span><span class="va">NoCBSAType</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">NoCBSAType</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>ozs<span class="sc">$</span>Metro[<span class="fu">is.na</span>(ozs<span class="sc">$</span>Metro)]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>ozs<span class="sc">$</span>Micro[<span class="fu">is.na</span>(ozs<span class="sc">$</span>Micro)]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>ozs<span class="sc">$</span>NoCBSAType[<span class="fu">is.na</span>(ozs<span class="sc">$</span>NoCBSAType)]<span class="ot">&lt;-</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-</section></section><section id="independent-exploration" class="level2"><h2 class="anchored" data-anchor-id="independent-exploration">Independent Exploration:</h2>
+</section>
+</section>
+<section id="independent-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="independent-exploration">Independent Exploration:</h2>
 <p>Now answer the following questions:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Your Turn</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
 <p>Report average poverty rates for <em>designated</em> opportunity zones in metropolitan, micropolitan, and non-CBSA areas</p>
 </div>
 <div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your Work Here</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">PovertyRate</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span> <span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">Metro</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your Work Here</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>PovertyRate[ozs<span class="sc">$</span>Designated <span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>Metro <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NaN</code></pre>
 </div>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">PovertyRate</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span> <span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">Micro</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>PovertyRate[ozs<span class="sc">$</span>Designated <span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>Micro <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NaN</code></pre>
 </div>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">PovertyRate</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span> <span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">NoCBSAType</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>PovertyRate[ozs<span class="sc">$</span>Designated <span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>NoCBSAType <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
@@ -995,24 +1027,21 @@ Your Turn!
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Your Turn</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Solution</a></li>
-</ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Solution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
 <p>For Illinois, how different are the average vacancy rates for <em>designated</em> and <em>undesignated</em> census tracts?</p>
 </div>
 <div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
 <div class="cell">
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">vacancyrate</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Illinois"</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>vacancyrate[ozs<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"Illinois"</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>Designated <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NaN</code></pre>
 </div>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">ozs</span><span class="op">$</span><span class="va">vacancyrate</span><span class="op">[</span><span class="va">ozs</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"Illinois"</span> <span class="op">&amp;</span> <span class="va">ozs</span><span class="op">$</span><span class="va">Designated</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>vacancyrate[ozs<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"Illinois"</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>Designated <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Unknown or uninitialised column: `Designated`.</code></pre>
 </div>
@@ -1026,7 +1055,10 @@ Your Turn!
 <p>Think of another question you’d like to ask of these data - write it down and work the problem out.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1260,14 +1292,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">Content <i class="fa-regular fa-copyright" aria-label="copyright"></i> Andrew J. Greenlee</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a>  Website Code on <a href="https://github.com/agreen4/UP570_S24_Website">Github <i class="fa-brands fa-github" aria-label="github"></i></a></div>
+    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a> <br> Website Code on <a href="https://github.com/agreen4/UP570_S24_Website">Github <i class="fa-brands fa-github" aria-label="github"></i></a></div>
   </div>
 </footer>
+
 
 
 </body></html>

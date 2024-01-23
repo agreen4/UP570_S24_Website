@@ -17,6 +17,8 @@ We'll then engage any questions you have about this week's lab or last week's la
 
 ## Before Class
 
+[GitHub Classroom Link](https://classroom.github.com/a/KR0xhhSw)
+
 Please come ready to share your approach to the population memo in small groups. Please bring in examples of analysis or visualization that we can look at, either in small groups or collectively.
 
 ## Reflect
@@ -87,6 +89,7 @@ ggplot() +
 ```
 
 ### Option 2: Intersection
+
 Another option is to find the spatial intersection of the two objects:
 
 ```{r}

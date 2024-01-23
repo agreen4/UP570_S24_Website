@@ -20,6 +20,8 @@ During this session, we will focus on translating our group field observations i
 
 -   Review your notes and materials from your visit work on Monday.
 
+[Github Classroom Link](https://classroom.github.com/a/Aqf-Qwpk)
+
 ## During Class
 
 Work collaboratively with your group members to develop a short memorandum describing the West Urbana neighborhood. Your memo should include demographic information coming from census data or other sources of secondary data (please start with the same selected census indicators we have worked with for the past few weeks).
