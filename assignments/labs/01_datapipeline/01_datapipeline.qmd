@@ -119,13 +119,13 @@ Each time you close your RStudio session, you will be faced with a temptation - 
 
 ![](14_workspace.png)
 
-What's the difference between a script, a project, and a workspace? 
+What's the difference between a script, a project, and a workspace?
 
-- **Script:** A script contains the code which tells R what you want it to do. Script commands are run in the console in the order they are written. You want to get in the habit of saving your script files often. 
+-   **Script:** A script contains the code which tells R what you want it to do. Script commands are run in the console in the order they are written. You want to get in the habit of saving your script files often.
 
-- **Project:** Your project file tells R the path to look for files and folders at. This sets a relative path for your work in that project. 
+-   **Project:** Your project file tells R the path to look for files and folders at. This sets a relative path for your work in that project.
 
-- **Workspace:** A workspace file saves the exact image of what's going on when you close out of RStudio - that may include loaded datasets, functions, and objects.
+-   **Workspace:** A workspace file saves the exact image of what's going on when you close out of RStudio - that may include loaded datasets, functions, and objects.
 
 You have likely been tempted to save your workspace when you are closing your R session. While tempting, I encourage you **not** to get in the habit of saving your workspace. This runs counter to most other interactions you've had with computers - saving documents, video games, or survey responses. Saving your workspace can lead to bad habits with regards to reproducibility. You want to allow your scripts to serve as a repository for all steps that go from your raw data to your analysis and outputs. Unless your script has time or computationally intensive steps, your scripts and computer can re-run your workflow to return to the point that you left off when you last worked on the project.
 
@@ -217,7 +217,7 @@ While a lot of our coding can be done directly in Quarto Markdown documents, you
 
 Taking a few extra minutes to develop a nice script header will be beneficial in the future - your future self, your collaborators, and others who use your code will appreciate it!
 
-Like so many other R things, there's no standardized example of what a script header needs to include, howevver, here's a basic header template to start with:
+Like so many other R things, there's no standardized example of what a script header needs to include, however, here's a basic header template to start with:
 
 ```{r}
 #| eval: false

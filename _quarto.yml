@@ -51,7 +51,7 @@ website:
             - text: "5. Working with Tidy Data"
               file: schedule/05_tidydata.qmd
             - text: "6. Describing Places"
-              file: schedule/06_places.qmd
+              file: schedule/06_sharing.qmd
             - text: "7. Communicating Complex Information"
               file: schedule/07_communicating.qmd
         - section: "Strategies for Analysis"
