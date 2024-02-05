@@ -34,3 +34,5 @@ This session builds upon the work on your last lab. In that lab, you worked on d
 ## Slides
 
 ## Resources for Further Exploration
+
+[Gitcreds Package](https://gitcreds.r-lib.org/index.html)
