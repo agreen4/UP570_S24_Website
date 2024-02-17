@@ -13,7 +13,7 @@ In this session, we will work on our lab focused on exploring population and the
 
 ## Before Class
 
-Accept the [GitHub Classroom invitation](https://classroom.github.com/a/dodpWvknR) to our lab repository and use RStudio to pull the repository to your local computer.
+Accept the [GitHub Classroom invitation](https://classroom.github.com/a/dodpWvkn) to our lab repository and use RStudio to pull the repository to your local computer.
 
 Read our [lab background](../assignments/labs/05_population_census/05_census.qmd) so you are prepared to start working through the lab repository notebook.
 
