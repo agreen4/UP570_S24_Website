@@ -15,6 +15,8 @@ In this session, we will talk about how planners measure basic dimensions of pop
 
 Klosterman 2 [{{< fa file >}}](https://uofi.box.com/s/2ki78jbm88y09j41zozqrfjc0wmva372).
 
+Read our [lab background](../assignments/labs/05_population_census/05_census.qmd) and bring any questions to today's class. We will work on the lab during our class time on Wednesday.
+
 ## Reflect
 
 -   What types of characteristics might be well-represented within Census data? What characteristics are harder to measure or represent?
