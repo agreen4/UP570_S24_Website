@@ -2,8 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
-.csv
-.rds
+*.csv
+*.rds
+*.rdb
 /data_raw/
 /.quarto/
 
