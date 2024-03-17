@@ -11,8 +11,13 @@ editor: visual
 
 ## Before Class
 
+Review the Place Opportunity [lab guide](../assignments/labs/08_place_opportunity/08_placeopportunity.qmd).
+
 [GitHub Classroom Link](https://classroom.github.com/a/HefJuFJW)
+
 ## Reflect
+
+What types of value judgements inform what makes a place "good" or "bad"?
 
 ## Slides
 
