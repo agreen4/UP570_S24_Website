@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Neighborhood Analysis - Lesson 3: Tidy Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Neighborhood Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus/index.html" rel="" target="">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule/index.html" rel="" target="">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignments/index.html" rel="" target="">
+ <span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../howto/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">How To</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resources/index.html" rel="" target="">
+ <span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/UP570-S24/discussion" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text">Discussion</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../howto/rbasics_01.html">R Basics</a></li><li class="breadcrumb-item"><a href="../howto/rbasics_03.html">Lesson 3: Tidy Data</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Get Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../howto/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../howto/setupr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set Up R and RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../howto/rbasics_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 1: Basic Principles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../howto/rbasics_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 2: Manipulating Data Frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../howto/rbasics_03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lesson 3: Tidy Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Communicate Your Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../howto/PWBTN/PWBTN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Planning and Writing By The Numbers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Code Base</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Share Your Work</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lesson-overview" id="toc-lesson-overview" class="nav-link active" data-scroll-target="#lesson-overview">Lesson Overview</a></li>
+  <li><a href="#lesson-goals" id="toc-lesson-goals" class="nav-link" data-scroll-target="#lesson-goals">Lesson Goals</a></li>
+  <li><a href="#getting-set-up" id="toc-getting-set-up" class="nav-link" data-scroll-target="#getting-set-up">Getting Set Up</a>
+  <ul class="collapse">
+  <li><a href="#loading-required-packages" id="toc-loading-required-packages" class="nav-link" data-scroll-target="#loading-required-packages">Loading Required Packages</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading Data</a></li>
+  </ul></li>
+  <li><a href="#an-easier-and-more-efficient-way" id="toc-an-easier-and-more-efficient-way" class="nav-link" data-scroll-target="#an-easier-and-more-efficient-way">An easier and more efficient way?</a>
+  <ul class="collapse">
+  <li><a href="#principles-of-tidy-data" id="toc-principles-of-tidy-data" class="nav-link" data-scroll-target="#principles-of-tidy-data">Principles of Tidy Data</a></li>
+  </ul></li>
+  <li><a href="#your-first-tidy-coding" id="toc-your-first-tidy-coding" class="nav-link" data-scroll-target="#your-first-tidy-coding">Your First Tidy Coding</a>
+  <ul class="collapse">
+  <li><a href="#poverty-rates" id="toc-poverty-rates" class="nav-link" data-scroll-target="#poverty-rates">Poverty Rates</a></li>
+  <li><a href="#vacancy-rates" id="toc-vacancy-rates" class="nav-link" data-scroll-target="#vacancy-rates">Vacancy Rates</a></li>
+  </ul></li>
+  <li><a href="#basic-dplyr-verbs" id="toc-basic-dplyr-verbs" class="nav-link" data-scroll-target="#basic-dplyr-verbs">Basic <code>dplyr</code> verbs</a>
+  <ul class="collapse">
+  <li><a href="#filtering-data" id="toc-filtering-data" class="nav-link" data-scroll-target="#filtering-data">Filtering Data</a></li>
+  <li><a href="#selecting-columns" id="toc-selecting-columns" class="nav-link" data-scroll-target="#selecting-columns">Selecting Columns</a></li>
+  <li><a href="#combining-filter-and-select" id="toc-combining-filter-and-select" class="nav-link" data-scroll-target="#combining-filter-and-select">Combining <code>filter()</code> and <code>select()</code></a></li>
+  <li><a href="#group-by-and-summarise" id="toc-group-by-and-summarise" class="nav-link" data-scroll-target="#group-by-and-summarise">Group By and Summarise</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
+  </ul></li>
+  <li><a href="#time-for-practice" id="toc-time-for-practice" class="nav-link" data-scroll-target="#time-for-practice">Time for Practice!</a></li>
+  <li><a href="#core-concepts-and-terminology" id="toc-core-concepts-and-terminology" class="nav-link" data-scroll-target="#core-concepts-and-terminology">Core Concepts and Terminology</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lesson 3: Tidy Data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="lesson-overview" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-overview">Lesson Overview</h2>
+<p>In our previous two lessons, we’ve been working with Base R to do basic manipulation of data. These strategies are powerful and can do a lot, however, they are a bit clunky (something you may have been thinking to yourself) - there are tools and strategies that are tailored to the types of data forms and structures we tend to use to measure characteristics and dynamics of neighborhoods.</p>
+<p>In this lesson, we’ll introduce principles of <em>tidy</em> data as well as a frequently used R package designed to help us manipulate and work more efficiently.</p>
+</section>
+<section id="lesson-goals" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-goals">Lesson Goals</h2>
+<p>By the end of this lesson, you should be familiar with:</p>
+<ul>
+<li>Principles of <em>tidy</em> data</li>
+<li>High-level tools for selecting and subsetting data using <code>dplyr</code> syntax</li>
+<li>More advanced strategies for grouping and summarizing data using <code>dplyr</code> syntax</li>
+</ul>
+</section>
+<section id="getting-set-up" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="getting-set-up">Getting Set Up</h2>
+<section id="loading-required-packages" class="level3">
+<h3 class="anchored" data-anchor-id="loading-required-packages">Loading Required Packages</h3>
+<p>We’re been working primarily in “base” R as we are getting familiar with the R language and RStudio interface. In Lesson 2, we introduced packages and made use of the <code>readxl</code> package to load data from an Excel file into R.</p>
+<p>To review, we used <code>install.packages()</code> and <code>library()</code> to (respectively) install and load packages that extend R and RStudio’s functionality. If you remember from our last lesson, you will only need to install a package once, but you will need to load it every time you start your R session and want to use it.</p>
+<p>Let’s start by loading the following packages:</p>
+<ul>
+<li><code>readxl</code> contains tools which will help us to read Excel files into R</li>
+<li><code>tidyverse</code> contains tools which we’ll use to subset, filter, group, and summarize our data</li>
+</ul>
+<p>If you completed the last lesson, you will already have installed <code>readxl</code>. Let’s install the <code>tidyverse</code> package and then load both the <code>readxl</code> and <code>tidyverse</code> packages for use:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Try installing the <code>tidyverse</code> package (if it is not already installed on your machine), and then load <code>readxl</code> and <code>tidyverse</code> for use in your R session.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="loading-data">Loading Data</h3>
+<p>If it’s not already loaded, load the OZ dataset we worked with in Lesson 2. You can assign the data whatever name you’d like, but we will stick with the name we used previously, ‘ozs’. A copy of the Urban Institute’s dataset is <a href="https://uofi.box.com/s/oh2455rlshpioodbmqfgpk5nkfep027n">available here for download</a>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>You’ll need to authenticate and log in to UIUC Box to access this file. You can also download the data <a href="https://www.urban.org/sites/default/files/2021-01/urbaninstitute_tractlevelozanalysis_update01142021.xlsx">directly</a> from Urban Institute’s Opportunity Zone <a href="https://www.urban.org/policy-centers/metropolitan-housing-and-communities-policy-center/projects/opportunity-zones">landing page</a>.</p>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/urbaninstitute_tractlevelozanalysis_update01142021.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="an-easier-and-more-efficient-way" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="an-easier-and-more-efficient-way">An easier and more efficient way?</h2>
+<p>We could keep building queries in base R to describe or summarize other variables in our data. Looking at the code you’ve created in Lesson 2 in particular, you’re probably thinking that it looks fairly illegible. Part of the challenge of code like this is that you have to read from the inside out.</p>
+<p>Let’s learn a <em>whole different</em> way of constructing this same thing.</p>
+<section id="principles-of-tidy-data" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="principles-of-tidy-data">Principles of Tidy Data</h3>
+<p>This lesson focuses on introducing the <a href="https://www.tidyverse.org"><code>tidyverse</code></a>, a series of packages designed specifically to make data science easier in R and RStudio. The functionality of the <code>tidyverse</code> is largely described in the accompanying book <a href="https://r4ds.had.co.nz">R for Data Science</a>.</p>
+<p>Data are structured for tidy analysis when columns each contain one individual <em>variable</em>, each row represents a unique <em>observation</em>, and there is only one <em>value</em> for each variable and observation:</p>
+<p><img src="images/tidy-1.png" class="img-fluid"></p>
+<p>The majority of the data which we will encounter in this class, and the majority of data we work with as planners already conforms to these principles.</p>
+<p>In the case of the Opportunity Zone data we first looked at in Lesson 2, here’s what that looked like:</p>
+<ul>
+<li><p>Each column represented a different <em>variable</em>, for instance, whether an observation was designated an Opportunity Zone, the poverty rate, or the median household income.</p></li>
+<li><p>Each row represented a unique <em>observation</em>, in this case a unique census tract.</p></li>
+<li><p>Each <em>value</em> was unique and there was only one value for every <em>variable</em> and <em>observation</em>.</p></li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>If you want to understand some of the rationale behind tidy data, Hadley Wickham’s <a href="https://vita.had.co.nz/papers/tidy-data.pdf">article</a> is a good resource.</p>
+</div></div></section>
+</section>
+<section id="your-first-tidy-coding" class="level2">
+<h2 class="anchored" data-anchor-id="your-first-tidy-coding">Your First Tidy Coding</h2>
+<p>At this point, you should have your data loaded and available and you should also have the <code>tidyverse</code> and <code>readxl</code> packages loaded.</p>
+<p>In Lesson 2, you worked on solving the following two data manipulation and description problems:</p>
+<ol type="1">
+<li><p>Report average poverty rates for <em>designated</em> opportunity zones in metropolitan, micropolitan, and non-CBSA areas.</p></li>
+<li><p>For Illinois, how different are the average vacancy rates for <em>designated</em> and <em>undesignated</em> census tracts?</p></li>
+</ol>
+<p>Let’s compare how to do that using base R and using commands from the <code>tidyverse</code> suite.</p>
+<section id="poverty-rates" class="level3">
+<h3 class="anchored" data-anchor-id="poverty-rates">Poverty Rates</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">The Problem</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Base R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Tidy</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Report average poverty rates for <em>designated</em> opportunity zones in metropolitan, micropolitan, and non-CBSA areas.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>PovertyRate[ozs<span class="sc">$</span>DesignatedOZ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>Metro <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3335197</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>PovertyRate[ozs<span class="sc">$</span>DesignatedOZ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>Micro <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2803457</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>PovertyRate[ozs<span class="sc">$</span>DesignatedOZ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> ozs<span class="sc">$</span>NoCBSAType <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2357986</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DesignatedOZ <span class="sc">==</span><span class="dv">1</span>, Metro <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(PovertyRate, na.rm = TRUE)`
+                              &lt;dbl&gt;
+1                             0.334</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DesignatedOZ <span class="sc">==</span><span class="dv">1</span>, Micro <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(PovertyRate, na.rm = TRUE)`
+                              &lt;dbl&gt;
+1                             0.280</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DesignatedOZ <span class="sc">==</span><span class="dv">1</span>, NoCBSAType <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(PovertyRate, na.rm = TRUE)`
+                              &lt;dbl&gt;
+1                             0.236</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We get the same values out, but note the code we input in order to get these outputs is very different!</p>
+<p>Let’s break this down further.</p>
+<p>In Base R…</p>
+<ol type="1">
+<li><p>We first specified the statistic we wanted <code>mean()</code>.</p></li>
+<li><p>We then specified the dataset and columns we wanted that mean for <code>ozs$PovertyRate</code>.</p></li>
+<li><p>We then specified we only wanted a subset of the poverty rate variable where observations were designated opportunity zones and then based upon a metropolitan criterion. <code>[ozs$DesignatedOZ == 1 &amp; ozs$Metro == 1]</code></p></li>
+<li><p>We also specified that we wanted to remove <code>NA</code> values from our calculation of the average <code>mean(na.rm=TRUE)</code>.</p></li>
+</ol>
+<p>As a reminder, when put together, these things looked like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DesignatedOZ <span class="sc">==</span><span class="dv">1</span>, Metro <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(PovertyRate, na.rm = TRUE)`
+                              &lt;dbl&gt;
+1                             0.334</code></pre>
+</div>
+</div>
+<p>Next, let’s look at the structure of the tidy command to do the same thing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DesignatedOZ <span class="sc">==</span><span class="dv">1</span>, Metro <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-3">From the ‘ozs’ dataset;</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-3"><em>Filter</em> (select rows from) the dataset where the DesignatedOZ column is equal to 1 (designated) <em>AND</em> the Metropolitan area flag is equal to 1 (a metropolitan area);</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-lines="3" data-code-annotation="3" data-code-cell="annotated-cell-3">For the filtered data from ‘ozs’, <em>summarize</em> (report back) the mean value for the PovertyRate column, removing NA values.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(PovertyRate, na.rm = TRUE)`
+                              &lt;dbl&gt;
+1                             0.334</code></pre>
+</div>
+</div>
+<p>This is still complex, but we gain a major benefit - where in our Base R strategy the code is nested and hard to read, the Tidy syntax offers a more logical workflow. We used something called a <em>pipe</em> <code>|&gt;</code> to <em>pass</em> results of previous commands along a data analysis pipeline. This allows us to code steps in a logical order and makes it much easier to read and interpret what we’re doing step-by-step.</p>
+</section>
+<section id="vacancy-rates" class="level3">
+<h3 class="anchored" data-anchor-id="vacancy-rates">Vacancy Rates</h3>
+<p>Let’s now compare code for our second challenge - examining vacancy rates.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">The Problem</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Base R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Tidy</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>For Illinois, how different are the average vacancy rates for <em>designated</em> and <em>undesignated</em> census tracts?</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ozs<span class="sc">$</span>DesignatedOZ[<span class="fu">is.na</span>(ozs<span class="sc">$</span>DesignatedOZ)]<span class="ot">&lt;-</span><span class="dv">0</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>vacancyrate[ozs<span class="sc">$</span>DesignatedOZ <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1583661</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(ozs<span class="sc">$</span>vacancyrate[ozs<span class="sc">$</span>DesignatedOZ <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1367463</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">DesignatedOZ =</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DesignatedOZ) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(vacancyrate, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-1">From the ‘ozs’ dataset,</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-1">Replace any values that at <code>NA</code> in the DesignatedOZ column with the value 0,</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-lines="3" data-code-annotation="3" data-code-cell="annotated-cell-1">Treat our data as being <em>grouped</em> by the unique values of DesignatedOZ,</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-lines="4" data-code-annotation="4" data-code-cell="annotated-cell-1">Summarize for us the mean value for vacancy rate, removing any NA values from our calculation.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  DesignatedOZ `mean(vacancyrate, na.rm = TRUE)`
+         &lt;dbl&gt;                             &lt;dbl&gt;
+1            0                             0.137
+2            1                             0.158</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Lots going on, but let’s pay attention to some cool things we just saw.</p>
+<ul>
+<li><p>As we had with the poverty rate we started with our ‘ozs’ dataset and then sequentially modified the dataset to get to our final output - a summary output with values for the average vacancy rate for designated and eligible but not designated tracts.</p></li>
+<li><p>We were able to substitute <code>NA</code> values with 0 using a special command in line with our data modification workflow.</p></li>
+<li><p>We used something we haven’t seen before - <code>group_by()</code> to tell R to treat our data as grouped by the values of the DesignatedOZ variable.</p></li>
+<li><p>We used <code>summarise()</code> to create an output table containing the average values for the vacancy rate grouped by the values in DesignatedOZ.</p></li>
+</ul>
+<p>This quick illustration helps you understand some of the basics of how <code>dplyr</code> works. Two major improvements, in addition to specific commands for filtering rows and selecting columns are the use of pipes <code>|&gt;</code> and the ability to summarize data. You’ll also notice that the output is rendered in a minimally formatted table.</p>
+</section>
+</section>
+<section id="basic-dplyr-verbs" class="level2">
+<h2 class="anchored" data-anchor-id="basic-dplyr-verbs">Basic <code>dplyr</code> verbs</h2>
+<section id="filtering-data" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-data">Filtering Data</h3>
+<p>We can use dplyr to <em>filter</em> out rows that meet certain criteria.</p>
+<p>For instance, here’s how we’re filter out all records for tracts in Illinois:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-4">From the ozs data object;</span>
+</dd>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-4">Filter out those rows in the column “state” for which state is equal to “Illinois”</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,659 × 27
+   geoid       state    DesignatedOZ county   Type  dec_score SE_Flag Population
+   &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+ 1 17001000201 Illinois            0 Adams C… Non-…         7      NA       1937
+ 2 17001000202 Illinois            0 Adams C… Low-…         1      NA       2563
+ 3 17001000400 Illinois            0 Adams C… Low-…         1      NA       3403
+ 4 17001000500 Illinois            0 Adams C… Low-…         1      NA       2298
+ 5 17001000700 Illinois            0 Adams C… Low-…         1      NA       1259
+ 6 17001000800 Illinois            1 Adams C… Low-…         1      NA       2700
+ 7 17001000900 Illinois            0 Adams C… Low-…         5      NA       2671
+ 8 17001010100 Illinois            0 Adams C… Non-…         2      NA       4323
+ 9 17001010200 Illinois            0 Adams C… Low-…         2      NA       3436
+10 17001010300 Illinois            0 Adams C… Non-…         8      NA       6038
+# ℹ 1,649 more rows
+# ℹ 19 more variables: medhhincome &lt;dbl&gt;, PovertyRate &lt;dbl&gt;, unemprate &lt;dbl&gt;,
+#   medvalue &lt;dbl&gt;, medrent &lt;dbl&gt;, pctown &lt;dbl&gt;, severerentburden &lt;dbl&gt;,
+#   vacancyrate &lt;dbl&gt;, pctwhite &lt;dbl&gt;, pctBlack &lt;dbl&gt;, pctHispanic &lt;dbl&gt;,
+#   pctAAPIalone &lt;dbl&gt;, pctunder18 &lt;dbl&gt;, pctover64 &lt;dbl&gt;, HSorlower &lt;dbl&gt;,
+#   BAorhigher &lt;dbl&gt;, Metro &lt;dbl&gt;, Micro &lt;dbl&gt;, NoCBSAType &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="selecting-columns" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-columns">Selecting Columns</h3>
+<p>Similar to filter, we can use <code>select()</code> to select specific columns in our data frame:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, DesignatedOZ)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-5">From the ozs dataset;</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-5">Select the columns named “state” and “DesignatedOZ”.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 42,178 × 2
+   state   DesignatedOZ
+   &lt;chr&gt;          &lt;dbl&gt;
+ 1 Alabama            0
+ 2 Alabama            0
+ 3 Alabama            1
+ 4 Alabama            0
+ 5 Alabama            0
+ 6 Alabama            0
+ 7 Alabama            0
+ 8 Alabama            1
+ 9 Alabama            0
+10 Alabama            1
+# ℹ 42,168 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="combining-filter-and-select" class="level3">
+<h3 class="anchored" data-anchor-id="combining-filter-and-select">Combining <code>filter()</code> and <code>select()</code></h3>
+<p>Your turn - create a table containing the variables state, Designated, and Metro, for Illinois:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>For Illinois, create a table containing the variables state, Designated, and Metro.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, DesignatedOZ, Metro) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-1">From the ‘ozs’ dataset;</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-1">Select the columns “state”, “Designated OZ”, and “Metro”;</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-lines="3" data-code-annotation="3" data-code-cell="annotated-cell-1">From the state column, select the subset of values where state is equal to “Illinois”.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,659 × 3
+   state    DesignatedOZ Metro
+   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1 Illinois            0    NA
+ 2 Illinois            0    NA
+ 3 Illinois            0    NA
+ 4 Illinois            0    NA
+ 5 Illinois            0    NA
+ 6 Illinois            1    NA
+ 7 Illinois            0    NA
+ 8 Illinois            0    NA
+ 9 Illinois            0    NA
+10 Illinois            0    NA
+# ℹ 1,649 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>You should return a data frame with three columns and 1,659 rows.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>How would you modify your code to limit this to tracts that were Metropolitan (Metro equal to 1)?</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, DesignatedOZ, Metro) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>, Metro <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-1">From the ‘ozs’ dataset;</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-1">Select the columns “state”, “Designated OZ”, and “Metro”;</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-lines="3" data-code-annotation="3" data-code-cell="annotated-cell-1">From the state column, select the subset of values where state is equal to “Illinois” AND where the Metro column is equal to 1.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,344 × 3
+   state    DesignatedOZ Metro
+   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1 Illinois            0     1
+ 2 Illinois            0     1
+ 3 Illinois            0     1
+ 4 Illinois            1     1
+ 5 Illinois            1     1
+ 6 Illinois            0     1
+ 7 Illinois            1     1
+ 8 Illinois            0     1
+ 9 Illinois            0     1
+10 Illinois            0     1
+# ℹ 1,334 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If you do this successfully, you should end up with 1,344 observations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, DesignatedOZ, Metro) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>, Metro <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1344</code></pre>
+</div>
+</div>
+</section>
+<section id="group-by-and-summarise" class="level3">
+<h3 class="anchored" data-anchor-id="group-by-and-summarise">Group By and Summarise</h3>
+<p>In the vacancy rate illustration that we saw above, we were able to <em>group</em> our data by a particular categorical variable and then <em>summarize</em> based upon another variable, in that case then average vacancy rate.</p>
+<p>Let’s see what that looks like again, this time, finding the average median household income for designated and not designated but eligible opportunity zone tracts:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DesignatedOZ) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(<span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  DesignatedOZ `mean(medhhincome, na.rm = TRUE)`
+         &lt;dbl&gt;                             &lt;dbl&gt;
+1            0                            44446.
+2            1                            33346.</code></pre>
+</div>
+</div>
+<p>A little tip here - we can easily change the name of the column label for our summarized values as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DesignatedOZ) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(<span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  DesignatedOZ income
+         &lt;dbl&gt;  &lt;dbl&gt;
+1            0 44446.
+2            1 33346.</code></pre>
+</div>
+</div>
+<p>Within our <code>summarise()</code> code, we can create multiple columns with each separated by a comma.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DesignatedOZ) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tracts =</span> <span class="fu">n</span>(),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  DesignatedOZ tracts income
+         &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;
+1            0  33414 44446.
+2            1   8764 33346.</code></pre>
+</div>
+</div>
+<p><code>n()</code> returns the count of the number of records within each group.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Your turn - add to our above summary table the average poverty rate (PovertyRate) and the average proportion of the population facing severe rent burden (severerentburden). You can name them whatever you want</p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DesignatedOZ) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tracts =</span> <span class="fu">n</span>(),</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">poverty =</span> <span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rent_burden =</span> <span class="fu">mean</span>(severerentburden, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  DesignatedOZ tracts income poverty rent_burden
+         &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+1            0  33414 44446.   0.211       0.243
+2            1   8764 33346.   0.317       0.265</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It looks like designated opportunity zones have lower incomes, higher poverty rates, and higher levels of severe rent burden.</p>
+<p>This is a big step up from what we were doing earlier. We know how different designated and undesignated tracts are throughout the US, but how different are they for each state in the US?</p>
+<p>How would we go about modifying our code to create this grouping?</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Modify your above code to group your data by state and designation status in order to be able to examine state-to-state differences.</p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, DesignatedOZ) <span class="sc">|&gt;</span>  <span class="fu">summarise</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tracts =</span> <span class="fu">n</span>(),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">poverty =</span> <span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rent_burden =</span> <span class="fu">mean</span>(severerentburden, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'state'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 108 × 6
+# Groups:   state [57]
+   state          DesignatedOZ tracts income poverty rent_burden
+   &lt;chr&gt;                 &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Alabama                   0    677 36542.   0.239       0.212
+ 2 Alabama                   1    158 30044.   0.328       0.246
+ 3 Alaska                    0     43 54784.   0.149       0.180
+ 4 Alaska                    1     25 49840.   0.167       0.178
+ 5 American Samoa            1     16   NaN  NaN         NaN    
+ 6 Arizona                   0    702 40961.   0.246       0.236
+ 7 Arizona                   1    168 34373.   0.315       0.237
+ 8 Arkansas                  0    435 37814.   0.221       0.192
+ 9 Arkansas                  1     85 31254.   0.301       0.228
+10 California                0   3464 50858.   0.207       0.298
+# ℹ 98 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If you modified this correctly, you should now have an output table with 108 rows, each reflecting summaries for a state and unique OZ designation status.</p>
+<p>There are other fairly interesting things that we can do with our grouping and summarizing. We figured out how to use multiple groups to summarize our data in useful ways. What we probably want is to get that all into the same table.</p>
+<p>One strategy for doing this is to include conditions in our summary statements. The code below summarizes the average median income by state, but then includes conditions on summarizing means income. This allows us to get the incomes of designated and undesignated tracts on the same row.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span>  </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span> </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">tracts =</span> <span class="fu">n</span>(), </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Des_inc =</span> <span class="fu">mean</span>(medhhincome[DesignatedOZ <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Not_Des_Inc =</span> <span class="fu">mean</span>(medhhincome[DesignatedOZ <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 57 × 5
+   state                tracts income Des_inc Not_Des_Inc
+   &lt;chr&gt;                 &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Alabama                 835 35311.  30044.      36542.
+ 2 Alaska                   68 52911.  49840.      54784.
+ 3 American Samoa           16   NaN     NaN         NaN 
+ 4 Arizona                 870 39692.  34373.      40961.
+ 5 Arkansas                520 36740.  31254.      37814.
+ 6 California             4343 47878.  36134.      50858.
+ 7 Colorado                657 47976.  41138.      49601.
+ 8 Connecticut             344 48318.  36760.      51389.
+ 9 Delaware                118 48200.  40971.      50143.
+10 District of Columbia    116 57672.  38291.      62840.
+# ℹ 47 more rows</code></pre>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>How would you modify the above code to produce the same table for <em>counties</em> in <em>Illinois</em>?</p>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span>  </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(county) <span class="sc">|&gt;</span> </span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tracts =</span> <span class="fu">n</span>(), </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Des_inc =</span> <span class="fu">mean</span>(medhhincome[DesignatedOZ <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Not_Des_Inc =</span> <span class="fu">mean</span>(medhhincome[DesignatedOZ <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 95 × 5
+   county           tracts income Des_inc Not_Des_Inc
+   &lt;chr&gt;             &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Adams County         10 38254   26012       39614.
+ 2 Alexander County      4 29982.  21500       32809 
+ 3 Bond County           2 50950   49590       52310 
+ 4 Boone County          3 44028.  40599       45742 
+ 5 Bureau County         4 57275.  48083       60339.
+ 6 Calhoun County        2 55290     NaN       55290 
+ 7 Carroll County        2 47063   35184       58942 
+ 8 Cass County           3 43787.  37679       46840.
+ 9 Champaign County     30 39063.  13989.      45604.
+10 Christian County      8 44723.  36164       45945.
+# ℹ 85 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mutate" class="level3">
+<h3 class="anchored" data-anchor-id="mutate">Mutate</h3>
+<p>We’re getting pretty good at passing data along using pipes (<code>|&gt;</code>). We’ve learned how to use <code>group_by()</code> and <code>summarise()</code> to quickly create summary tables. What if we wanted to modify these tables? One thing that might help us better understand our summary table would be to calculate the difference in the average median income for our designated and not designated tracts.</p>
+<p><code>mutate()</code> allows us to add new columns to our existing data (this will work on non-summarized data too). The code below adds a column called “Inc_Diff” to our summary table, and places into this column the difference between the income in designated and not designated census tracts:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span>  </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(county) <span class="sc">|&gt;</span>  </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tracts =</span> <span class="fu">n</span>(), </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Des_inc =</span> <span class="fu">mean</span>(medhhincome[DesignatedOZ <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Not_Des_Inc =</span> <span class="fu">mean</span>(medhhincome[DesignatedOZ <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Inc_Diff =</span> Des_inc <span class="sc">-</span> Not_Des_Inc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 95 × 6
+   county           tracts income Des_inc Not_Des_Inc Inc_Diff
+   &lt;chr&gt;             &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Adams County         10 38254   26012       39614.  -13602.
+ 2 Alexander County      4 29982.  21500       32809   -11309 
+ 3 Bond County           2 50950   49590       52310    -2720 
+ 4 Boone County          3 44028.  40599       45742    -5143 
+ 5 Bureau County         4 57275.  48083       60339.  -12256.
+ 6 Calhoun County        2 55290     NaN       55290      NaN 
+ 7 Carroll County        2 47063   35184       58942   -23758 
+ 8 Cass County           3 43787.  37679       46840.   -9162.
+ 9 Champaign County     30 39063.  13989.      45604.  -31615.
+10 Christian County      8 44723.  36164       45945.   -9781.
+# ℹ 85 more rows</code></pre>
+</div>
+</div>
+<p>Notice that we needed to add another pipe here so that we were mutating our summary table and not our original data. Notice that most designated tracts have much lower median household incomes when compared to eligible but not designated places - that would suggest that the program is targeting neighborhoods with greater need.</p>
+</section>
+</section>
+<section id="time-for-practice" class="level2">
+<h2 class="anchored" data-anchor-id="time-for-practice">Time for Practice!</h2>
+<p>Let’s spend a little time practicing filtering, grouping, and summarizing data using dplyr commands.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<p>Create a summary table of the racial characteristics of designated and not designated tracts at the nation level.</p>
+<p>Racial characteristics are pctwhitw, pctBlack, pctHispanic, pctAAPIalone.</p>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DesignatedOZ) <span class="sc">|&gt;</span> </span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">White =</span> <span class="fu">mean</span>(pctwhite, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Black =</span> <span class="fu">mean</span>(pctBlack, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hispanic =</span> <span class="fu">mean</span>(pctHispanic, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">AAPI =</span> <span class="fu">mean</span>(pctAAPIalone, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  DesignatedOZ White Black Hispanic   AAPI
+         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+1            0 0.554 0.172    0.200 0.0404
+2            1 0.396 0.240    0.299 0.0292</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p>Looking at the state level (by each state), how different are the poverty rates of <em>designated</em> opportunity zones in metropolitan, micropolitan, and non-CBSA areas?</p>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(DesignatedOZ <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span>  </span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Metro =</span> <span class="fu">mean</span>(PovertyRate[Metro <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Micro =</span> <span class="fu">mean</span>(PovertyRate[Micro <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Non_CBSA =</span> <span class="fu">mean</span>(PovertyRate[NoCBSAType <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 56 × 4
+   state                  Metro   Micro Non_CBSA
+   &lt;chr&gt;                  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Alabama                0.347   0.282    0.275
+ 2 Alaska                 0.156 NaN        0.178
+ 3 American Samoa       NaN     NaN      NaN    
+ 4 Arizona                0.319   0.311    0.239
+ 5 Arkansas               0.334   0.287    0.262
+ 6 California             0.332   0.311    0.209
+ 7 Colorado               0.245   0.169    0.201
+ 8 Connecticut            0.284   0.319  NaN    
+ 9 Delaware               0.262 NaN      NaN    
+10 District of Columbia   0.322 NaN      NaN    
+# ℹ 46 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">Your Turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Solution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<p>Looking at the state level (by state), what’s the average age dependence ratio for designated and non-designated tracts?</p>
+<p>Tip: The age dependence ratio is the proportion of the population under 18 or over 64 compared to the population between 18 and 64. In our dataset, we have the proportion under 18 (pctunder18) and the proportion over 64 (pctover64)</p>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span>  </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, DesignatedOZ, pctunder18, pctover64) <span class="sc">|&gt;</span>  </span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">adr =</span> (pctunder18<span class="sc">+</span>pctover64)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>(pctunder18<span class="sc">+</span>pctover64))) <span class="sc">|&gt;</span> </span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span>   </span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Designated_ADR =</span> <span class="fu">mean</span>(adr[DesignatedOZ <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">NotDesignated_ADR =</span> <span class="fu">mean</span>(adr[DesignatedOZ <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 57 × 3
+   state                Designated_ADR NotDesignated_ADR
+   &lt;chr&gt;                         &lt;dbl&gt;             &lt;dbl&gt;
+ 1 Alabama                       0.592             0.644
+ 2 Alaska                        0.540             0.556
+ 3 American Samoa              NaN               NaN    
+ 4 Arizona                       0.651             0.771
+ 5 Arkansas                      0.643             0.681
+ 6 California                    0.606             0.590
+ 7 Colorado                      0.590             0.572
+ 8 Connecticut                   0.543             0.560
+ 9 Delaware                      0.601             0.614
+10 District of Columbia          0.535             0.486
+# ℹ 47 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">Your Turn</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p>Looking the state of Illinois, whats the average poverty and income for tracts based upon their level of investment flows (the dec_score variable)? #### Solution</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>ozs <span class="sc">|&gt;</span>  </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"Illinois"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dec_score) <span class="sc">|&gt;</span>   </span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Poverty =</span> <span class="fu">mean</span>(PovertyRate, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Income =</span> <span class="fu">mean</span>(medhhincome, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+   dec_score Count Poverty Income
+       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+ 1         1   165   0.199 41642.
+ 2         2   165   0.227 40782.
+ 3         3   165   0.278 36666.
+ 4         4   164   0.277 37705.
+ 5         5   165   0.252 39391.
+ 6         6   165   0.224 43224.
+ 7         7   164   0.233 42253.
+ 8         8   165   0.230 43776.
+ 9         9   165   0.215 47064.
+10        10   164   0.209 51795.
+11        NA    12   0.459 32213.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Congratulations! You are well on your way to being able to do some very powerful things in R! Take a moment to relish in your accomplishment! ## Lesson 2 Summary and Debrief</p>
+<p>In this lesson, you …</p>
+</section>
+<section id="core-concepts-and-terminology" class="level2">
+<h2 class="anchored" data-anchor-id="core-concepts-and-terminology">Core Concepts and Terminology</h2>
+<ul>
+<li><p>R Script</p></li>
+<li><p>Notebook</p></li>
+<li><p>Code Chunk</p></li>
+<li><p>Variables</p></li>
+<li><p>Lists</p></li>
+<li><p>Vectors</p></li>
+<li><p>Data Frame</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content <i class="fa-regular fa-copyright" aria-label="copyright"></i> Andrew J. Greenlee</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a> <br> Website Code on <a href="https://github.com/agreen4/UP570_S24_Website">Github <i class="fa-brands fa-github" aria-label="github"></i></a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

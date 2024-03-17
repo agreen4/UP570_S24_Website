@@ -4,8 +4,6 @@ sidebar: false
 toc: true
 toc-depth: 4
 page-layout: full
-bibliography: ../references.bib
-csl: ../apa-6th-edition.csl
 execute: 
   cache: true
 format: 
@@ -32,17 +30,17 @@ library(tidyverse)
 
 In this lab, we'll extend our knowledge of opportunity maps, and more generally in standardizing and creating indexes from data. This strategy is in some ways an extension of the strategy we used to measure neighborhood change. Our measurement of neighborhood change, however, focused on a single dimension of change - income. In this case, we'll produce a *multidimensional* measure of change.
 
-As we have discussed in class, opportunity maps and other indexes are commonly used to be able to illustrate the distribution of resources across space and over time. These types of indexes are designed to be *multidimensional*, and therefore require a strong theoretical framework connecting concepts related to opportunity to indicators or measures designed to proxy or represent these concepts.
+As we discussed in class, opportunity maps and other indexes are commonly used to be able to illustrate the distribution of resources across space and over time. These types of indexes are designed to be *multidimensional*, and therefore require a strong theoretical framework connecting concepts related to opportunity to indicators or measures designed to proxy or represent these concepts.
 
 ## Goals
 
-This lab introduces you to the following: 
+This lab introduces you to the following:
 
-- Common methods for standardizing and constructing indexes from demographic data 
+-   Common methods for standardizing and constructing indexes from demographic data
 
-- Basic concepts associated with relational joins between datasets 
+-   Basic concepts associated with relational joins between datasets
 
-- Reinforces and provides a means of practicing data visualization and presentation
+-   Reinforces and provides a means of practicing data visualization and presentation
 
 ## Core Concepts
 
@@ -69,22 +67,22 @@ The [National Housing Conference brief](https://uofi.box.com/s/icccjttbig4mq94nb
 
 You should independently explore the documentation for these datasets and their indicators - there is a *treasure trove* of documentation to look at. When possible, download data documentation to your docuemtnation project folder.
 
-We'll divide these data into a few conceptual categories commonly seen in opportunity maps: 
+We'll divide these data into a few conceptual categories commonly seen in opportunity maps:
 
-- Education 
+-   Education
 
-- Housing Characteristics 
+-   Housing Characteristics
 
-- Social Capital 
+-   Social Capital
 
-- Public Health and Safety 
+-   Public Health and Safety
 
-- Employment and Workforce 
+-   Employment and Workforce
 
-- Transportation and Mobility
+-   Transportation and Mobility
 
 | Category                    | Indicator                                        | Data Source                                                                                 |
-|-----------------|-------------------|------------------------------------|
+|------------------|-------------------|-----------------------------------|
 | Education                   | Population with a High School Diploma or greater | [ACS](https://data.census.gov)                                                              |
 | Education                   | Population with a Bachelor's Degree or greater   | [ACS](https://data.census.gov)                                                              |
 | Housing Characteristics     | Median Home Value                                | [ACS](https://data.census.gov)                                                              |
@@ -150,7 +148,7 @@ We have downloaded a lot of ACS data here at the census tract level for all trac
 I went ahead and turned this raw data into some selected indicators:
 
 | Table  | Label        | Description                                           |
-|--------------|--------------|---------------------------------------------|
+|----------------|----------------|-----------------------------------------|
 | B01001 | under18      | Proportion of Population under 18                     |
 | B01001 | over65       | Proportion of Population over 65                      |
 | B01001 | P_Female     | Proportion of Population female                       |
@@ -420,7 +418,7 @@ Below is a table proposing potential directions for each variable.
 -   **Positive:** Far a variable labeled **Positive**, higher values are likely to indicate higher levels of opportunity (more favorable).
 
 | Variable              | Description                             | Relationship to Opportunity | Category               |
-|----------------|-----------------------|----------------|----------------|
+|-----------------|----------------------|-----------------|-----------------|
 | under18               | Proportion of Population under 18       | Negative                    | Demographic Structure  |
 | over65                | Proportion of Population over 65        | Negative                    | Demographic Structure  |
 | PNonwhite             | Proportion Population Nonwhite          | Negative                    | Demographic Structure  |
