@@ -10,6 +10,7 @@ editor: visual
 ## Session Description
 
 ## Before Class
+
 [Github Classroom Link](https://classroom.github.com/a/oAzPzEw4)
 
 ## Reflect

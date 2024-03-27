@@ -126,7 +126,7 @@ website:
             - text: "Place Opportunity"
               file: assignments/labs/08_place_opportunity/08_placeopportunity.qmd
             - text: "Transportation Equity"
-              file: assignments/labs/09_transportation_equity/09_transportation_equity.qmd
+              file: assignments/labs/09_transportation_equity/measuring-transportation-equity.qmd
             - text: "Neighborhood Health Equity"
               file: assignments/labs/10_health_equity/10_health_equity.qmd
         - section: "Assignments"
