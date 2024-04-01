@@ -4,8 +4,6 @@ sidebar: false
 toc: true
 toc-depth: 4
 page-layout: full
-bibliography: ../references.bib
-csl: ../apa-6th-edition.csl
 format: 
   html:
     code-fold: show
