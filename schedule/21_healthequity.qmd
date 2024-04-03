@@ -9,11 +9,55 @@ editor: visual
 
 ## Session Description
 
-We will be joined for our class session today by [Dr. Christine Joseph](https://www.henryford.com/physician-directory/j/joseph-christine), of Henry Ford Health. Dr. Joseph does work that examines the social determinants of health and health disparities. She will share some of her perspective on why neighborhoods matter and form an important framework for analysis within her work.
+We will work in groups today to do analysis and storytelling as part of the health equity lab. As mentioned in class on Monday, this lab will focus less on technical details and more on storytelling and interpretation of indicators.
+
+## Group Assignments
+
+For this assignment, you will work in three groups:
+
+### Housing
+Gabriela A.
+Dakshinya B.
+Dominic C.
+Ar'Mand E.
+Dasom H.
+Shinmyeong H.
+Tushar K.
+Jenifer M.
+Tillie P.
+Anna S.
+
+### Poverty
+Siti A.
+Bhagyashree
+Natalie C.
+Luisa P.
+Erin H.
+Joseph J.
+Trinity L.
+Anjana N.
+Matthew R.
+Alec T.
+
+### Education
+Hyndavi A.
+Leela B.
+Rithvika D.
+Cole F.
+Matthew H.
+Nadia K.
+Anukriti M.
+Erin P.
+Aabha S.
+Zhenpeng Z.
+
+Your group will present your narrative at the end of our class session. After class, please complete your lab reflection and push this to Github. There will be no other lab content or work for this week other than completing your own individual reflection on what we’ve done in small groups in class.
 
 ## Before Class
 
-[Github Classroom Link](https://classroom.github.com/a/LU0SyJN9) \## Reflect
+[Github Classroom Link](https://classroom.github.com/a/LU0SyJN9)
+
+## Reflect
 
 1.  What are some tropes or conventions we use to talk about individual health? Collective health?
 

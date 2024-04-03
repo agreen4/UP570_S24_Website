@@ -66,7 +66,7 @@ Keeping our approach to these other neighborhood-level indexes will be important
 
 The Dougherty Appendix document describes how a range of candidate indicators were selected to proxy five conceptual domains of structural racism and then confirmatory factor analysis was used to identify the strongest indicators across each domain:
 
-![](11_health_equity/images/dougherty_indicators.png)
+![](images/dougherty_indicators.png)
 
 We can turn to the methods section of the Dougherty paper to think more about how to operationalize structural racism at the neighborhood level:
 
