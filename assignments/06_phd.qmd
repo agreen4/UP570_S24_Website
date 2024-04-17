@@ -37,6 +37,12 @@ Prepare a complete first draft of your paper that includes an introduction, lite
 
 Paper Draft Repository [{{< fa arrow-up-right-from-square >}}](https://classroom.github.com/a/EkkP-5Lo)
 
+### Presentation
+
+Upload a 7-minute presentation of your term project in PPT, PDF, or Keynote format to the [following Box folder](https://uofi.app.box.com/f/dc26d40dd5614d23b41bbfaf74943b07). Please follow the following naming convention - Session_LastName_FirstName where session is the day you are scheduled to present (01 is Monday 4/22, 02 is Monday 4/29, 03 is Wednesday 5/1).
+
+**Due Date:** April 21
+
 ### Final Paper
 
 Prepare a polished draft of your paper incorporating feedback from your previous draft. Separate from your main document, include 1-2 page summary that is suitable for a non-technical non-academic audience that summarizes key takeaways.

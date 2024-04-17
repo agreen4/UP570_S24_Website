@@ -37,13 +37,23 @@ The actual structure of your report is up to you, and will likely vary depending
 
 ## Outputs
 
-1.  **Report:** Prepare a professional report of around 4,000 words. In April, you will share a draft report and will receive feedback during a peer review session. Your final report will be due after the conclusion of classes. Your report may be formatted as a stand alone document or may be shared as a website.
+1.  **Report:** Prepare a professional report of around 4,000 words. In April, you will share a draft report. Your final report will be due after the conclusion of classes. Your report may be formatted as a stand alone document or may be shared as a website.
 
-2.  **Presentation:** Prepare and deliver an 8-minute professional presentation that summarizes your policy issue, analysis, and policy recommendations. We will complete written feedback and reactions that will be shared after the conclusion of your presentation.
+2.  **Presentation:** Prepare and deliver a 7-minute professional presentation that summarizes your policy issue, analysis, and policy recommendations. We will complete written feedback and reactions that will be shared after the conclusion of your presentation.
 
 ## Submission Instructions
 
-Follow [this link](https://classroom.github.com/a/KT4bgZ0W) to accept the lab Github Classroom assignment repository. Save your memorandum as a Quarto markdown document and upload along with your post-assignment reflection to GitHub.
+### Draft Report
+
+Follow [this link](https://classroom.github.com/a/KT4bgZ0W) to accept the lab Github Classroom assignment repository. Save your report as a Quarto markdown document and upload along with your post-assignment reflection to GitHub.
+
+### Presentation
+
+Upload your presentation in PPT, PDF, or Keynote format to the [following Box folder](https://uofi.app.box.com/f/dc26d40dd5614d23b41bbfaf74943b07). Please follow the following naming convention - Session_LastName_FirstName where session is the day you are scheduled to present (01 is Monday 4/22, 02 is Monday 4/29, 03 is Wednesday 5/1).
+
+### Final Report
+
+Push an update to your report repository containing your draft report to share your finalized report.
 
 ### Assignment Reflection
 
